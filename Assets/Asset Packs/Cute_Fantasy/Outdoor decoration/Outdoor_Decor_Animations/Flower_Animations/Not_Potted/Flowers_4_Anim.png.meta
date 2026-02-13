@@ -293,12 +293,12 @@ TextureImporter:
       name: Flowers_4_Anim_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 144
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -315,12 +315,12 @@ TextureImporter:
       name: Flowers_4_Anim_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 144
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,10 +339,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 144
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -361,10 +361,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 144
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,10 +383,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 144
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -403,12 +403,12 @@ TextureImporter:
       name: Flowers_4_Anim_5
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 144
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -425,12 +425,12 @@ TextureImporter:
       name: Flowers_4_Anim_6
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 128
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -447,12 +447,12 @@ TextureImporter:
       name: Flowers_4_Anim_7
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 128
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -471,10 +471,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 128
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -493,10 +493,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 128
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -515,10 +515,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 128
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -535,12 +535,12 @@ TextureImporter:
       name: Flowers_4_Anim_11
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 128
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -557,12 +557,12 @@ TextureImporter:
       name: Flowers_4_Anim_12
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 112
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -579,12 +579,12 @@ TextureImporter:
       name: Flowers_4_Anim_13
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 112
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,10 +603,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 112
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -625,10 +625,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 112
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -647,10 +647,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 112
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -667,12 +667,12 @@ TextureImporter:
       name: Flowers_4_Anim_17
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 112
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -689,12 +689,12 @@ TextureImporter:
       name: Flowers_4_Anim_18
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 96
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -711,12 +711,12 @@ TextureImporter:
       name: Flowers_4_Anim_19
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 96
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -735,10 +735,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 96
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -757,10 +757,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 96
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -779,10 +779,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 96
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -799,12 +799,12 @@ TextureImporter:
       name: Flowers_4_Anim_23
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 96
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -821,12 +821,12 @@ TextureImporter:
       name: Flowers_4_Anim_24
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 80
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -843,12 +843,12 @@ TextureImporter:
       name: Flowers_4_Anim_25
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 80
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -867,10 +867,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 80
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -889,10 +889,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 80
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -911,10 +911,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 80
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -931,12 +931,12 @@ TextureImporter:
       name: Flowers_4_Anim_29
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 80
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -953,12 +953,12 @@ TextureImporter:
       name: Flowers_4_Anim_30
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 64
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -975,12 +975,12 @@ TextureImporter:
       name: Flowers_4_Anim_31
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 64
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -999,10 +999,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 64
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1021,10 +1021,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 64
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1043,10 +1043,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1063,12 +1063,12 @@ TextureImporter:
       name: Flowers_4_Anim_35
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 64
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1085,12 +1085,12 @@ TextureImporter:
       name: Flowers_4_Anim_36
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 48
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1107,12 +1107,12 @@ TextureImporter:
       name: Flowers_4_Anim_37
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 48
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1131,10 +1131,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 48
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1153,10 +1153,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 48
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1175,10 +1175,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 48
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1195,12 +1195,12 @@ TextureImporter:
       name: Flowers_4_Anim_41
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 48
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1217,12 +1217,12 @@ TextureImporter:
       name: Flowers_4_Anim_42
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 32
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1239,12 +1239,12 @@ TextureImporter:
       name: Flowers_4_Anim_43
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 32
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1263,10 +1263,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 32
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1285,10 +1285,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 32
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1307,10 +1307,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 32
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1327,12 +1327,12 @@ TextureImporter:
       name: Flowers_4_Anim_47
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 32
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1349,12 +1349,12 @@ TextureImporter:
       name: Flowers_4_Anim_48
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 16
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1371,12 +1371,12 @@ TextureImporter:
       name: Flowers_4_Anim_49
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 16
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1395,10 +1395,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 16
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1417,10 +1417,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 16
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1439,10 +1439,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 16
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1459,12 +1459,12 @@ TextureImporter:
       name: Flowers_4_Anim_53
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 16
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1481,12 +1481,12 @@ TextureImporter:
       name: Flowers_4_Anim_54
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1503,12 +1503,12 @@ TextureImporter:
       name: Flowers_4_Anim_55
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 0
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1527,10 +1527,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1549,10 +1549,10 @@ TextureImporter:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1571,10 +1571,10 @@ TextureImporter:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1591,12 +1591,12 @@ TextureImporter:
       name: Flowers_4_Anim_59
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 0
-        width: 14
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1613,7 +1613,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 442b1cb7dc01e9c4dad7efb8207c6529
     internalID: 0
     vertices: []
     indices: 
@@ -1621,7 +1621,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":5.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Flowers_4_Anim_0: 3500580465548254295
       Flowers_4_Anim_1: 2152195452366146671

@@ -7,6 +7,8 @@ namespace EldwynGrove.Player
 {
     public class PlayerController : MonoBehaviour, EGInputActions.IGameplayActions
     {
+        [SerializeField] private MyJoystick m_joystick;
+
         private Animator m_animator;
         private Rigidbody2D m_rigidody2D;
         private MovementComponent m_movementComponent;
@@ -48,6 +50,25 @@ namespace EldwynGrove.Player
         private void OnDisable()
         {
             m_inputActions.Gameplay.Disable();
+        }
+
+        private void Update()
+        {
+            if (m_joystick.isActiveAndEnabled)
+            {
+                Vector2 joystickInput = m_joystick.InputDirection;
+
+                if (joystickInput.magnitude > 0.01f)
+                {
+                    m_direction = joystickInput.normalized;
+                    m_movementComponent.Move(joystickInput);
+                }
+                else
+                {
+                    m_movementComponent.Stop();
+
+                }
+            }
         }
 
         /*----------------------------------------------------------------------

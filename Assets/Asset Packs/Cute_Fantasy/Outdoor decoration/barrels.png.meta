@@ -141,11 +141,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 31
-        width: 17
-        height: 23
+        y: 32
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: barrels_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 50
-        height: 31
+        x: 16
+        y: 32
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: barrels_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 31
-        width: 17
-        height: 21
+        x: 32
+        y: 32
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: barrels_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 31
-        width: 17
-        height: 23
+        x: 48
+        y: 32
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: barrels_4
       rect:
         serializedVersion: 2
-        x: 48
-        y: 31
-        width: 17
-        height: 21
+        x: 64
+        y: 32
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -250,12 +250,12 @@ TextureImporter:
       name: barrels_5
       rect:
         serializedVersion: 2
-        x: 63
+        x: 0
         y: 0
-        width: 18
-        height: 31
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -272,12 +272,12 @@ TextureImporter:
       name: barrels_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 31
-        width: 17
-        height: 21
+        x: 16
+        y: 0
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -294,12 +294,12 @@ TextureImporter:
       name: barrels_7
       rect:
         serializedVersion: 2
-        x: 79
+        x: 32
         y: 0
-        width: 17
-        height: 31
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -316,12 +316,12 @@ TextureImporter:
       name: barrels_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 48
         y: 0
-        width: 17
-        height: 26
+        width: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,11 +334,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: barrels_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9f19cd6a92b5a42ae032ceee32207d
+      internalID: -585436368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrels_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6521f8ca8c12dd8468532bfc82ab940b
+      internalID: 1741696528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1ce4bbb9915ccb242933f8e356d02733
     internalID: 0
     vertices: []
     indices: 
@@ -346,10 +390,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":16.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       barrels_0: 1552018386250305428
       barrels_1: 4787827351846855272
+      barrels_10: 1741696528
       barrels_2: -1051576060183992645
       barrels_3: -2890875857652177729
       barrels_4: -7610029097669078739
@@ -357,6 +404,7 @@ TextureImporter:
       barrels_6: 5924935521902828013
       barrels_7: -649077686305468006
       barrels_8: 1274150887253562458
+      barrels_9: -585436368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
