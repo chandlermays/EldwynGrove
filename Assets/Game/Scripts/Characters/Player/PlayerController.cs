@@ -52,6 +52,9 @@ namespace EldwynGrove.Player
             m_inputActions.Gameplay.Disable();
         }
 
+        /*-----------------------------------------
+        | --- Update: Called upon every frame --- |
+        -----------------------------------------*/
         private void Update()
         {
             if (m_joystick.isActiveAndEnabled)
