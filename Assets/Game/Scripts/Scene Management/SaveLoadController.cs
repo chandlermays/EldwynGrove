@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+//---------------------------------
+using EldwynGrove.Saving;
+
+namespace EldwynGrove.SceneManagement
+{
+    public class SaveLoadController : MonoBehaviour
+    {
+        private const string kCurrentSaveKey = "CurrentSaveName";
+
+        /* --- kCurrentSaveKey Bindings --- */
+        [SerializeField] private SceneField m_firstSceneIndex;
+        [SerializeField] private SceneField m_menuSceneIndex;
+
+        private SavingSystem m_saveSystem;
+
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
+        private void Awake()
+        {
+            m_saveSystem = GetComponent<SavingSystem>();
+            Utilities.CheckForNull(m_saveSystem, nameof(m_saveSystem));
+        }
+
+        /*---------------------------------------------------
+        | --- LoadLastScene: Load the last active scene --- |
+        ---------------------------------------------------*/
+        private IEnumerator LoadLastScene()
+        {
+            yield return TransitionFade.Instance.FadeOut();
+            yield return m_saveSystem.LoadLastScene(GetCurrentSave());
+            yield return TransitionFade.Instance.FadeIn();
+        }
+
+        /*----------------------------------------------------------
+        | --- LoadFirstScene: Load the first scene of the game --- |
+        ----------------------------------------------------------*/
+        private IEnumerator LoadFirstScene()
+        {
+            yield return TransitionFade.Instance.FadeOut();
+            yield return SceneManager.LoadSceneAsync(m_firstSceneIndex);
+            yield return TransitionFade.Instance.FadeIn();
+        }
+
+        /*-----------------------------------------------------
+        | --- LoadMainMenuScene: Load the main menu scene --- |
+        -----------------------------------------------------*/
+        private IEnumerator LoadMainMenuScene()
+        {
+            yield return TransitionFade.Instance.FadeOut();
+            yield return SceneManager.LoadSceneAsync(m_menuSceneIndex);
+            yield return TransitionFade.Instance.FadeIn();
+        }
+
+        /*--------------------------------------------------------
+        | --- SetCurrentSave: Set the current save file name --- |
+        --------------------------------------------------------*/
+        private void SetCurrentSave(string saveFile)
+        {
+            PlayerPrefs.SetString(kCurrentSaveKey, saveFile);
+        }
+
+        /*--------------------------------------------------------
+        | --- GetCurrentSave: Get the current save file name --- |
+        --------------------------------------------------------*/
+        private string GetCurrentSave()
+        {
+            return PlayerPrefs.GetString(kCurrentSaveKey);
+        }
+
+        /*--------------------------------------------------------
+        | --- Save: Perform the action of Saving to the File --- |
+        --------------------------------------------------------*/
+        public void Save()
+        {
+            m_saveSystem.Save(GetCurrentSave());
+        }
+
+        /*---------------------------------------------------------
+        | --- Load: Perform the action of Loading from a File --- |
+        ---------------------------------------------------------*/
+        public void Load()
+        {
+            m_saveSystem.Load(GetCurrentSave());
+        }
+
+        /*------------------------------------------------------------
+        | --- Delete: Perform the action of Deleting a Save File --- |
+        ------------------------------------------------------------*/
+        public void Delete()
+        {
+            m_saveSystem.Delete(GetCurrentSave());
+        }
+
+        /*------------------------------------------------------
+        | --- ListSaveFiles: List all available save files --- |
+        ------------------------------------------------------*/
+        public IEnumerable<string> ListSaveFiles()
+        {
+            return m_saveSystem.ListSaveFiles();
+        }
+
+        /*--------------------------------------------------------
+        | --- ContinueGame: Continue a Game from a Save File --- |
+        --------------------------------------------------------*/
+        public void ContinueGame(string saveFile)
+        {
+            SetCurrentSave(saveFile);
+            StartCoroutine(LoadLastScene());
+        }
+
+        /*----------------------------------------------------
+        | --- NewGame: Start a New Game with a Save File --- |
+        ----------------------------------------------------*/
+        public void NewGame(string saveFile)
+        {
+            if (String.IsNullOrEmpty(saveFile))
+                return;
+
+            SetCurrentSave(saveFile);
+            StartCoroutine(LoadFirstScene());
+            Save();
+        }
+
+        /*------------------------------------------------
+        | --- LoadMainMenu: Load the Main Menu Scene --- |
+        ------------------------------------------------*/
+        public void LoadMainMenu()
+        {
+            StartCoroutine(LoadMainMenuScene());
+        }
+
+        /*-----------------------------------------------------------
+        | --- RespawnCheckpoint: Respawn at the last checkpoint --- |
+        -----------------------------------------------------------*/
+        public void RespawnCheckpoint()
+        {
+            StartCoroutine(LoadLastScene());
+        }
+    }
+}

@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 //---------------------------------
+using EldwynGrove.Navigation;
 using EldwynGrove.Input;
 
 namespace EldwynGrove.Player
 {
-    public class PlayerController : MonoBehaviour, EGInputActions.IGameplayActions
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField] private MyJoystick m_joystick;
 
@@ -33,65 +34,6 @@ namespace EldwynGrove.Player
 
             m_inputActions = new EGInputActions();
             Utilities.CheckForNull(m_inputActions, nameof(m_inputActions));
-        }
-
-        /*---------------------------------------------------------------------
-        | --- OnEnable: Called when the object becomes enabled and active --- |
-        ---------------------------------------------------------------------*/
-        private void OnEnable()
-        {
-            m_inputActions.Gameplay.SetCallbacks(this);
-            m_inputActions.Gameplay.Enable();
-        }
-
-        /*---------------------------------------------------------------------------
-        | --- OnDisable: Called when the behaviour becomes disabled or inactive --- |
-        ---------------------------------------------------------------------------*/
-        private void OnDisable()
-        {
-            m_inputActions.Gameplay.Disable();
-        }
-
-        /*-----------------------------------------
-        | --- Update: Called upon every frame --- |
-        -----------------------------------------*/
-        private void Update()
-        {
-            if (m_joystick.isActiveAndEnabled)
-            {
-                Vector2 joystickInput = m_joystick.InputDirection;
-
-                if (joystickInput.magnitude > 0.01f)
-                {
-                    m_direction = joystickInput.normalized;
-                    m_movementComponent.Move(joystickInput);
-                }
-                else
-                {
-                    m_movementComponent.Stop();
-
-                }
-            }
-        }
-
-        /*----------------------------------------------------------------------
-        | --- OnMove: Called when the Move action is performed or canceled --- |
-        ----------------------------------------------------------------------*/
-        public void OnMove(InputAction.CallbackContext context)
-        {
-            if (context.canceled)
-            {
-                m_movementComponent.Stop();
-            }
-            else
-            {
-                Vector2 movement = context.ReadValue<Vector2>();
-                if (movement != Vector2.zero)
-                {
-                    m_direction = movement.normalized;
-                }
-                m_movementComponent.Move(movement);
-            }
         }
     }
 }
