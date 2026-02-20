@@ -1,16 +1,20 @@
 using UnityEngine;
 //---------------------------------
-using EldwynGrove.Navigation;
 using EldwynGrove.Input;
+using EldwynGrove.Combat;
 
 namespace EldwynGrove.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private float m_moveSpeed = 5.0f;
+
         private Animator m_animator;
         private Rigidbody2D m_rigidody2D;
-        private MovementComponent m_movementComponent;
+        private HealthComponent m_healthComponent;
         private EGInputActions m_inputActions;
+
+        private bool m_isMoving;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
@@ -23,11 +27,24 @@ namespace EldwynGrove.Player
             m_rigidody2D = GetComponent<Rigidbody2D>();
             Utilities.CheckForNull(m_rigidody2D, nameof(m_rigidody2D));
 
-            m_movementComponent = GetComponent<MovementComponent>();
-            Utilities.CheckForNull(m_movementComponent, nameof(m_movementComponent));
+            m_healthComponent = GetComponent<HealthComponent>();
+            Utilities.CheckForNull(m_healthComponent, nameof(m_healthComponent));
+        }
 
-            m_inputActions = new EGInputActions();
-            Utilities.CheckForNull(m_inputActions, nameof(m_inputActions));
+        /*-----------------------------------------------------
+        | --- Start: Called before the first frame update --- |
+        -----------------------------------------------------*/
+        private void Start()
+        {
+            m_inputActions = InputManager.Instance.InputActions;
+        }
+
+        /*-----------------------------------------
+        | --- Update: Called upon every frame --- |
+        -----------------------------------------*/
+        private void Update()
+        {
+
         }
     }
 }
