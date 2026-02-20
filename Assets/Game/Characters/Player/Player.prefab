@@ -13,12 +13,10 @@ GameObject:
   - component: {fileID: 4052817483475715075}
   - component: {fileID: 1844237443796002858}
   - component: {fileID: 6493606032003554068}
-  - component: {fileID: 5316310603344960377}
-  - component: {fileID: 1246965060918528603}
   - component: {fileID: 7632579896539603213}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,32 +194,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &5316310603344960377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178384796501424991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ae1c9cca7f9c24f91027ca6d520896, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerController
-  m_joystick: {fileID: 0}
---- !u!114 &1246965060918528603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178384796501424991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719f432f99103c0408d7e9993e4f3a78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.MovementComponent
-  m_moveSpeed: 5
 --- !u!114 &7632579896539603213
 MonoBehaviour:
   m_ObjectHideFlags: 0
