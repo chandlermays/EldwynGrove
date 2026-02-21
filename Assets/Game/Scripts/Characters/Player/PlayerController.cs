@@ -2,30 +2,30 @@ using UnityEngine;
 //---------------------------------
 using EldwynGrove.Input;
 using EldwynGrove.Combat;
+using EldwynGrove.Navigation;
+using UnityEngine.InputSystem;
 
 namespace EldwynGrove.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float m_moveSpeed = 5.0f;
-
-        private Animator m_animator;
-        private Rigidbody2D m_rigidody2D;
+        private Camera m_mainCamera;
+        private MovementComponent m_movementComponent;
         private HealthComponent m_healthComponent;
         private EGInputActions m_inputActions;
 
-        private bool m_isMoving;
+        private bool m_isTouching;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
         ----------------------------------------------------------------*/
         private void Awake()
         {
-            m_animator = GetComponent<Animator>();
-            Utilities.CheckForNull(m_animator, nameof(m_animator));
+            m_mainCamera = Camera.main;
+            Utilities.CheckForNull(m_mainCamera, nameof(m_mainCamera));
 
-            m_rigidody2D = GetComponent<Rigidbody2D>();
-            Utilities.CheckForNull(m_rigidody2D, nameof(m_rigidody2D));
+            m_movementComponent = GetComponent<MovementComponent>();
+            Utilities.CheckForNull(m_movementComponent, nameof(m_movementComponent));
 
             m_healthComponent = GetComponent<HealthComponent>();
             Utilities.CheckForNull(m_healthComponent, nameof(m_healthComponent));
@@ -37,6 +37,14 @@ namespace EldwynGrove.Player
         private void Start()
         {
             m_inputActions = InputManager.Instance.InputActions;
+            m_inputActions.Gameplay.TouchPress.performed += OnTouchStarted;
+            m_inputActions.Gameplay.TouchPress.canceled += OnTouchReleased;
+        }
+
+        private void OnDestroy()
+        {
+            m_inputActions.Gameplay.TouchPress.performed -= OnTouchStarted;
+            m_inputActions.Gameplay.TouchPress.canceled -= OnTouchReleased;
         }
 
         /*-----------------------------------------
@@ -44,7 +52,23 @@ namespace EldwynGrove.Player
         -----------------------------------------*/
         private void Update()
         {
+            if (!m_isTouching) return;
 
+            Vector2 screenPos = m_inputActions.Gameplay.TouchPosition.ReadValue<Vector2>();
+            Vector3 worldPos = m_mainCamera.ScreenToWorldPoint(screenPos);
+            worldPos.z = 0f;
+
+            m_movementComponent.MoveTo(worldPos);
+        }
+
+        private void OnTouchStarted(InputAction.CallbackContext context)
+        {
+            m_isTouching = true;
+        }
+
+        private void OnTouchReleased(InputAction.CallbackContext context)
+        {
+            m_isTouching = false;
         }
     }
 }
