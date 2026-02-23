@@ -58,8 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.SceneManagement.SaveLoadController
   m_firstSceneIndex:
-    m_sceneAsset: {fileID: 0}
-    m_sceneName: 
+    m_sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+    m_sceneName: Route 1
   m_menuSceneIndex:
-    m_sceneAsset: {fileID: 0}
-    m_sceneName: 
+    m_sceneAsset: {fileID: 102900000, guid: a2c2cd5d467309448af1cf8909f55754, type: 3}
+    m_sceneName: Main Menu

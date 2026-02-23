@@ -188,6 +188,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Transition Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 6830367109742758525, guid: ee8cca57a1a1eb74398ad46230ea9084, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830367109742758525, guid: ee8cca57a1a1eb74398ad46230ea9084, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830367109742758525, guid: ee8cca57a1a1eb74398ad46230ea9084, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

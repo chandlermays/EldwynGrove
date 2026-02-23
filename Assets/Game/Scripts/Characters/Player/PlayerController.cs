@@ -41,6 +41,9 @@ namespace EldwynGrove.Player
             m_inputActions.Gameplay.TouchPress.canceled += OnTouchReleased;
         }
 
+        /*--------------------------------------------------------------------
+        | --- OnDestroy: Called when the MonoBehaviour will be destroyed --- |
+        --------------------------------------------------------------------*/
         private void OnDestroy()
         {
             m_inputActions.Gameplay.TouchPress.performed -= OnTouchStarted;

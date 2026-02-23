@@ -47,7 +47,9 @@ namespace EldwynGrove.Combat
         --------------------------------------------------------------------------*/
         public void RestoreState(JToken state)
         {
-            throw new System.NotImplementedException();
+            HealthSaveData data = state.ToObject<HealthSaveData>();
+            m_health = data.health;
+            m_isDead = data.isDead;
         }
     }
 }

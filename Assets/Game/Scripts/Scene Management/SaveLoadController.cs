@@ -105,10 +105,10 @@ namespace EldwynGrove.SceneManagement
             return m_saveSystem.ListSaveFiles();
         }
 
-        /*--------------------------------------------------------
-        | --- ContinueGame: Continue a Game from a Save File --- |
-        --------------------------------------------------------*/
-        public void ContinueGame(string saveFile)
+        /*------------------------------------------------
+        | --- LoadGame: Load a Game from a Save File --- |
+        ------------------------------------------------*/
+        public void LoadGame(string saveFile)
         {
             SetCurrentSave(saveFile);
             StartCoroutine(LoadLastScene());

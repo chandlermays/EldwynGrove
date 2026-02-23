@@ -272,7 +272,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5029463423223709170}
   - component: {fileID: 3837728164160474500}
-  - component: {fileID: 5106794539232793933}
   - component: {fileID: 8873347169506723049}
   m_Layer: 0
   m_Name: Feet
@@ -354,20 +353,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5106794539232793933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1330497092285536394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387e321dfd1720d4c8d9231bc65fbe83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerAppearance
-  m_renderer: {fileID: 0}
-  m_styles: []
 --- !u!114 &8873347169506723049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +377,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3448476277933336789}
   - component: {fileID: 7635854422447081238}
-  - component: {fileID: 347601645796270077}
   - component: {fileID: 2705684090569770983}
   m_Layer: 0
   m_Name: Head
@@ -474,20 +458,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &347601645796270077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5533222103367823836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387e321dfd1720d4c8d9231bc65fbe83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerAppearance
-  m_renderer: {fileID: 0}
-  m_styles: []
 --- !u!114 &2705684090569770983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,7 +482,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2862291882062995578}
   - component: {fileID: 5430722445303931790}
-  - component: {fileID: 2979389831573054398}
   - component: {fileID: 425556394751077448}
   m_Layer: 0
   m_Name: Legs
@@ -594,20 +563,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2979389831573054398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6184819251771054072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387e321dfd1720d4c8d9231bc65fbe83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerAppearance
-  m_renderer: {fileID: 0}
-  m_styles: []
 --- !u!114 &425556394751077448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,7 +587,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3336492630800354806}
   - component: {fileID: 1941890225959545786}
-  - component: {fileID: 5020514400260966545}
   - component: {fileID: 1206432606337450695}
   m_Layer: 0
   m_Name: Chest
@@ -714,20 +668,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5020514400260966545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229696555218979513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387e321dfd1720d4c8d9231bc65fbe83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerAppearance
-  m_renderer: {fileID: 0}
-  m_styles: []
 --- !u!114 &1206432606337450695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +692,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4382270909165886199}
   - component: {fileID: 1242542018490407996}
-  - component: {fileID: 6549993487235499017}
   - component: {fileID: 276594918466076542}
   m_Layer: 0
   m_Name: Hands
@@ -834,20 +773,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6549993487235499017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8449553816549442766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387e321dfd1720d4c8d9231bc65fbe83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerAppearance
-  m_renderer: {fileID: 0}
-  m_styles: []
 --- !u!114 &276594918466076542
 MonoBehaviour:
   m_ObjectHideFlags: 0
