@@ -1,7 +1,9 @@
-using EldwynGrove.Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//---------------------------------
+using EldwynGrove.Core;
 
 namespace EldwynGrove.Navigation
 {
@@ -15,6 +17,7 @@ namespace EldwynGrove.Navigation
 
         private Vector2 m_lastDirection = Vector2.down;
         private Coroutine m_moveCoroutine;
+
         public bool IsMoving { get; private set; }
 
         protected override void Awake()
@@ -22,7 +25,7 @@ namespace EldwynGrove.Navigation
             base.Awake();
         }
 
-        public void MoveTo(Vector3 targetPos)
+        public void MoveTo(Vector3 targetPos, Action onComplete = null)
         {
             List<Vector3> path = Pathfinder.FindPath(Transform.position, targetPos);
             if (path == null || path.Count == 0)
@@ -35,7 +38,7 @@ namespace EldwynGrove.Navigation
             {
                 StopCoroutine(m_moveCoroutine);
             }
-            m_moveCoroutine = StartCoroutine(MoveAlongPath(path));
+            m_moveCoroutine = StartCoroutine(MoveAlongPath(path, onComplete));
         }
 
         public void Stop()
@@ -43,11 +46,12 @@ namespace EldwynGrove.Navigation
             if (m_moveCoroutine != null)
             {
                 StopCoroutine(m_moveCoroutine);
+                m_moveCoroutine = null;
             }
             SetMoving(false, Vector2.zero);
         }
 
-        private IEnumerator MoveAlongPath(List<Vector3> path)
+        private IEnumerator MoveAlongPath(List<Vector3> path, Action onComplete)
         {
             SetMoving(true, Vector2.zero);
 
@@ -55,6 +59,7 @@ namespace EldwynGrove.Navigation
             {
                 Vector3 target = new Vector3(waypoint.x, waypoint.y, Transform.position.z);
                 Vector2 direction = (target - Transform.position).normalized;
+
                 m_lastDirection = direction;
                 SetMoving(true, direction);
 
@@ -69,6 +74,8 @@ namespace EldwynGrove.Navigation
 
             SetMoving(false, m_lastDirection);
             m_moveCoroutine = null;
+
+            onComplete?.Invoke();
         }
 
         private void SetMoving(bool isMoving, Vector2 direction)

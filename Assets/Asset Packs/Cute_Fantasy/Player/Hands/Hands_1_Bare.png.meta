@@ -3872,7 +3872,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_Attack1Up0
+      name: BareHands_Attack1Up
       rect:
         serializedVersion: 2
         x: 64
@@ -3916,7 +3916,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_Attack1Up2
+      name: BareHands_Attack1Up3
       rect:
         serializedVersion: 2
         x: 192
@@ -3938,7 +3938,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_Attack2Up0
+      name: BareHands_Attack2Up
       rect:
         serializedVersion: 2
         x: 64
@@ -3982,7 +3982,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_Attack2Up2
+      name: BareHands_Attack2Up3
       rect:
         serializedVersion: 2
         x: 192
@@ -6314,7 +6314,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_ToolAxeUp1
+      name: BareHands_ToolAxeUp4
       rect:
         serializedVersion: 2
         x: 256
@@ -6336,7 +6336,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_ToolAxeUp2
+      name: BareHands_ToolAxeUp5
       rect:
         serializedVersion: 2
         x: 320
@@ -7810,7 +7810,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BareHands_FishCastUp0
+      name: BareHands_FishCastUp3
       rect:
         serializedVersion: 2
         x: 192
@@ -8641,9 +8641,9 @@ TextureImporter:
       BareHands_Attack1Side1: 922315270638709176
       BareHands_Attack1Side2: 4800305587140348464
       BareHands_Attack1Side3: -3001471104387671929
-      BareHands_Attack1Up0: 5637248561710508969
+      BareHands_Attack1Up: 5637248561710508969
       BareHands_Attack1Up1: -4586388967082218885
-      BareHands_Attack1Up2: -6737424271108239429
+      BareHands_Attack1Up3: -6737424271108239429
       BareHands_Attack2Down0: -3971493486958823136
       BareHands_Attack2Down1: -9127586553356990814
       BareHands_Attack2Down2: -5449583951703248562
@@ -8652,9 +8652,9 @@ TextureImporter:
       BareHands_Attack2Side1: -3795311090895630137
       BareHands_Attack2Side2: -2700737384272407767
       BareHands_Attack2Side3: -2578464084036882001
-      BareHands_Attack2Up0: 4081124440853169155
+      BareHands_Attack2Up: 4081124440853169155
       BareHands_Attack2Up1: 4732169622105695320
-      BareHands_Attack2Up2: 7974639175119347643
+      BareHands_Attack2Up3: 7974639175119347643
       BareHands_Attack3Down0: -7045367921580434301
       BareHands_Attack3Down1: -9101103319927583300
       BareHands_Attack3Down2: -7867650795346224566
@@ -8719,7 +8719,7 @@ TextureImporter:
       BareHands_FishCastSide6: 9159883173708962402
       BareHands_FishCastSide7: 2177569975089432055
       BareHands_FishCastSide8: -70356274910612911
-      BareHands_FishCastUp0: -2169229935031361408
+      BareHands_FishCastUp3: -2169229935031361408
       BareHands_FishReelDown0: -3026305625033669371
       BareHands_FishReelDown1: 2320958282907878636
       BareHands_FishReelDown2: -1877726903262498060
@@ -8831,8 +8831,8 @@ TextureImporter:
       BareHands_ToolAxeSide4: -4493412179880674658
       BareHands_ToolAxeSide5: -332633079073420105
       BareHands_ToolAxeUp0: 1049363256412081721
-      BareHands_ToolAxeUp1: 5246748688729836752
-      BareHands_ToolAxeUp2: 9160505749674433210
+      BareHands_ToolAxeUp4: 5246748688729836752
+      BareHands_ToolAxeUp5: 9160505749674433210
       BareHands_ToolHoeDown0: -907291347646229971
       BareHands_ToolHoeDown1: 8687656662531936815
       BareHands_ToolHoeDown2: 7378903032070314586

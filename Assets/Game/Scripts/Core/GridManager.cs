@@ -66,7 +66,10 @@ namespace EldwynGrove.Core
             }
         }
 
-        public Node GetNode(Vector2Int coord) => m_grid.TryGetValue(coord, out Node node) ? node : null;
+        public Node GetNode(Vector2Int coord)
+        {
+            return m_grid.TryGetValue(coord, out Node node) ? node : null;
+        }
 
         public Node GetNodeFromWorld(Vector3 worldPos)
         {

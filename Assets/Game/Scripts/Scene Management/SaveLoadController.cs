@@ -37,10 +37,10 @@ namespace EldwynGrove.SceneManagement
             yield return TransitionFade.Instance.FadeIn();
         }
 
-        /*----------------------------------------------------------
-        | --- LoadFirstScene: Load the first scene of the game --- |
-        ----------------------------------------------------------*/
-        private IEnumerator LoadFirstScene()
+        /*-------------------------------------------------------------------
+        | --- StartNewGame: Start a new game by loading the first scene --- |
+        -------------------------------------------------------------------*/
+        private IEnumerator StartNewGame()
         {
             yield return TransitionFade.Instance.FadeOut();
             yield return SceneManager.LoadSceneAsync(m_firstSceneIndex);
@@ -123,7 +123,7 @@ namespace EldwynGrove.SceneManagement
                 return;
 
             SetCurrentSave(saveFile);
-            StartCoroutine(LoadFirstScene());
+            StartCoroutine(StartNewGame());
             Save();
         }
 

@@ -1,9 +1,11 @@
 using UnityEngine;
-//---------------------------------
-using EldwynGrove.Input;
-using EldwynGrove.Combat;
-using EldwynGrove.Navigation;
 using UnityEngine.InputSystem;
+//---------------------------------
+using EldwynGrove.Combat;
+using EldwynGrove.Core;
+using EldwynGrove.Input;
+using EldwynGrove.Inventory;
+using EldwynGrove.Navigation;
 
 namespace EldwynGrove.Player
 {
@@ -61,7 +63,69 @@ namespace EldwynGrove.Player
             Vector3 worldPos = m_mainCamera.ScreenToWorldPoint(screenPos);
             worldPos.z = 0f;
 
+            HandleMoveTo(worldPos);
+        }
+
+        private void HandleMoveTo(Vector3 worldPos)
+        {
+            Vector2Int tappedCoords = ForageManager.Instance.GetCoordsFromWorld(worldPos);
+
+            if (ForageManager.Instance.HasForageAt(tappedCoords))
+            {
+                Vector2Int? adjacentCoord = GetBestAdjacentCoord(tappedCoords);
+
+                if (adjacentCoord.HasValue)
+                {
+                    Vector3 adjacentWorld = ForageManager.Instance.GetWorldCenter(adjacentCoord.Value);
+                    m_movementComponent.MoveTo(adjacentWorld, OnReachedForageTile);
+                }
+                else
+                {
+                    Debug.LogWarning($"[PlayerController] No walkable tile adjacent to forage at {tappedCoords}.");
+                }
+
+                return;
+            }
+
             m_movementComponent.MoveTo(worldPos);
+        }
+
+        private Vector2Int? GetBestAdjacentCoord(Vector2Int forageCoord)
+        {
+            Vector2Int[] cardinalOffsets =
+            {
+                Vector2Int.up,
+                Vector2Int.down,
+                Vector2Int.left,
+                Vector2Int.right
+            };
+
+            Vector2Int? best = null;
+            float bestDist = float.MaxValue;
+
+            foreach (Vector2Int offset in cardinalOffsets)
+            {
+                Vector2Int candidateCoord = forageCoord + offset;
+                Node node = GridManager.Instance.GetNode(candidateCoord);
+
+                if (node == null || !node.Walkable)
+                    continue;
+
+                float dist = Vector3.Distance(transform.position, node.WorldPosition);
+
+                if (dist < bestDist)
+                {
+                    bestDist = dist;
+                    best = candidateCoord;
+                }
+            }
+
+            return best;
+        }
+
+        private void OnReachedForageTile()
+        {
+            Debug.Log("[PlayerController] Perform harvest action.");
         }
 
         private void OnTouchStarted(InputAction.CallbackContext context)
