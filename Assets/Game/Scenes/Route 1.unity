@@ -5708,6 +5708,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.TileCursor
   m_grid: {fileID: 1123130746}
+  m_validPathCoor: {r: 0.14509805, g: 0.5019608, b: 0.12941177, a: 0.5019608}
+  m_invalidPathColor: {r: 0.5019608, g: 0.14035454, b: 0.12941174, a: 0.5019608}
 --- !u!212 &30722766
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5756,7 +5758,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 21369fa5c6d1df347a8c8e4a2db313e6, type: 3}
-  m_Color: {r: 0.1456513, g: 0.5, b: 0.12971699, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12325,7 +12327,7 @@ PrefabInstance:
     - target: {fileID: 3045820448439727576, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
       propertyPath: m_tileCursor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 30722765}
     - target: {fileID: 5597426244831559644, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.19783

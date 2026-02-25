@@ -25,13 +25,13 @@ namespace EldwynGrove.Navigation
             base.Awake();
         }
 
-        public void MoveTo(Vector3 targetPos, Action onComplete = null)
+        public bool MoveTo(Vector3 targetPos, Action onComplete = null)
         {
             List<Vector3> path = Pathfinder.FindPath(Transform.position, targetPos);
             if (path == null || path.Count == 0)
             {
                 Debug.LogWarning("No path found to target position.");
-                return;
+                return false;
             }
 
             if (m_moveCoroutine != null)
@@ -39,6 +39,7 @@ namespace EldwynGrove.Navigation
                 StopCoroutine(m_moveCoroutine);
             }
             m_moveCoroutine = StartCoroutine(MoveAlongPath(path, onComplete));
+            return true;
         }
 
         public void Stop()

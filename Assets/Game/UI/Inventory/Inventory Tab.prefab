@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6149517625442171828, guid: f519a8b7b1c8b364b9785180cc0d3d25, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7513581874330196370, guid: f519a8b7b1c8b364b9785180cc0d3d25, type: 3}
       propertyPath: m_Name
       value: Inventory Slot

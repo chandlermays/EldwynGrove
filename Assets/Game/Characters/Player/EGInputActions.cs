@@ -111,15 +111,6 @@ namespace EldwynGrove.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""9b8c56c4-65fc-4dd6-8c14-1119b4ab617e"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -127,17 +118,6 @@ namespace EldwynGrove.Input
                     ""name"": """",
                     ""id"": ""30b5167e-7e45-430e-88b1-d30aacb573e3"",
                     ""path"": ""<Touchscreen>/primaryTouch/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TouchPosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""07185c22-fe46-4905-8f9d-ae52be2ef860"",
-                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -155,72 +135,6 @@ namespace EldwynGrove.Input
                     ""action"": ""TouchPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6804d684-8a0e-402d-8d92-30723427ad94"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TouchPress"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""d49a6c27-8d30-4e0e-a919-77b728fdc706"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""ce19cc46-c3f3-4abc-9f09-886d8a5d24a3"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3bdbb195-fcd5-4ca7-b061-13d439327f56"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""b49148d7-5115-433f-af9f-8da5016013db"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fa33aebc-3983-4374-b8b8-1868ad35bf19"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -231,7 +145,6 @@ namespace EldwynGrove.Input
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_TouchPosition = m_Gameplay.FindAction("TouchPosition", throwIfNotFound: true);
             m_Gameplay_TouchPress = m_Gameplay.FindAction("TouchPress", throwIfNotFound: true);
-            m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         }
 
         ~@EGInputActions()
@@ -314,7 +227,6 @@ namespace EldwynGrove.Input
         private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
         private readonly InputAction m_Gameplay_TouchPosition;
         private readonly InputAction m_Gameplay_TouchPress;
-        private readonly InputAction m_Gameplay_Move;
         /// <summary>
         /// Provides access to input actions defined in input action map "Gameplay".
         /// </summary>
@@ -334,10 +246,6 @@ namespace EldwynGrove.Input
             /// Provides access to the underlying input action "Gameplay/TouchPress".
             /// </summary>
             public InputAction @TouchPress => m_Wrapper.m_Gameplay_TouchPress;
-            /// <summary>
-            /// Provides access to the underlying input action "Gameplay/Move".
-            /// </summary>
-            public InputAction @Move => m_Wrapper.m_Gameplay_Move;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -370,9 +278,6 @@ namespace EldwynGrove.Input
                 @TouchPress.started += instance.OnTouchPress;
                 @TouchPress.performed += instance.OnTouchPress;
                 @TouchPress.canceled += instance.OnTouchPress;
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
             }
 
             /// <summary>
@@ -390,9 +295,6 @@ namespace EldwynGrove.Input
                 @TouchPress.started -= instance.OnTouchPress;
                 @TouchPress.performed -= instance.OnTouchPress;
                 @TouchPress.canceled -= instance.OnTouchPress;
-                @Move.started -= instance.OnMove;
-                @Move.performed -= instance.OnMove;
-                @Move.canceled -= instance.OnMove;
             }
 
             /// <summary>
@@ -447,13 +349,6 @@ namespace EldwynGrove.Input
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTouchPress(InputAction.CallbackContext context);
-            /// <summary>
-            /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnMove(InputAction.CallbackContext context);
         }
     }
 }

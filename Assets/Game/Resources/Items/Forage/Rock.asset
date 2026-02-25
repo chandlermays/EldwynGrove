@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222b80a691e2e66489a2a12c44361fca, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventory.ForageItem
+  m_itemID: 392368f0-8ae4-4104-a6b0-c0b3b814c95e
   m_itemName: Rock
-  m_itemIcon: {fileID: -7614163585707765966, guid: 7dbf8066832beb44396ac51fff6cd2fb, type: 3}
+  m_itemDescription: A solid piece of stone. Useful for basic crafting.
+  m_itemIcon: {fileID: 21300000, guid: d489cd484a02be548ac13b9a534b079d, type: 3}
+  m_pickup: {fileID: 0}
+  m_isStackable: 1
+  m_category: 4
+  m_itemPrice: 1
   m_forageYield: 1
   m_gatherType: 1

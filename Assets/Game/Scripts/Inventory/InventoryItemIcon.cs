@@ -8,7 +8,6 @@ namespace EldwynGrove.Inventories
     [RequireComponent(typeof(Image))]
     public class InventoryItemIcon : MonoBehaviour
     {
-        [SerializeField] private GameObject m_textContainer;
         [SerializeField] private TextMeshProUGUI m_quantityText;
 
         private Image m_iconImage;
@@ -41,13 +40,15 @@ namespace EldwynGrove.Inventories
 
             if (m_quantityText)
             {
+                GameObject textObject = m_quantityText.gameObject;
+
                 if (quantity <= 1)
                 {
-                    m_textContainer.SetActive(false);
+                    textObject.SetActive(false);
                 }
                 else
                 {
-                    m_textContainer.SetActive(true);
+                    textObject.SetActive(true);
                     m_quantityText.text = quantity.ToString();
                 }
             }

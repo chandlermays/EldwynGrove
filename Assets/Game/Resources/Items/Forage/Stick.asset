@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222b80a691e2e66489a2a12c44361fca, type: 3}
   m_Name: Stick
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventory.ForageItem
+  m_itemID: 5b6db4e8-bf79-4513-b3bb-8b65ea246014
   m_itemName: Stick
-  m_itemIcon: {fileID: 3070364414732658046, guid: 9b08f7f964ffa13458bac62c81ab3ac1, type: 3}
+  m_itemDescription: A simple wooden branch. Useful for basic crafting.
+  m_itemIcon: {fileID: 21300000, guid: 34ecb607f59cc5048ac0be9bf6e66289, type: 3}
+  m_pickup: {fileID: 0}
+  m_isStackable: 1
+  m_category: 4
+  m_itemPrice: 1
   m_forageYield: 1
+  m_gatherType: 0
