@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 //---------------------------------
 
-namespace EldwynGrove.Inventory
+namespace EldwynGrove.Inventories
 {
     public class ForageManager : MonoBehaviour
     {

@@ -1,0 +1,85 @@
+﻿using Newtonsoft.Json.Linq;
+using UnityEngine;
+//---------------------------------
+using EldwynGrove.Inventories;
+using EldwynGrove.Saving;
+
+namespace EldwynGrove.Pickups
+{
+    public class PickupSpawner : MonoBehaviour, ISaveable
+    {
+        [SerializeField] private InventoryItem m_item;
+        [SerializeField] private int m_quantity;
+
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
+        private void Awake()
+        {
+            Utilities.CheckForNull(m_item, nameof(m_item));
+            SpawnPickup();
+        }
+
+        /*--------------------------------------------------------------------
+        | --- GetPickup: Retrieve the Pickup component from the children --- |
+        --------------------------------------------------------------------*/
+        public Pickup GetPickup()
+        {
+            return GetComponentInChildren<Pickup>();
+        }
+
+        /*----------------------------------------------------------------
+        | --- IsPickedUp: Check if the Pickup is currently picked up --- |
+        ----------------------------------------------------------------*/
+        public bool IsPickedUp()
+        {
+            return GetPickup() == null;
+        }
+
+        /*-------------------------------------------------------------------------------------
+        | --- CaptureState: Capture the state of whether the pickup is present for saving --- |
+        -------------------------------------------------------------------------------------*/
+        public JToken CaptureState()
+        {
+            return JToken.FromObject(IsPickedUp());
+        }
+
+        /*--------------------------------------------------------------------------
+        | --- RestoreState: Restore the pickup's presence based on saved state --- |
+        --------------------------------------------------------------------------*/
+        public void RestoreState(JToken state)
+        {
+            bool shouldBePickedUp = state.ToObject<bool>();
+
+            if (shouldBePickedUp && !IsPickedUp())
+            {
+                DestroyPickup();
+            }
+
+            if (!shouldBePickedUp && IsPickedUp())
+            {
+                SpawnPickup();
+            }
+        }
+
+        /*-----------------------------------------------------------------------------
+        | --- SpawnPickup: Create a new Pickup instance at the spawner's position --- |
+        -----------------------------------------------------------------------------*/
+        private void SpawnPickup()
+        {
+            var spawnedPickup = m_item.SpawnPickup(transform.position, m_quantity);
+            spawnedPickup.transform.SetParent(transform);
+        }
+
+        /*---------------------------------------------------------
+        | --- DestroyPickup: Remove the Pickup from the world --- |
+        ---------------------------------------------------------*/
+        private void DestroyPickup()
+        {
+            if (GetPickup())
+            {
+                Destroy(GetPickup().gameObject);
+            }
+        }
+    }
+}

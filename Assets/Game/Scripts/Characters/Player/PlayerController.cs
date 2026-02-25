@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 //---------------------------------
 using EldwynGrove.Combat;
 using EldwynGrove.Core;
 using EldwynGrove.Input;
-using EldwynGrove.Inventory;
+using EldwynGrove.Inventories;
 using EldwynGrove.Navigation;
 
 namespace EldwynGrove.Player
@@ -14,9 +16,12 @@ namespace EldwynGrove.Player
         private Camera m_mainCamera;
         private MovementComponent m_movementComponent;
         private HealthComponent m_healthComponent;
+        private GatheringComponent m_gatheringComponent;
         private EGInputActions m_inputActions;
 
         private bool m_isTouching;
+
+        private Vector2Int m_pendingForageCoords;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
@@ -31,6 +36,9 @@ namespace EldwynGrove.Player
 
             m_healthComponent = GetComponent<HealthComponent>();
             Utilities.CheckForNull(m_healthComponent, nameof(m_healthComponent));
+
+            m_gatheringComponent = GetComponent<GatheringComponent>();
+            Utilities.CheckForNull(m_gatheringComponent, nameof(m_gatheringComponent));
         }
 
         /*-----------------------------------------------------
@@ -60,12 +68,29 @@ namespace EldwynGrove.Player
             if (!m_isTouching) return;
 
             Vector2 screenPos = m_inputActions.Gameplay.TouchPosition.ReadValue<Vector2>();
+
+            if (IsTouchOverUI(screenPos)) return;
+
             Vector3 worldPos = m_mainCamera.ScreenToWorldPoint(screenPos);
             worldPos.z = 0f;
 
             HandleMoveTo(worldPos);
         }
 
+        /*-----------------------------------------------------------------
+        | --- IsTouchOverUI: Checks if the touch is over a UI element --- |
+        -----------------------------------------------------------------*/
+        private bool IsTouchOverUI(Vector2 screenPos)
+        {
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPos };
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+            return results.Count > 0;
+        }
+
+        /*-------------------------------------------------------------------------------
+        | --- HandleMoveTo: Handles moving the player to the touched world position --- |
+        -------------------------------------------------------------------------------*/
         private void HandleMoveTo(Vector3 worldPos)
         {
             Vector2Int tappedCoords = ForageManager.Instance.GetCoordsFromWorld(worldPos);
@@ -76,6 +101,7 @@ namespace EldwynGrove.Player
 
                 if (adjacentCoord.HasValue)
                 {
+                    m_pendingForageCoords = tappedCoords;
                     Vector3 adjacentWorld = ForageManager.Instance.GetWorldCenter(adjacentCoord.Value);
                     m_movementComponent.MoveTo(adjacentWorld, OnReachedForageTile);
                 }
@@ -90,6 +116,9 @@ namespace EldwynGrove.Player
             m_movementComponent.MoveTo(worldPos);
         }
 
+        /*-----------------------------------------------------------------------------------------------
+        | --- GetBestAdjacentCoord: Finds the best adjacent walkable tile to the forage coordinates --- |
+        -----------------------------------------------------------------------------------------------*/
         private Vector2Int? GetBestAdjacentCoord(Vector2Int forageCoord)
         {
             Vector2Int[] cardinalOffsets =
@@ -123,16 +152,33 @@ namespace EldwynGrove.Player
             return best;
         }
 
+        /*---------------------------------------------------------------------------------------------
+        | --- OnReachedForageTile: Called when the player reaches the tile adjacent to the forage --- |
+        ---------------------------------------------------------------------------------------------*/
         private void OnReachedForageTile()
         {
-            Debug.Log("[PlayerController] Perform harvest action.");
+            ForageItem item = ForageManager.Instance.GetForageAt(m_pendingForageCoords);
+
+            if (item == null)
+            {
+                Debug.LogWarning("[PlayerController] Reached forage tile, but no forage item found.");
+                return;
+            }
+
+            m_gatheringComponent.Gather(item);
         }
 
+        /*-------------------------------------------------------------------------------
+        | --- OnTouchStarted: 
+        -------------------------------------------------------------------------------*/
         private void OnTouchStarted(InputAction.CallbackContext context)
         {
             m_isTouching = true;
         }
 
+        /*-------------------------------------------------------------------------------
+        | --- OnTouchReleased: 
+        -------------------------------------------------------------------------------*/
         private void OnTouchReleased(InputAction.CallbackContext context)
         {
             m_isTouching = false;

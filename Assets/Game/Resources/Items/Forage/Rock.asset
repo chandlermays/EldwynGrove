@@ -15,3 +15,4 @@ MonoBehaviour:
   m_itemName: Rock
   m_itemIcon: {fileID: -7614163585707765966, guid: 7dbf8066832beb44396ac51fff6cd2fb, type: 3}
   m_forageYield: 1
+  m_gatherType: 1

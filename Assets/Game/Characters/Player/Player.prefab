@@ -16,8 +16,11 @@ GameObject:
   - component: {fileID: 3045820448439727576}
   - component: {fileID: 3801307716057582945}
   - component: {fileID: 6675417350290823133}
-  - component: {fileID: 5903272166346978681}
+  - component: {fileID: 5106730316895447102}
   - component: {fileID: 7632579896539603213}
+  - component: {fileID: 5814178405032263595}
+  - component: {fileID: 4861066484911308928}
+  - component: {fileID: 3017376059137249749}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -237,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   m_health: 0
---- !u!114 &5903272166346978681
+--- !u!114 &5106730316895447102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,9 +249,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1178384796501424991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad5dd7ef34a4924f89dc13812f8ed63, type: 3}
+  m_Script: {fileID: 11500000, guid: 5805fefba8cf7c34385eda6aef4a8ca9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Core.ActionManager
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.GatheringComponent
 --- !u!114 &7632579896539603213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +266,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Saving.SaveableEntity
   m_uniqueIdentifier: player
   m_lockIdentifier: 1
+--- !u!114 &5814178405032263595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a2bc2c04cf17a4fbbfe0ae15f94dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.Inventory
+--- !u!114 &4861066484911308928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d23729591fb249e4ab36867cfba282d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.Wallet
+--- !u!114 &3017376059137249749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ff78ffa7bb535468acdb3eb1536675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.ItemDropper
 --- !u!1 &1330497092285536394
 GameObject:
   m_ObjectHideFlags: 0
