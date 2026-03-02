@@ -6,6 +6,9 @@ namespace EldwynGrove.Core
 {
     public static class Pathfinder
     {
+        /*----------------------------------------------------------------------------------------------
+        | --- FindPath: Uses A* algorithm to find the shortest path between two points on the grid --- |
+        ----------------------------------------------------------------------------------------------*/
         public static List<Vector3> FindPath(Vector3 start, Vector3 target)
         {
             Node startNode = GridManager.Instance.GetNodeFromWorld(start);
@@ -51,6 +54,9 @@ namespace EldwynGrove.Core
             return null;
         }
 
+        /*------------------------------------------------------------------------
+        | --- RetracePath: Backtracks from target to start to build the path --- |
+        ------------------------------------------------------------------------*/
         private static List<Vector3> RetracePath(Node start, Node target)
         {
             List<Vector3> path = new();
@@ -66,6 +72,9 @@ namespace EldwynGrove.Core
             return path;
         }
 
+        /*---------------------------------------------------------------------------
+        | --- GetLowestFCost: Finds the node with the lowest F cost in the list --- |
+        ---------------------------------------------------------------------------*/
         private static Node GetLowestFCost(List<Node> nodes)
         {
             Node lowest = nodes[0];
@@ -79,6 +88,9 @@ namespace EldwynGrove.Core
             return lowest;
         }
 
+        /*----------------------------------------------------------------------
+        | --- GetDistance: Calculates Manhattan distance between two nodes --- |
+        ----------------------------------------------------------------------*/
         private static int GetDistance(Node a, Node b)
         {
             int dx = Mathf.Abs(a.GridCoord.x - b.GridCoord.x);

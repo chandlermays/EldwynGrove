@@ -18,6 +18,9 @@ namespace EldwynGrove.Player
         private PlayerInteractionHandler m_interactionHandler;
         private bool m_isTouching;
 
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
         private void Awake()
         {
             Utilities.CheckForNull(m_tileCursor, nameof(m_tileCursor));
@@ -33,6 +36,9 @@ namespace EldwynGrove.Player
             );
         }
 
+        /*-----------------------------------------------------
+        | --- Start: Called before the first frame update --- |
+        -----------------------------------------------------*/
         private void Start()
         {
             m_inputActions = InputManager.Instance.InputActions;
@@ -40,12 +46,18 @@ namespace EldwynGrove.Player
             m_inputActions.Gameplay.TouchPress.canceled += OnTouchReleased;
         }
 
+        /*--------------------------------------------------------------------
+        | --- OnDestroy: Called when the MonoBehaviour will be destroyed --- |
+        --------------------------------------------------------------------*/
         private void OnDestroy()
         {
             m_inputActions.Gameplay.TouchPress.performed -= OnTouchStarted;
             m_inputActions.Gameplay.TouchPress.canceled -= OnTouchReleased;
         }
 
+        /*-----------------------------------------
+        | --- Update: Called once every frame --- |
+        -----------------------------------------*/
         private void Update()
         {
             if (!m_isTouching)
@@ -68,6 +80,9 @@ namespace EldwynGrove.Player
             m_interactionHandler.HandleInteractAt(worldPos);
         }
 
+        /*-----------------------------------------------------------------
+        | --- IsTouchOverUI: Checks if the touch is over a UI element --- |
+        -----------------------------------------------------------------*/
         private bool IsTouchOverUI(Vector2 screenPos)
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPos };

@@ -12,6 +12,9 @@ namespace EldwynGrove.Player
         private MovementComponent m_movementComponent;
         private GatheringComponent m_gatheringComponent;
 
+        /*---------------------------------------------------------------
+        | --- Initialize: Sets up references to required components --- |
+        ---------------------------------------------------------------*/
         public void Initialize(TileCursor cursor,MovementComponent movement, GatheringComponent gathering)
         {
             m_tileCursor = cursor;
@@ -19,6 +22,9 @@ namespace EldwynGrove.Player
             m_gatheringComponent = gathering;
         }
 
+        /*-----------------------------------------------------------------------
+        | --- HandleInteractAt: Called when player taps/clicks on the world --- |
+        -----------------------------------------------------------------------*/
         public void HandleInteractAt(Vector3 worldPos)
         {
             Vector2Int tappedCoords = ForageManager.Instance.GetCoordsFromWorld(worldPos);
@@ -32,12 +38,18 @@ namespace EldwynGrove.Player
             TryMoveTo(worldPos);
         }
 
+        /*------------------------------------------------------------------------------------------
+        | --- TryMoveTo: Attempts to move player to world position, showing destination cursor --- |
+        ------------------------------------------------------------------------------------------*/
         private void TryMoveTo(Vector3 worldPos)
         {
             bool canMove = m_movementComponent.MoveTo(worldPos, OnReachedDestination);
             m_tileCursor.ShowAtWorldPosition(worldPos, canMove);
         }
 
+        /*-------------------------------------------------------------------------------
+        | --- TryMoveToForage: Finds adjacent tile to forage and moves player there --- |
+        -------------------------------------------------------------------------------*/
         private void TryMoveToForage(Vector2Int forageCoords)
         {
             Vector2Int? adjacentCoord = GetBestAdjacentCoord(forageCoords);
@@ -56,6 +68,9 @@ namespace EldwynGrove.Player
             m_tileCursor.ShowAtWorldPosition(forageWorld, canMove);
         }
 
+        /*------------------------------------------------------------------------------------------------
+        | --- OnReachedForage: Called when player reaches forage tile, gathers item and hides cursor --- |
+        ------------------------------------------------------------------------------------------------*/
         private void OnReachedForage(Vector2Int forageCoords)
         {
             m_tileCursor.Hide();
@@ -70,11 +85,17 @@ namespace EldwynGrove.Player
             m_gatheringComponent.Gather(item);
         }
 
+        /*------------------------------------------------------------------------------------------------------
+        | --- OnReachedDestination: Called when player reaches non-forage destination, simply hides cursor --- |
+        ------------------------------------------------------------------------------------------------------*/
         private void OnReachedDestination()
         {
             m_tileCursor.Hide();
         }
 
+        /*-----------------------------------------------------------------------------------
+        | --- GetBestAdjacentCoord: Finds the best adjacent walkable tile to the forage --- |
+        -----------------------------------------------------------------------------------*/
         private Vector2Int? GetBestAdjacentCoord(Vector2Int forageCoord)
         {
             Vector2Int[] offsets = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };

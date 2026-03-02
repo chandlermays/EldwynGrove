@@ -38,6 +38,9 @@ namespace EldwynGrove.Core
         private Dictionary<Vector2Int, Node> m_grid = new();
         public void RebuildGrid() => BuildGrid();
 
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -50,6 +53,9 @@ namespace EldwynGrove.Core
             BuildGrid();
         }
 
+        /*---------------------------------------------------------------------------
+        | --- BuildGrid: Constructs the grid based on the tilemap and obstacles --- |
+        ---------------------------------------------------------------------------*/
         private void BuildGrid()
         {
             m_grid.Clear();
@@ -67,17 +73,26 @@ namespace EldwynGrove.Core
             }
         }
 
+        /*----------------------------------------------------------------------
+        | --- GetNode: Retrieves the node at the specified grid coordinate --- |
+        ----------------------------------------------------------------------*/
         public Node GetNode(Vector2Int coord)
         {
             return m_grid.TryGetValue(coord, out Node node) ? node : null;
         }
 
+        /*--------------------------------------------------------------------------------
+        | --- GetNodeFromWorld: Retrieves the node corresponding to a world position --- |
+        --------------------------------------------------------------------------------*/
         public Node GetNodeFromWorld(Vector3 worldPos)
         {
             Vector3Int cellPos = m_groundTilemap.WorldToCell(worldPos);
             return GetNode(new Vector2Int(cellPos.x, cellPos.y));
         }
 
+        /*-----------------------------------------------------------------------------
+        | --- GetNeighbors: Retrieves walkable neighboring nodes for a given node --- |
+        -----------------------------------------------------------------------------*/
         public List<Node> GetNeighbors(Node node)
         {
             List<Node> neighbors = new();

@@ -20,11 +20,17 @@ namespace EldwynGrove.Navigation
 
         public bool IsMoving { get; private set; }
 
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
         protected override void Awake()
         {
             base.Awake();
         }
 
+        /*--------------------------------------------------------------
+        | --- MoveTo: Initiates movement towards a target position --- |
+        --------------------------------------------------------------*/
         public bool MoveTo(Vector3 targetPos, Action onComplete = null)
         {
             List<Vector3> path = Pathfinder.FindPath(Transform.position, targetPos);
@@ -42,6 +48,9 @@ namespace EldwynGrove.Navigation
             return true;
         }
 
+        /*---------------------------------------------------------------------
+        | --- Stop: Halts any ongoing movement and resets animation state --- |
+        ---------------------------------------------------------------------*/
         public void Stop()
         {
             if (m_moveCoroutine != null)
@@ -52,6 +61,9 @@ namespace EldwynGrove.Navigation
             SetMoving(false, Vector2.zero);
         }
 
+        /*-----------------------------------------------------------------------------
+        | --- MoveAlongPath: Coroutine that moves the entity along the given path --- |
+        -----------------------------------------------------------------------------*/
         private IEnumerator MoveAlongPath(List<Vector3> path, Action onComplete)
         {
             SetMoving(true, Vector2.zero);
@@ -79,6 +91,9 @@ namespace EldwynGrove.Navigation
             onComplete?.Invoke();
         }
 
+        /*-------------------------------------------------------------------
+        | --- SetMoving: Updates movement state and animator parameters --- |
+        -------------------------------------------------------------------*/
         private void SetMoving(bool isMoving, Vector2 direction)
         {
             IsMoving = isMoving;

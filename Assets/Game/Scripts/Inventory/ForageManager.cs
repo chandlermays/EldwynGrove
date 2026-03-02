@@ -25,6 +25,9 @@ namespace EldwynGrove.Inventories
         private Dictionary<Vector2Int, ForageItem> m_forageMap = new();
         private Dictionary<TileBase, ForageItem> m_tileToItem = new();
 
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -37,6 +40,9 @@ namespace EldwynGrove.Inventories
             BuildLookups();
         }
 
+        /*-----------------------------------------------------------------------------------------
+        | --- BuildLookups: Precomputes mappings from tiles to items and coordinates to items --- |
+        -----------------------------------------------------------------------------------------*/
         private void BuildLookups()
         {
             m_tileToItem.Clear();
@@ -65,16 +71,25 @@ namespace EldwynGrove.Inventories
             }
         }
 
+        /*-----------------------------------------------------------------------------
+        | --- GetForageAt: Retrieves the ForageItem at the given tile coordinates --- |
+        -----------------------------------------------------------------------------*/
         public ForageItem GetForageAt(Vector2Int coords)
         {
             return m_forageMap.TryGetValue(coords, out ForageItem item) ? item : null;
         }
 
+        /*--------------------------------------------------------------------------------
+        | --- HasForageAt: Checks if there is a forage item at the given coordinates --- |
+        --------------------------------------------------------------------------------*/
         public bool HasForageAt(Vector2Int coords)
         {
             return m_forageMap.ContainsKey(coords);
         }
 
+        /*------------------------------------------------------------------------
+        | --- RemoveForage: Removes the forage item at the given coordinates --- |
+        ------------------------------------------------------------------------*/
         public ForageItem RemoveForage(Vector2Int coords)
         {
             if (!m_forageMap.TryGetValue(coords, out ForageItem item))
@@ -85,11 +100,17 @@ namespace EldwynGrove.Inventories
             return item;
         }
 
+        /*----------------------------------------------------------------------------------------------------
+        | --- GetWorldCenter: Gets the world position of the center of the tile at the given coordinates --- |
+        ----------------------------------------------------------------------------------------------------*/
         public Vector3 GetWorldCenter(Vector2Int coords)
         {
             return m_forageTilemap.GetCellCenterWorld(new Vector3Int(coords.x, coords.y, 0));
         }
 
+        /*-------------------------------------------------------------------------------------------------
+        | --- GetCoordsFromWorld: Converts a world position to tile coordinates on the forage tilemap --- |
+        -------------------------------------------------------------------------------------------------*/
         public Vector2Int GetCoordsFromWorld(Vector3 worldPos)
         {
             Vector3Int cell = m_forageTilemap.WorldToCell(worldPos);

@@ -10,6 +10,9 @@ namespace EldwynGrove.Player
 
         private SpriteRenderer m_spriteRenderer;
 
+        /*----------------------------------------------------------------
+        | --- Awake: Called when the script instance is being loaded --- |
+        ----------------------------------------------------------------*/
         private void Awake()
         {
             Utilities.CheckForNull(m_grid, nameof(m_grid));
@@ -20,6 +23,9 @@ namespace EldwynGrove.Player
             m_spriteRenderer.enabled = false;
         }
 
+        /*--------------------------------------------------------------------------------------------------------------
+        | --- ShowAtWorldPosition: Displays the cursor at a specific world position with color indicating validity --- |
+        --------------------------------------------------------------------------------------------------------------*/
         public void ShowAtWorldPosition(Vector3 worldPos, bool isValid)
         {
             worldPos.z = 0f;
@@ -31,6 +37,9 @@ namespace EldwynGrove.Player
             m_spriteRenderer.enabled = true;
         }
 
+        /*------------------------------------------
+        | --- Hide: Hides the cursor from view --- |
+        ------------------------------------------*/
         public void Hide()
         {
             m_spriteRenderer.enabled = false;
