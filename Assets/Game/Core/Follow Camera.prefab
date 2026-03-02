@@ -70,7 +70,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.FollowCamera
   m_target: {fileID: 0}
   m_cameraBounds: {fileID: 0}
+  m_zoomSensitivity: 0.1
+  m_zoomRange: {x: 2, y: 10}
 --- !u!81 &8536090390937149663
 AudioListener:
   m_ObjectHideFlags: 0
