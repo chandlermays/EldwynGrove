@@ -1,13 +1,23 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 //---------------------------------
 using EldwynGrove.Saving;
 using EldwynGrove.Tools;
 
 namespace EldwynGrove.Inventories
 {
+    /* ---------------------------------------------------------------------------------------------
+     * Role: Manages the player's collection of items in the game.                                 *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Stores and organizes items and their quantities.                                     *
+     *      - Handles adding, removing, and querying items.                                        *
+     *      - Manages inventory slot availability and stackable items.                             *
+     *      - Provides save/load functionality for inventory slots.                                *
+     *      - Notifies listeners when the inventory changes.                                       *
+     * ------------------------------------------------------------------------------------------- */
     public class Inventory : MonoBehaviour, ISaveable, IConditionChecker
     {
         private struct InventorySlot
@@ -16,7 +26,7 @@ namespace EldwynGrove.Inventories
             public int m_quantity;
         }
 
-        private int m_inventorySize = 24;
+        [SerializeField] private int m_inventorySize = 24;
         private InventorySlot[] m_inventorySlots;
 
         private readonly Dictionary<InventoryItem, List<int>> m_itemSlotMapping = new();

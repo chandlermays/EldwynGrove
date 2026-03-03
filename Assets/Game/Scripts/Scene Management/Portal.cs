@@ -1,13 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 //---------------------------------
 using EldwynGrove.Player;
+using EldwynGrove.Saving;
 
 namespace EldwynGrove.SceneManagement
 {
+    /* --------------------------------------------------------------------------------------------
+     * Role: Handles scene transitions via in-game portals, managing player transfer and spawn.    *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Detects when the player enters a portal trigger.                                     *
+     *      - Initiates scene transitions and manages fade effects during travel.                  *
+     *      - Coordinates saving and loading game state before and after scene changes.            *
+     *      - Finds the corresponding destination portal and updates the player's position.        *
+     *      - Ensures player control and navigation are properly managed during transitions.       *
+     * ------------------------------------------------------------------------------------------- */
+
     public enum PortalID
     {
         A,
@@ -78,15 +90,13 @@ namespace EldwynGrove.SceneManagement
             }
             DontDestroyOnLoad(gameObject);
 
-            SaveLoadController saveLoadController = FindFirstObjectByType<SaveLoadController>();
-
             PlayerController playerController = m_player.GetComponent<PlayerController>();
             playerController.enabled = false;
 
             yield return TransitionFade.Instance.FadeOut();
 
             // Checkpoint before scene transition
-            saveLoadController.Save();
+            SaveManager.Instance.Save();
 
             yield return SceneManager.LoadSceneAsync(m_sceneField.SceneName);
 
@@ -94,13 +104,13 @@ namespace EldwynGrove.SceneManagement
             PlayerController newPlayerController = GameObject.FindWithTag(kPlayerTag).GetComponent<PlayerController>();
             newPlayerController.enabled = false;
 
-            saveLoadController.Load();
+            SaveManager.Instance.Load();
 
             Portal destination = GetDestination();
             UpdatePlayer(destination);
 
             // Checkpoint after scene transition
-            saveLoadController.Save();
+            SaveManager.Instance.Save();
 
             yield return TransitionFade.Instance.Wait();
             yield return TransitionFade.Instance.FadeIn();

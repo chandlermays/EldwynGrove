@@ -1,5 +1,5 @@
-
 using EldwynGrove.UI.Dragging;
+//---------------------------------
 
 namespace EldwynGrove.Inventories
 {

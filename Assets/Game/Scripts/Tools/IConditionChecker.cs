@@ -9,7 +9,9 @@
         kCompletedQuest,
         kHasLevel,
         kHasItem,
-        kHasItems
+        kHasItems,
+        kHasItemEquipped,
+        //... add more as needed
     }
 
     public interface IConditionChecker

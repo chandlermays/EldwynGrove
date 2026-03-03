@@ -4,6 +4,14 @@ using EldwynGrove.Inventories;
 
 namespace EldwynGrove.Pickups
 {
+    /* ---------------------------------------------------------------------------------------------
+     * Role: Represents the actual collectible item in the game world.                             *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Holds data about the item and quantity.                                              *
+     *      - Handles player interaction (i.e. adding the item to the inventory when picked up).   *
+     *      - Contains logic for whether it can be picked up and what happens on pickup.           *
+     * ------------------------------------------------------------------------------------------- */
     public class Pickup : MonoBehaviour
     {
         private Inventory m_inventory;

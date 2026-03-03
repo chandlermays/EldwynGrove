@@ -6,6 +6,14 @@ using EldwynGrove.Saving;
 
 namespace EldwynGrove.Pickups
 {
+    /* ---------------------------------------------------------------------------------------------
+     * Role: Responsible for managing the existence and state of a pickup in the world.            *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Spawns a Pickup object at a specific location with a given item and quantity.        *
+     *      - Handles saving and restoring whether the pickup is present (ISaveable).              *
+     *      - Destroys or respawns the pickup based on the game state (i.e. when loading a save).  *
+     * ------------------------------------------------------------------------------------------- */
     public class PickupSpawner : MonoBehaviour, ISaveable
     {
         [SerializeField] private InventoryItem m_item;

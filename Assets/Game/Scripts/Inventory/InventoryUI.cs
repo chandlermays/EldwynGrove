@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace EldwynGrove.Inventories
 {
+    /* --------------------------------------------------------------------------------------------
+     * Role: Manages the visual representation of the player's inventory in the UI.                *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Instantiates and organizes InventorySlotUI elements for each inventory slot.         *
+     *      - Listens for inventory changes and updates the UI accordingly.                        *
+     *      - Ensures the UI accurately reflects the current state of the inventory.               *
+     * ------------------------------------------------------------------------------------------- */
     public class InventoryUI : MonoBehaviour
     {
         [SerializeField] private InventorySlotUI m_slotPrefab;

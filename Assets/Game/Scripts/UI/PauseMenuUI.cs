@@ -1,9 +1,10 @@
-using EldwynGrove.Player;
-using EldwynGrove.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+//---------------------------------
+using EldwynGrove.Player;
+using EldwynGrove.Saving;
 
-namespace EldwynGrove.UI
+namespace PolyQuest.UI.Core
 {
     public class PauseMenuUI : MonoBehaviour
     {
@@ -35,11 +36,7 @@ namespace EldwynGrove.UI
         ---------------------------------------------------------------------*/
         public void Save()
         {
-            SaveLoadController saveLoadController = FindFirstObjectByType<SaveLoadController>();
-            if (saveLoadController != null)
-            {
-                saveLoadController.Save();
-            }
+            SaveManager.Instance.Save();
         }
 
         /*------------------------------------------------------------
@@ -47,17 +44,13 @@ namespace EldwynGrove.UI
         ------------------------------------------------------------*/
         public void Quit()
         {
-            SaveLoadController saveLoadController = FindFirstObjectByType<SaveLoadController>();
-            if (saveLoadController != null)
-            {
-                m_playerController.enabled = false;
-                m_resumeButton.interactable = false;
-                m_saveButton.interactable = false;
-                m_quitButton.interactable = false;
+            m_playerController.enabled = false;
+            m_resumeButton.interactable = false;
+            m_saveButton.interactable = false;
+            m_quitButton.interactable = false;
 
-                saveLoadController.Save();
-                saveLoadController.LoadMainMenu();
-            }
+            SaveManager.Instance.Save();
+            SaveManager.Instance.LoadMainMenu();
         }
     }
 }

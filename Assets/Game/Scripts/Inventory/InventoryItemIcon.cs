@@ -5,9 +5,18 @@ using UnityEngine.UI;
 
 namespace EldwynGrove.Inventories
 {
+    /* --------------------------------------------------------------------------------------------
+     * Role: Displays the icon and quantity of an inventory item in the UI.                        *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Shows the item's icon and quantity in the inventory UI.                              *
+     *      - Updates the display based on the assigned InventoryItem and quantity.                *
+     *      - Hides or shows the quantity text as appropriate.                                     *
+     * ------------------------------------------------------------------------------------------- */
     [RequireComponent(typeof(Image))]
     public class InventoryItemIcon : MonoBehaviour
     {
+        [SerializeField] private GameObject m_textContainer;
         [SerializeField] private TextMeshProUGUI m_quantityText;
 
         private Image m_iconImage;
@@ -33,22 +42,19 @@ namespace EldwynGrove.Inventories
             }
             else
             {
-                // Icon image is null here. It shouldn't be.
                 m_iconImage.enabled = true;
                 m_iconImage.sprite = item.Icon;
             }
 
             if (m_quantityText)
             {
-                GameObject textObject = m_quantityText.gameObject;
-
                 if (quantity <= 1)
                 {
-                    textObject.SetActive(false);
+                    m_textContainer.SetActive(false);
                 }
                 else
                 {
-                    textObject.SetActive(true);
+                    m_textContainer.SetActive(true);
                     m_quantityText.text = quantity.ToString();
                 }
             }

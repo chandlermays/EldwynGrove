@@ -1,8 +1,18 @@
-﻿using EldwynGrove.UI.Dragging;
-using UnityEngine;
+﻿using UnityEngine;
+//---------------------------------
+using EldwynGrove.UI.Dragging;
 
 namespace EldwynGrove.Inventories
 {
+    /* --------------------------------------------------------------------------------------------
+     * Role: Acts as a drop destination for inventory items, handling their removal from the UI    *
+     *       and spawning them into the game world as pickups.                                     *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Receives items dropped from the inventory UI via drag-and-drop.                      *
+     *      - Uses the ItemDropper component to spawn dropped items into the world.                *
+     *      - Determines the maximum number of items that can be dropped.                          *
+     * ------------------------------------------------------------------------------------------- */
     public class InventoryDropTarget : MonoBehaviour, IDragDestination<InventoryItem>
     {
         [SerializeField] private GameObject m_player;

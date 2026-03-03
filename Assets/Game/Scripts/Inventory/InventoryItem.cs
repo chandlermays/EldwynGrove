@@ -5,6 +5,15 @@ using EldwynGrove.Pickups;
 
 namespace EldwynGrove.Inventories
 {
+    /* --------------------------------------------------------------------------------------------
+     * Role: Represents a data asset for an item that can be stored in the player's inventory.     *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Stores item data such as ID, name, description, icon, stackability, and category.    *
+     *      - Provides access to item data for inventory and UI systems.                           *
+     *      - Supports item lookup by ID and item instantiation as pickups in the world.           *
+     *      - Ensures each item has a unique identifier for saving/loading and referencing.        *
+     * ------------------------------------------------------------------------------------------- */
     public abstract class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField] private string m_itemID;
@@ -18,13 +27,13 @@ namespace EldwynGrove.Inventories
 
         private static Dictionary<string, InventoryItem> m_itemRegistry;
 
-        public string ID => m_itemID;                // Get the m_item ID
-        public string Name => m_itemName;              // Get the m_item name
-        public string Description => m_itemDescription;       // Get the m_item description
-        public Sprite Icon => m_itemIcon;              // Get the m_item icon
-        public bool IsStackable => m_isStackable;           // Check if the m_item is stackable
-        public ItemCategory Category => m_category;              // Get the m_item category
-        public int Price => m_itemPrice;             // Get the m_item price
+        public string ID                    => m_itemID;                // Get the m_item ID
+        public string Name                  => m_itemName;              // Get the m_item name
+        public string Description           => m_itemDescription;       // Get the m_item description
+        public Sprite Icon                  => m_itemIcon;              // Get the m_item icon
+        public bool IsStackable             => m_isStackable;           // Check if the m_item is stackable
+        public ItemCategory Category        => m_category;              // Get the m_item category
+        public int Price                    => m_itemPrice;             // Get the m_item price
 
         /*-------------------------------------------------------------------------
         | --- FindByID: Retrieve an InventoryItem by its ID from the registry --- |

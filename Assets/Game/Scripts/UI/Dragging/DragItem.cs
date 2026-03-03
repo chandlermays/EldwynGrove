@@ -4,6 +4,14 @@ using UnityEngine.EventSystems;
 
 namespace EldwynGrove.UI.Dragging
 {
+    /* -----------------------------------------------------------------------------------------------
+     * Role: Provides a reusable, generic drag-and-drop handler for UI elements.                     *
+     *                                                                                               *
+     * Responsibilities:                                                                             *
+     *      - Enables UI elements to be dragged and dropped between containers or slots.             *
+     *      - Handles drag events and manages item transfer or swapping between sources and targets. *
+     *      - Supports both item transfer and item swapping logic for inventory-like systems.        *
+     * --------------------------------------------------------------------------------------------- */
     public class DragItem<T> : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler where T : class
     {
         private Vector3 m_startPosition;

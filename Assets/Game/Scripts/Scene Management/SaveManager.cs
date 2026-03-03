@@ -4,12 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 //---------------------------------
-using EldwynGrove.Saving;
+using EldwynGrove.SceneManagement;
 
-namespace EldwynGrove.SceneManagement
+namespace EldwynGrove.Saving
 {
-    public class SaveLoadController : MonoBehaviour
+    /* --------------------------------------------------------------------------------------------
+     * Role: Coordinates saving and loading of game state, including scene restoration and input.  *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Listens for user input to trigger save and load actions.                             *
+     *      - Interfaces with the SaveSystem to persist or restore game data.                      *
+     *      - Manages scene fade transitions during load operations.                               *
+     *      - Ensures the correct save file is used for all operations.                            *
+     *      - Provides a simple API for other systems to invoke save/load functionality.           *
+     * ------------------------------------------------------------------------------------------- */
+    public class SaveManager : MonoBehaviour
     {
+        public static SaveManager Instance { get; private set; }
+
         private const string kCurrentSaveKey = "CurrentSaveName";
 
         /* --- kCurrentSaveKey Bindings --- */
@@ -23,6 +35,13 @@ namespace EldwynGrove.SceneManagement
         ----------------------------------------------------------------*/
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+
             m_saveSystem = GetComponent<SavingSystem>();
             Utilities.CheckForNull(m_saveSystem, nameof(m_saveSystem));
         }
@@ -37,10 +56,10 @@ namespace EldwynGrove.SceneManagement
             yield return TransitionFade.Instance.FadeIn();
         }
 
-        /*-------------------------------------------------------------------
-        | --- StartNewGame: Start a new game by loading the first scene --- |
-        -------------------------------------------------------------------*/
-        private IEnumerator StartNewGame()
+        /*----------------------------------------------------------
+        | --- LoadFirstScene: Load the first scene of the game --- |
+        ----------------------------------------------------------*/
+        private IEnumerator LoadFirstScene()
         {
             yield return TransitionFade.Instance.FadeOut();
             yield return SceneManager.LoadSceneAsync(m_firstSceneIndex);
@@ -74,7 +93,7 @@ namespace EldwynGrove.SceneManagement
         }
 
         /*--------------------------------------------------------
-        | --- Save: Perform the action of Saving to the File --- |
+        | --- Save: Perform the action of saving to the file --- |
         --------------------------------------------------------*/
         public void Save()
         {
@@ -82,19 +101,27 @@ namespace EldwynGrove.SceneManagement
         }
 
         /*---------------------------------------------------------
-        | --- Load: Perform the action of Loading from a File --- |
+        | --- Load: Perform the action of loading from a file --- |
         ---------------------------------------------------------*/
         public void Load()
         {
             m_saveSystem.Load(GetCurrentSave());
         }
 
-        /*------------------------------------------------------------
-        | --- Delete: Perform the action of Deleting a Save File --- |
-        ------------------------------------------------------------*/
+        /*----------------------------------------------------------------------
+        | --- Delete: Perform the action of deleting the current save file --- |
+        ----------------------------------------------------------------------*/
         public void Delete()
         {
             m_saveSystem.Delete(GetCurrentSave());
+        }
+
+        /*----------------------------------------------------------------------
+        | --- Delete: Perform the action of deleting a specified save file --- |
+        ----------------------------------------------------------------------*/
+        public void Delete(string saveFile)
+        {
+            m_saveSystem.Delete(saveFile);
         }
 
         /*------------------------------------------------------
@@ -105,17 +132,17 @@ namespace EldwynGrove.SceneManagement
             return m_saveSystem.ListSaveFiles();
         }
 
-        /*------------------------------------------------
-        | --- LoadGame: Load a Game from a Save File --- |
-        ------------------------------------------------*/
-        public void LoadGame(string saveFile)
+        /*--------------------------------------------------------
+        | --- ContinueGame: Continue a Game from a save file --- |
+        --------------------------------------------------------*/
+        public void ContinueGame(string saveFile)
         {
             SetCurrentSave(saveFile);
             StartCoroutine(LoadLastScene());
         }
 
         /*----------------------------------------------------
-        | --- NewGame: Start a New Game with a Save File --- |
+        | --- NewGame: Start a New Game with a save file --- |
         ----------------------------------------------------*/
         public void NewGame(string saveFile)
         {
@@ -123,12 +150,12 @@ namespace EldwynGrove.SceneManagement
                 return;
 
             SetCurrentSave(saveFile);
-            StartCoroutine(StartNewGame());
+            StartCoroutine(LoadFirstScene());
             Save();
         }
 
         /*------------------------------------------------
-        | --- LoadMainMenu: Load the Main Menu Scene --- |
+        | --- LoadMainMenu: Load the main menu scene --- |
         ------------------------------------------------*/
         public void LoadMainMenu()
         {

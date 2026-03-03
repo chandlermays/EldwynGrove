@@ -3,6 +3,15 @@ using UnityEngine;
 
 namespace EldwynGrove.Inventories
 {
+    /* ---------------------------------------------------------------------------------------------
+     * Role: Represents a single inventory slot in the UI, displaying item and quantity.           *
+     *                                                                                             *
+     * Responsibilities:                                                                           *
+     *      - Displays the item icon and quantity for its assigned inventory slot.                 *
+     *      - Handles adding and removing items from its slot.                                     *
+     *      - Supports drag-and-drop operations for inventory items.                               *
+     *      - Updates its display when the underlying inventory data changes.                      *
+     * ------------------------------------------------------------------------------------------- */
     public class InventorySlotUI : MonoBehaviour, IItemHolder
     {
         [SerializeField] private InventoryItemIcon m_itemIcon;

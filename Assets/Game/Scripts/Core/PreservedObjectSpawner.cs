@@ -3,6 +3,14 @@ using UnityEngine;
 
 namespace EldwynGrove.Core
 {
+    /* ----------------------------------------------------------------------------------------------
+     * Role: Spawns and preserves a GameObject across scene loads, ensuring it is instantiated once. *
+     *                                                                                               *
+     * Responsibilities:                                                                             *
+     *      - Instantiates a specified GameObject if it has not already been spawned.                *
+     *      - Marks the spawned object to persist between scene loads using DontDestroyOnLoad.       *
+     *      - Prevents duplicate preserved objects by tracking spawn state with a static flag.       *
+     * --------------------------------------------------------------------------------------------- */
     public class PreservedObjectSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject m_preservedObject;

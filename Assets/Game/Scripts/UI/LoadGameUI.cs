@@ -3,9 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 //---------------------------------
 using EldwynGrove.Saving;
-using EldwynGrove.SceneManagement;
 
-namespace EldwynGrove.UI
+namespace EldwynGrove.UI.Core
 {
     public class LoadGameUI : MonoBehaviour
     {
@@ -21,8 +20,28 @@ namespace EldwynGrove.UI
         ---------------------------------------------------------------------*/
         private void OnEnable()
         {
+            if (SaveManager.Instance == null)
+                return;
+
             RefreshSaveList();
-            DisableButtons(false);
+            if (m_playButton != null)
+                m_playButton.interactable = false;
+
+            if (m_deleteButton != null)
+                m_deleteButton.interactable = false;
+        }
+
+        /*-----------------------------------------------------
+        | --- Start: Called before the first frame update --- |
+        -----------------------------------------------------*/
+        private void Start()
+        {
+            RefreshSaveList();
+            if (m_playButton != null)
+                m_playButton.interactable = false;
+
+            if (m_deleteButton != null)
+                m_deleteButton.interactable = false;
         }
 
         /*---------------------------------------------------------------------
@@ -31,7 +50,11 @@ namespace EldwynGrove.UI
         public void SelectSaveFile(string saveFile)
         {
             m_selectedSaveFile = saveFile;
-            DisableButtons(true);
+            if (m_playButton != null)
+                m_playButton.interactable = true;
+
+            if (m_deleteButton != null)
+                m_deleteButton.interactable = true;
         }
 
         /*------------------------------------------------------------------
@@ -42,11 +65,7 @@ namespace EldwynGrove.UI
             if (string.IsNullOrEmpty(m_selectedSaveFile))
                 return;
 
-            SaveLoadController saveLoadController = FindFirstObjectByType<SaveLoadController>();
-            if (saveLoadController == null)
-                return;
-
-            saveLoadController.LoadGame(m_selectedSaveFile);
+            SaveManager.Instance.ContinueGame(m_selectedSaveFile);
         }
 
         /*---------------------------------------------------------------------
@@ -57,19 +76,17 @@ namespace EldwynGrove.UI
             if (string.IsNullOrEmpty(m_selectedSaveFile))
                 return;
 
-            SaveLoadController saveLoadController = FindFirstObjectByType<SaveLoadController>();
-            if (saveLoadController == null)
-                return;
+            SaveManager.Instance.Delete(m_selectedSaveFile);
 
-            SavingSystem saveSystem = saveLoadController.GetComponent<SavingSystem>();
-            if (saveSystem == null)
-                return;
-
-            saveSystem.Delete(m_selectedSaveFile);
-
+            // Clear selection and refresh the list
             m_selectedSaveFile = null;
             RefreshSaveList();
-            DisableButtons(false);
+
+            if (m_playButton != null)
+                m_playButton.interactable = false;
+
+            if (m_deleteButton != null)
+                m_deleteButton.interactable = false;
         }
 
         /*-------------------------------------------------------------------
@@ -77,36 +94,22 @@ namespace EldwynGrove.UI
         -------------------------------------------------------------------*/
         private void RefreshSaveList()
         {
-            SaveLoadController saveLoadController = FindFirstObjectByType<SaveLoadController>();
-            if (saveLoadController == null)
-                return;
-
+            // Clear existing buttons
             foreach (Transform child in m_contentRoot)
             {
                 Destroy(child.gameObject);
-            }    
+            }
 
-            foreach (string saveFile in saveLoadController.ListSaveFiles())
+            // Rebuild from available save files
+            foreach (string saveFile in SaveManager.Instance.ListSaveFiles())
             {
-                GameObject buttonInstances = Instantiate(m_buttonPrefab, m_contentRoot);
-                TMP_Text buttonText = buttonInstances.GetComponentInChildren<TMP_Text>();
+                GameObject buttonInstance = Instantiate(m_buttonPrefab, m_contentRoot);
+                TMP_Text buttonText = buttonInstance.GetComponentInChildren<TMP_Text>();
                 buttonText.text = saveFile;
 
-                Button button = buttonInstances.GetComponent<Button>();
+                Button button = buttonInstance.GetComponent<Button>();
                 button.onClick.AddListener(() => SelectSaveFile(saveFile));
             }
-        }
-
-        /*-------------------------------------------------------------------------
-        | --- DisableButtons: Toggle the interactable property of the buttons --- |
-        -------------------------------------------------------------------------*/
-        private void DisableButtons(bool flag)
-        {
-            if (m_playButton != null)
-                m_playButton.interactable = flag;
-
-            if (m_deleteButton != null)
-                m_deleteButton.interactable = flag;
         }
     }
 }
