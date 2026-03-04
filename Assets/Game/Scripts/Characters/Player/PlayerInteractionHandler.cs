@@ -31,6 +31,7 @@ namespace EldwynGrove.Player
 
             if (ForageManager.Instance.HasForageAt(tappedCoords))
             {
+                Debug.Log($"[PlayerInteractionHandler] Handling forage interaction at world position {worldPos}.");
                 TryMoveToForage(tappedCoords);
                 return;
             }
@@ -43,6 +44,8 @@ namespace EldwynGrove.Player
         ------------------------------------------------------------------------------------------*/
         private void TryMoveTo(Vector3 worldPos)
         {
+            Debug.Log($"[PlayerInteractionHandler] Handling movement interaction to world position {worldPos}.");
+
             bool canMove = m_movementComponent.MoveTo(worldPos, OnReachedDestination);
             m_tileCursor.ShowAtWorldPosition(worldPos, canMove);
         }
@@ -52,6 +55,21 @@ namespace EldwynGrove.Player
         -------------------------------------------------------------------------------*/
         private void TryMoveToForage(Vector2Int forageCoords)
         {
+            // If the player is already on an adjacent tile, harvest in place
+            Vector2Int playerCoords = ForageManager.Instance.GetCoordsFromWorld(transform.position);
+            Vector2Int[] offsets = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
+
+            foreach (Vector2Int offset in offsets)
+            {
+                if (playerCoords == forageCoords + offset)
+                {
+                    m_tileCursor.Hide();
+                    OnReachedForage(forageCoords);
+                    return;
+                }
+            }
+
+            // Otherwise, find the best adjacent tile and move there
             Vector2Int? adjacentCoord = GetBestAdjacentCoord(forageCoords);
 
             if (!adjacentCoord.HasValue)
@@ -63,7 +81,6 @@ namespace EldwynGrove.Player
             Vector3 adjacentWorld = ForageManager.Instance.GetWorldCenter(adjacentCoord.Value);
             Vector3 forageWorld = ForageManager.Instance.GetWorldCenter(forageCoords);
 
-            // Capture forageCoords in the closure — no more field dependency
             bool canMove = m_movementComponent.MoveTo(adjacentWorld, () => OnReachedForage(forageCoords));
             m_tileCursor.ShowAtWorldPosition(forageWorld, canMove);
         }
@@ -74,6 +91,11 @@ namespace EldwynGrove.Player
         private void OnReachedForage(Vector2Int forageCoords)
         {
             m_tileCursor.Hide();
+
+            Vector3 forageWorld = ForageManager.Instance.GetWorldCenter(forageCoords);
+            Vector2 directionToForage = (forageWorld - transform.position).normalized;
+            m_movementComponent.SetDirection(directionToForage);
+
             ForageItem item = ForageManager.Instance.RemoveForage(forageCoords);
 
             if (item == null)
@@ -107,10 +129,15 @@ namespace EldwynGrove.Player
                 Vector2Int candidate = forageCoord + offset;
                 Node node = GridManager.Instance.GetNode(candidate);
 
-                if (node == null || !node.Walkable) continue;
+                if (node == null || !node.Walkable)
+                    continue;
 
                 float dist = Vector3.Distance(transform.position, node.WorldPosition);
-                if (dist < bestDist) { bestDist = dist; best = candidate; }
+                if (dist < bestDist)
+                {
+                    bestDist = dist;
+                    best = candidate;
+                }
             }
 
             return best;

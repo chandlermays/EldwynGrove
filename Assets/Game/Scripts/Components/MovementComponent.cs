@@ -34,10 +34,17 @@ namespace EldwynGrove.Navigation
         public bool MoveTo(Vector3 targetPos, Action onComplete = null)
         {
             List<Vector3> path = Pathfinder.FindPath(Transform.position, targetPos);
-            if (path == null || path.Count == 0)
+            if (path == null)
             {
                 Debug.LogWarning("No path found to target position.");
                 return false;
+            }
+
+            // Already at the destination — path is valid but empty
+            if (path.Count == 0)
+            {
+                onComplete?.Invoke();
+                return true;
             }
 
             if (m_moveCoroutine != null)
@@ -59,6 +66,15 @@ namespace EldwynGrove.Navigation
                 m_moveCoroutine = null;
             }
             SetMoving(false, Vector2.zero);
+        }
+
+        /*-----------------------------------------------------------------------------------------
+        | --- SetDirection: Updates animator parameters to reflect current movement direction --- |
+        -----------------------------------------------------------------------------------------*/
+        public void SetDirection(Vector2 direction)
+        {
+            Animator.SetFloat(s_animMoveX, direction.x);
+            Animator.SetFloat(s_animMoveY, direction.y);
         }
 
         /*-----------------------------------------------------------------------------

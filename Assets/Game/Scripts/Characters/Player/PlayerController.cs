@@ -16,7 +16,6 @@ namespace EldwynGrove.Player
         private Camera m_mainCamera;
         private EGInputActions m_inputActions;
         private PlayerInteractionHandler m_interactionHandler;
-        private bool m_isTouching;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
@@ -55,19 +54,21 @@ namespace EldwynGrove.Player
             m_inputActions.Gameplay.TouchPress.canceled -= OnTouchReleased;
         }
 
-        /*-----------------------------------------
-        | --- Update: Called once every frame --- |
-        -----------------------------------------*/
-        private void Update()
+        /*-----------------------------------------------------------------
+        | --- IsTouchOverUI: Checks if the touch is over a UI element --- |
+        -----------------------------------------------------------------*/
+        private bool IsTouchOverUI(Vector2 screenPos)
         {
-            if (!m_isTouching)
-                return;
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPos };
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+            return results.Count > 0;
+        }
 
+        private void OnTouchStarted(InputAction.CallbackContext context)
+        {
             if (Touch.activeFingers.Count >= 2)
-            {
-                m_isTouching = false;
                 return;
-            }
 
             Vector2 screenPos = m_inputActions.Gameplay.TouchPosition.ReadValue<Vector2>();
 
@@ -80,18 +81,9 @@ namespace EldwynGrove.Player
             m_interactionHandler.HandleInteractAt(worldPos);
         }
 
-        /*-----------------------------------------------------------------
-        | --- IsTouchOverUI: Checks if the touch is over a UI element --- |
-        -----------------------------------------------------------------*/
-        private bool IsTouchOverUI(Vector2 screenPos)
+        private void OnTouchReleased(InputAction.CallbackContext context)
         {
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPos };
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerData, results);
-            return results.Count > 0;
+            //...
         }
-
-        private void OnTouchStarted(InputAction.CallbackContext context) => m_isTouching = true;
-        private void OnTouchReleased(InputAction.CallbackContext context) => m_isTouching = false;
     }
 }

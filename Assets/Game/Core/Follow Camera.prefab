@@ -101,7 +101,7 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_cameraBounds: {fileID: 0}
   m_zoomSensitivity: 0.1
-  m_zoomRange: {x: 2, y: 10}
+  m_zoomRange: {x: 2, y: 8}
 --- !u!81 &8536090390937149663
 AudioListener:
   m_ObjectHideFlags: 0
