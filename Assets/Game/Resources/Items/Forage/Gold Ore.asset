@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222b80a691e2e66489a2a12c44361fca, type: 3}
+  m_Name: Gold Ore
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.ForageItem
+  m_itemID: 4f50ce1f-ebe0-4404-a734-461ab53a73b8
+  m_itemName: Gold Ore
+  m_itemDescription: Raw gold extracted from stone. Used in special crafting.
+  m_itemIcon: {fileID: -7147966283506438970, guid: d4672fa404486ae4a904c0a813bdaa52, type: 3}
+  m_pickup: {fileID: 0}
+  m_isStackable: 1
+  m_category: 6
+  m_itemPrice: 5
+  m_forageYield: 1
+  m_gatherType: 1

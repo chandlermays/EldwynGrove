@@ -18,7 +18,7 @@ MonoBehaviour:
   m_itemIcon: {fileID: 21300000, guid: 34ecb607f59cc5048ac0be9bf6e66289, type: 3}
   m_pickup: {fileID: 0}
   m_isStackable: 1
-  m_category: 4
+  m_category: 6
   m_itemPrice: 1
   m_forageYield: 1
   m_gatherType: 0

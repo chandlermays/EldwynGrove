@@ -31,7 +31,6 @@ namespace EldwynGrove.Player
 
             if (ForageManager.Instance.HasForageAt(tappedCoords))
             {
-                Debug.Log($"[PlayerInteractionHandler] Handling forage interaction at world position {worldPos}.");
                 TryMoveToForage(tappedCoords);
                 return;
             }
@@ -44,8 +43,6 @@ namespace EldwynGrove.Player
         ------------------------------------------------------------------------------------------*/
         private void TryMoveTo(Vector3 worldPos)
         {
-            Debug.Log($"[PlayerInteractionHandler] Handling movement interaction to world position {worldPos}.");
-
             bool canMove = m_movementComponent.MoveTo(worldPos, OnReachedDestination);
             m_tileCursor.ShowAtWorldPosition(worldPos, canMove);
         }

@@ -3664,6 +3664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.UI.MainMenuUI
   m_newGameText: {fileID: 2119165078}
+  m_errorMessage: {fileID: 0}
 --- !u!114 &615811730
 MonoBehaviour:
   m_ObjectHideFlags: 0

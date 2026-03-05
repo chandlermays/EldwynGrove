@@ -28,8 +28,8 @@ namespace EldwynGrove.Core
     {
         public static GridManager Instance { get; private set; }
 
-        [Header("Tilemap")]
-        [SerializeField] private Tilemap m_groundTilemap;
+        [Header("Tilemaps")]
+        [SerializeField] private Tilemap[] m_walkableTilemaps;
 
         [Header("Pathfinding")]
         [SerializeField] private LayerMask m_obstacleLayer;
@@ -59,17 +59,28 @@ namespace EldwynGrove.Core
         private void BuildGrid()
         {
             m_grid.Clear();
-            BoundsInt bounds = m_groundTilemap.cellBounds;
 
-            foreach (Vector3Int cellPos in bounds.allPositionsWithin)
+            foreach (Tilemap tilemap in m_walkableTilemaps)
             {
-                if (!m_groundTilemap.HasTile(cellPos))
-                    continue;
+                if (tilemap == null) continue;
 
-                Vector3 worldPos = m_groundTilemap.GetCellCenterWorld(cellPos);
-                bool walkable = !Physics2D.OverlapCircle(worldPos, m_nodeRadius - 0.05f, m_obstacleLayer);
-                Vector2Int coord = new Vector2Int(cellPos.x, cellPos.y);
-                m_grid[coord] = new Node(coord, worldPos, walkable);
+                BoundsInt bounds = tilemap.cellBounds;
+
+                foreach (Vector3Int cellPos in bounds.allPositionsWithin)
+                {
+                    if (!tilemap.HasTile(cellPos))
+                        continue;
+
+                    Vector2Int coord = new Vector2Int(cellPos.x, cellPos.y);
+
+                    // Skip if already added by a previously processed tilemap
+                    if (m_grid.ContainsKey(coord))
+                        continue;
+
+                    Vector3 worldPos = tilemap.GetCellCenterWorld(cellPos);
+                    bool walkable = !Physics2D.OverlapCircle(worldPos, m_nodeRadius - 0.05f, m_obstacleLayer);
+                    m_grid[coord] = new Node(coord, worldPos, walkable);
+                }
             }
         }
 
@@ -86,8 +97,16 @@ namespace EldwynGrove.Core
         --------------------------------------------------------------------------------*/
         public Node GetNodeFromWorld(Vector3 worldPos)
         {
-            Vector3Int cellPos = m_groundTilemap.WorldToCell(worldPos);
-            return GetNode(new Vector2Int(cellPos.x, cellPos.y));
+            foreach (Tilemap tilemap in m_walkableTilemaps)
+            {
+                if (tilemap == null) continue;
+
+                Vector3Int cellPos = tilemap.WorldToCell(worldPos);
+                Node node = GetNode(new Vector2Int(cellPos.x, cellPos.y));
+
+                if (node != null) return node;
+            }
+            return null;
         }
 
         /*-----------------------------------------------------------------------------

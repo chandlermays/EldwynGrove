@@ -19,6 +19,7 @@ namespace EldwynGrove.Navigation
         private Coroutine m_moveCoroutine;
 
         public bool IsMoving { get; private set; }
+        public Vector2 LastDirection => m_lastDirection;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |

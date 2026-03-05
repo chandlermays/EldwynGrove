@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 //---------------------------------
 using EldwynGrove.Player;
 using EldwynGrove.Saving;
+using EldwynGrove.Navigation;
 
 namespace EldwynGrove.SceneManagement
 {
@@ -38,8 +39,9 @@ namespace EldwynGrove.SceneManagement
 
         private static readonly List<Portal> s_portals = new();
 
-        private GameObject m_player;
+        private Transform m_player;
         private const string kPlayerTag = "Player";
+        private Vector2 m_playerDirection;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
@@ -69,11 +71,17 @@ namespace EldwynGrove.SceneManagement
         /*------------------------------------------------------------------------------
         | --- OnTriggerEnter: Called when the Collider 'other' enters this trigger --- |
         ------------------------------------------------------------------------------*/
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(kPlayerTag))
             {
-                m_player = other.gameObject;
+                m_player = other.transform;
+
+                if (m_player.TryGetComponent<MovementComponent>(out var movementComponent))
+                {
+                    m_playerDirection = movementComponent.LastDirection;
+                }
+
                 StartCoroutine(SceneTransition());
             }
         }
@@ -141,17 +149,19 @@ namespace EldwynGrove.SceneManagement
         private void UpdatePlayer(Portal destination)
         {
             // Retrieve the player object again in the new scene
-            m_player = GameObject.FindWithTag(kPlayerTag);
+            m_player = GameObject.FindWithTag(kPlayerTag).transform;
             if (m_player == null)
             {
                 Debug.LogError("Player object not found in the new scene!");
                 return;
             }
+            m_player.position = destination.m_spawnPoint.position;
 
-            NavMeshAgent agent = m_player.GetComponent<NavMeshAgent>();
-            agent.enabled = false;
-            m_player.transform.SetPositionAndRotation(destination.m_spawnPoint.position, destination.m_spawnPoint.rotation);
-            agent.enabled = true;
+            if (m_player.TryGetComponent<MovementComponent>(out var movementComponent))
+            {
+                movementComponent.SetDirection(m_playerDirection);
+             //   movementComponent.Stop();
+            }
         }
     }
 }

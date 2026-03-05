@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222b80a691e2e66489a2a12c44361fca, type: 3}
+  m_Name: Azure Ore
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.ForageItem
+  m_itemID: b0ca38ce-feac-458f-87d2-4f569eeb213c
+  m_itemName: Azure Ore
+  m_itemDescription: A blue-tinged metal ore. Used in unique crafting.
+  m_itemIcon: {fileID: 5212920791488634165, guid: d4672fa404486ae4a904c0a813bdaa52, type: 3}
+  m_pickup: {fileID: 0}
+  m_isStackable: 1
+  m_category: 6
+  m_itemPrice: 8
+  m_forageYield: 1
+  m_gatherType: 1
