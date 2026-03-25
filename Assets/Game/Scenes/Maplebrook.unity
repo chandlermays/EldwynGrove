@@ -19086,7 +19086,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 21
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -19346,7 +19346,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -19376,7 +19376,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -19853,14 +19853,14 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: abdea61cf6b36fe459179847ec373472, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 1531191726, guid: 706d326edbb2fcb4c82c66ad5f13ad71, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 14
     m_Data: {fileID: 1907931336, guid: b8bca47e503841f4d8b6ae8d4078dc69, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -1920175454, guid: b8bca47e503841f4d8b6ae8d4078dc69, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1112899990, guid: 706d326edbb2fcb4c82c66ad5f13ad71, type: 3}
+    m_Data: {fileID: 1531191726, guid: 706d326edbb2fcb4c82c66ad5f13ad71, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1215432378256698914, guid: b8bca47e503841f4d8b6ae8d4078dc69, type: 3}
   - m_RefCount: 1
@@ -19878,7 +19878,7 @@ Tilemap:
   - m_RefCount: 15
     m_Data: {fileID: -1913301841, guid: 2420c9ec309c01e4a910744da33b8449, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -87458572, guid: 2420c9ec309c01e4a910744da33b8449, type: 3}
+    m_Data: {fileID: 1112899990, guid: 706d326edbb2fcb4c82c66ad5f13ad71, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2094256295, guid: 2420c9ec309c01e4a910744da33b8449, type: 3}
   - m_RefCount: 1
@@ -19895,8 +19895,8 @@ Tilemap:
     m_Data: {fileID: -67667727, guid: 2420c9ec309c01e4a910744da33b8449, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2000284644, guid: 2420c9ec309c01e4a910744da33b8449, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -87458572, guid: 2420c9ec309c01e4a910744da33b8449, type: 3}
   - m_RefCount: 22
     m_Data: {fileID: -1535674828, guid: b8bca47e503841f4d8b6ae8d4078dc69, type: 3}
   - m_RefCount: 4
@@ -20879,7 +20879,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1678371727}
   - component: {fileID: 1678371729}
-  - component: {fileID: 1678371728}
   m_Layer: 0
   m_Name: Mine Portal
   m_TagString: Untagged
@@ -20903,23 +20902,6 @@ Transform:
   - {fileID: 2024622319}
   m_Father: {fileID: 1912821987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1678371728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678371726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8714740ce0e121c4a9911055af770d3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.SceneManagement.Portal
-  m_sceneField:
-    m_sceneAsset: {fileID: 0}
-    m_sceneName: 
-  m_spawnPoint: {fileID: 0}
-  m_portalID: 0
 --- !u!61 &1678371729
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21048,7 +21030,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1984210039
   m_SortingLayer: 3
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 7, y: 5.5, z: 0}
   m_MaxChunkCount: 16
