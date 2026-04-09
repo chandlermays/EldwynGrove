@@ -1,6 +1,10 @@
+/*-------------------------
+File: EntityComponent.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 
-namespace EldwynGrove
+namespace EldwynGrove.Components
 {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Rigidbody2D))]

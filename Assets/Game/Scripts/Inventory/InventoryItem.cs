@@ -1,3 +1,7 @@
+/*-------------------------
+File: InventoryItem.cs
+Author: Chandler Mays
+-------------------------*/
 using System.Collections.Generic;
 using UnityEngine;
 //---------------------------------
@@ -5,15 +9,6 @@ using EldwynGrove.Pickups;
 
 namespace EldwynGrove.Inventories
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Represents a data asset for an item that can be stored in the player's inventory.     *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Stores item data such as ID, name, description, icon, stackability, and category.    *
-     *      - Provides access to item data for inventory and UI systems.                           *
-     *      - Supports item lookup by ID and item instantiation as pickups in the world.           *
-     *      - Ensures each item has a unique identifier for saving/loading and referencing.        *
-     * ------------------------------------------------------------------------------------------- */
     public abstract class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField] private string m_itemID;

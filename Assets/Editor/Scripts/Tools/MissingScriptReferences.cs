@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*-------------------------
+File: MissingScriptReferences.cs
+Author: Chandler Mays
+-------------------------*/
+using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 //---------------------------------

@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*-------------------------
+File: ActionManager.cs
+Author: Chandler Mays
+-------------------------*/
+using UnityEngine;
 //---------------------------------
 
 namespace EldwynGrove.Core

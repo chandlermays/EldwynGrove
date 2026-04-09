@@ -1,16 +1,12 @@
-﻿using UnityEngine;
+﻿/*-------------------------
+File: SceneField.cs
+Author: Chandler Mays
+-------------------------*/
+using UnityEngine;
 //---------------------------------
 
 namespace EldwynGrove.SceneManagement
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Serializable reference to a Unity scene, usable in the editor and at runtime.         *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Stores a reference to a scene asset and its name for use in scripts and inspectors.  *
-     *      - Provides access to the scene name for loading or comparison purposes.                *
-     *      - Supports implicit conversion to string for compatibility with Unity scene APIs.      *
-     * ------------------------------------------------------------------------------------------- */
     [System.Serializable]
     public class SceneField
     {

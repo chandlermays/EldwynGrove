@@ -1,3 +1,7 @@
+/*-------------------------
+File: ItemDropper.cs
+Author: Chandler Mays
+-------------------------*/
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -8,15 +12,6 @@ using EldwynGrove.Saving;
 
 namespace EldwynGrove.Inventories
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Handles dropping items from the inventory into the game world as pickups.             *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Spawns Pickup objects at the appropriate world location when items are dropped.      *
-     *      - Tracks all dropped items in the current scene.                                       *
-     *      - Supports saving and restoring the state of dropped items across scenes.              *
-     *      - Cleans up references to destroyed or collected pickups.                              *
-     * ------------------------------------------------------------------------------------------- */
     public class ItemDropper : MonoBehaviour, ISaveable
     {
         [System.Serializable]

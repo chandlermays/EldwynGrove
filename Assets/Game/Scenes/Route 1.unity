@@ -42718,6 +42718,10 @@ PrefabInstance:
       propertyPath: m_cameraBounds
       value: 
       objectReference: {fileID: 1912821988}
+    - target: {fileID: 8228034782021416982, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_uniqueIdentifier
+      value: bb59768f-507d-48e6-837d-65bf4bac1414
+      objectReference: {fileID: 0}
     - target: {fileID: 8972161769036437495, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_Name
       value: Core

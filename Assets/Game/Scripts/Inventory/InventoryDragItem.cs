@@ -1,3 +1,7 @@
+/*-------------------------
+File: InventoryDragItem.cs
+Author: Chandler Mays
+-------------------------*/
 using EldwynGrove.UI.Dragging;
 //---------------------------------
 

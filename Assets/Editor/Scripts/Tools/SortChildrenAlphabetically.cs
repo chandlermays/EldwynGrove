@@ -1,3 +1,7 @@
+/*-------------------------
+File: SortChildrenAlphabetically.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
@@ -5,16 +9,6 @@ using System.Collections.Generic;
 
 namespace EldwynGrove.Edit
 {
-    /* ---------------------------------------------------------------------------------------------------
-     * Role: Provides a Unity Editor window to sort all children of selected GameObjects alphabetically. *
-     *                                                                                                   *
-     * Responsibilities:                                                                                 *
-     *      - Displays a custom editor window with a button to trigger sorting.                          *
-     *      - Sorts each child Transform of all selected GameObjects in natural order.                   *
-     *      - Uses a natural string comparison to handle numeric suffixes correctly.                     *
-     *      - Reassigns sibling indices to reflect the new order in the hierarchy.                       *
-     *      - Integrates with the Unity Editor via the Tools menu.                                       *
-     * ------------------------------------------------------------------------------------------------- */
     public class SortChildrenAlphabetically : EditorWindow
     {
         /*-------------------------------------------------------------------------------

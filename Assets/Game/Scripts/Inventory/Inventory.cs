@@ -1,3 +1,7 @@
+/*-------------------------
+File: Inventory.cs
+Author: Chandler Mays
+-------------------------*/
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
@@ -8,16 +12,6 @@ using EldwynGrove.Tools;
 
 namespace EldwynGrove.Inventories
 {
-    /* ---------------------------------------------------------------------------------------------
-     * Role: Manages the player's collection of items in the game.                                 *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Stores and organizes items and their quantities.                                     *
-     *      - Handles adding, removing, and querying items.                                        *
-     *      - Manages inventory slot availability and stackable items.                             *
-     *      - Provides save/load functionality for inventory slots.                                *
-     *      - Notifies listeners when the inventory changes.                                       *
-     * ------------------------------------------------------------------------------------------- */
     public class Inventory : MonoBehaviour, ISaveable, IConditionChecker
     {
         private struct InventorySlot
@@ -26,7 +20,7 @@ namespace EldwynGrove.Inventories
             public int m_quantity;
         }
 
-        [SerializeField] private int m_inventorySize = 24;
+        [SerializeField] private int m_inventorySize = 20;
         private InventorySlot[] m_inventorySlots;
 
         private readonly Dictionary<InventoryItem, List<int>> m_itemSlotMapping = new();
@@ -35,6 +29,10 @@ namespace EldwynGrove.Inventories
         public int Size => m_inventorySlots.Length;
 
         public event Action OnInventoryChanged;
+        public event Action<InventoryItem, int> OnItemAdded;
+        public Func<InventoryItem, int, bool> OnBeforeAddItem;
+
+        public bool SuppressItemAddedNotif { get; set; } = false;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
@@ -98,6 +96,16 @@ namespace EldwynGrove.Inventories
         ------------------------------------------------------------------------*/
         public bool TryAddToAvailableSlot(InventoryItem item, int quantity = 1)
         {
+            if (item.IsStackable && OnBeforeAddItem != null && OnBeforeAddItem(item, quantity))
+            {
+                if (!SuppressItemAddedNotif)
+                {
+                    OnItemAdded?.Invoke(item, quantity);
+                }
+
+                return true;
+            }
+
             int slotIndex = FindSlotForItem(item);
             if (slotIndex < 0)
                 return false;
@@ -304,6 +312,10 @@ namespace EldwynGrove.Inventories
                 AddItemToMapping(item, slot);
             }
 
+            if (!SuppressItemAddedNotif)
+            {
+                OnItemAdded?.Invoke(item, quantity);
+            }
             OnInventoryChanged?.Invoke();
         }
 

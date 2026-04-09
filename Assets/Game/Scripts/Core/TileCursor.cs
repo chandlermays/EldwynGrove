@@ -1,3 +1,7 @@
+/*-------------------------
+File: TileCursor.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 
 namespace EldwynGrove.Player

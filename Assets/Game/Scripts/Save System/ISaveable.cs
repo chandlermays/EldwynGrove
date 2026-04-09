@@ -1,4 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿/*-------------------------
+File: ISaveable.cs
+Author: Chandler Mays
+-------------------------*/
+using Newtonsoft.Json.Linq;
 //---------------------------------
 
 namespace EldwynGrove.Saving

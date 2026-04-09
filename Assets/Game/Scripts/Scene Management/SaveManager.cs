@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*-------------------------
+File: SaveManager.cs
+Author: Chandler Mays
+-------------------------*/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,21 +12,12 @@ using EldwynGrove.SceneManagement;
 
 namespace EldwynGrove.Saving
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Coordinates saving and loading of game state, including scene restoration and input.  *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Listens for user input to trigger save and load actions.                             *
-     *      - Interfaces with the SaveSystem to persist or restore game data.                      *
-     *      - Manages scene fade transitions during load operations.                               *
-     *      - Ensures the correct save file is used for all operations.                            *
-     *      - Provides a simple API for other systems to invoke save/load functionality.           *
-     * ------------------------------------------------------------------------------------------- */
     public class SaveManager : MonoBehaviour
     {
         public static SaveManager Instance { get; private set; }
 
         private const string kCurrentSaveKey = "CurrentSaveName";
+        private const string kAutoSaveSuffix = "_autosave";
 
         /* --- kCurrentSaveKey Bindings --- */
         [SerializeField] private SceneField m_firstSceneIndex;
@@ -63,6 +58,8 @@ namespace EldwynGrove.Saving
         {
             yield return TransitionFade.Instance.FadeOut();
             yield return SceneManager.LoadSceneAsync(m_firstSceneIndex);
+            yield return null; // Wait one frame for Awake/OnEnable/Start to complete
+            Save();
             yield return TransitionFade.Instance.FadeIn();
         }
 
@@ -98,6 +95,14 @@ namespace EldwynGrove.Saving
         public void Save()
         {
             m_saveSystem.Save(GetCurrentSave());
+        }
+
+        /*--------------------------------------------------------------------------
+        | --- AutoSave: Save to a separate slot without touching the main save --- |
+        --------------------------------------------------------------------------*/
+        public void AutoSave()
+        {
+            m_saveSystem.Save(GetCurrentSave() + kAutoSaveSuffix);
         }
 
         /*---------------------------------------------------------
@@ -151,7 +156,6 @@ namespace EldwynGrove.Saving
 
             SetCurrentSave(saveFile);
             StartCoroutine(LoadFirstScene());
-            Save();
         }
 
         /*------------------------------------------------

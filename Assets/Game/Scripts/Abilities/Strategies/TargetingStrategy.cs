@@ -1,0 +1,15 @@
+/*-------------------------
+File: TargetingStrategy.cs
+Author: Chandler Mays
+-------------------------*/
+using System;
+using UnityEngine;
+//---------------------------------
+
+namespace EldwynGrove.Abilities
+{
+    public abstract class TargetingStrategy : ScriptableObject
+    {
+        public abstract void StartTargeting(AbilityConfig config, Action onComplete);
+    }
+}

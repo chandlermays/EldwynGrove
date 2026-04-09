@@ -1,4 +1,8 @@
-﻿namespace EldwynGrove.Core
+﻿/*-------------------------
+File: IAction.cs
+Author: Chandler Mays
+-------------------------*/
+namespace EldwynGrove.Core
 {
     public interface IAction
     {

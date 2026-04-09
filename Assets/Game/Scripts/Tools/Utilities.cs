@@ -1,16 +1,12 @@
+/*-------------------------
+File: Utilities.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 //---------------------------------
 
 namespace EldwynGrove
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Provides general-purpose utility methods for use throughout the project.              *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Offers static helper functions to simplify common programming tasks.                 *
-     *      - Includes methods for error checking and debugging support.                           *
-     *      - Promotes code reuse and consistency across scripts.                                  *
-     * ------------------------------------------------------------------------------------------- */
     public static class Utilities
     {
         /*----------------------------------------------------------------

@@ -1,4 +1,8 @@
-﻿namespace EldwynGrove.Tools
+﻿/*-------------------------
+File: IConditionChecker.cs
+Author: Chandler Mays
+-------------------------*/
+namespace EldwynGrove.Tools
 {
     public enum PredicateType
     {

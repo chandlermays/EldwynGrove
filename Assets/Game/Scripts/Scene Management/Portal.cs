@@ -1,26 +1,18 @@
+/*-------------------------
+File: Portal.cs
+Author: Chandler Mays
+-------------------------*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 //---------------------------------
+using EldwynGrove.Components;
 using EldwynGrove.Player;
 using EldwynGrove.Saving;
-using EldwynGrove.Navigation;
 
 namespace EldwynGrove.SceneManagement
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Handles scene transitions via in-game portals, managing player transfer and spawn.    *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Detects when the player enters a portal trigger.                                     *
-     *      - Initiates scene transitions and manages fade effects during travel.                  *
-     *      - Coordinates saving and loading game state before and after scene changes.            *
-     *      - Finds the corresponding destination portal and updates the player's position.        *
-     *      - Ensures player control and navigation are properly managed during transitions.       *
-     * ------------------------------------------------------------------------------------------- */
-
     public enum PortalID
     {
         A,
@@ -79,7 +71,7 @@ namespace EldwynGrove.SceneManagement
 
                 if (m_player.TryGetComponent<MovementComponent>(out var movementComponent))
                 {
-                    m_playerDirection = movementComponent.LastDirection;
+     //               m_playerDirection = movementComponent.LastDirection;
                 }
 
                 StartCoroutine(SceneTransition());
@@ -159,7 +151,7 @@ namespace EldwynGrove.SceneManagement
 
             if (m_player.TryGetComponent<MovementComponent>(out var movementComponent))
             {
-                movementComponent.SetDirection(m_playerDirection);
+             //   movementComponent.SetDirection(m_playerDirection);
              //   movementComponent.Stop();
             }
         }

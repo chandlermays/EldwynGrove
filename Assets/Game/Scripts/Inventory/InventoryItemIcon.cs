@@ -1,3 +1,7 @@
+/*-------------------------
+File: InventoryItemIcon.cs
+Author: Chandler Mays
+-------------------------*/
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,14 +9,6 @@ using UnityEngine.UI;
 
 namespace EldwynGrove.Inventories
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Displays the icon and quantity of an inventory item in the UI.                        *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Shows the item's icon and quantity in the inventory UI.                              *
-     *      - Updates the display based on the assigned InventoryItem and quantity.                *
-     *      - Hides or shows the quantity text as appropriate.                                     *
-     * ------------------------------------------------------------------------------------------- */
     [RequireComponent(typeof(Image))]
     public class InventoryItemIcon : MonoBehaviour
     {

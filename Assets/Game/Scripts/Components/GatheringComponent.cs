@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿/*-------------------------
+File: GatheringComponent.cs
+Author: Chandler Mays
+-------------------------*/
+using UnityEngine;
 //---------------------------------
 using EldwynGrove.Inventories;
 
-namespace EldwynGrove
+namespace EldwynGrove.Components
 {
     public class GatheringComponent : EntityComponent
     {

@@ -1,10 +1,14 @@
+/*-------------------------
+File: PauseMenuUI.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 using UnityEngine.UI;
 //---------------------------------
 using EldwynGrove.Player;
 using EldwynGrove.Saving;
 
-namespace PolyQuest.UI.Core
+namespace EldwynGrove.UI.Core
 {
     public class PauseMenuUI : MonoBehaviour
     {

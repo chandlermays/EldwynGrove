@@ -1,18 +1,13 @@
+/*-------------------------
+File: RenameChildren.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 using UnityEditor;
 //---------------------------------
 
 namespace EldwynGrove.Edit
 {
-    /* ----------------------------------------------------------------------------------------------
-     * Role: Provides a Unity Editor window to batch-rename all children of selected GameObjects.   *
-     *                                                                                              *
-     * Responsibilities:                                                                            *
-     *      - Displays a custom editor window for entering a base name.                             *
-     *      - Renames each child of all selected GameObjects in the hierarchy.                      *
-     *      - Appends a unique index to each child’s name for clarity and organization.             *
-     *      - Integrates with the Unity Editor via the Tools menu.                                  *
-     * -------------------------------------------------------------------------------------------- */
     public class RenameChildren : EditorWindow
     {
         private string m_baseName = "GameObject";

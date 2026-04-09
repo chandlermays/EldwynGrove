@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/*-------------------------
+File: SaveableEntity.cs
+Author: Chandler Mays
+-------------------------*/
+using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 #if UNITY_EDITOR
 using UnityEditor;

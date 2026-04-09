@@ -1,3 +1,7 @@
+/*-------------------------
+File: SpriteRenamer.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 using UnityEditor;
 using System.Linq;

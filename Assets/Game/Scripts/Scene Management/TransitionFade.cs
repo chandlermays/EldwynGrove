@@ -1,19 +1,13 @@
-﻿using System.Collections;
+﻿/*-------------------------
+File: TransitionFade.cs
+Author: Chandler Mays
+-------------------------*/
+using System.Collections;
 using UnityEngine;
 //---------------------------------
 
 namespace EldwynGrove.SceneManagement
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Manages screen fade transitions for scene changes and UI effects.                     *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Controls fading in and out using a CanvasGroup for smooth scene transitions.         *
-     *      - Provides coroutine-based fade routines for asynchronous operations.                  *
-     *      - Allows resetting the fade state and waiting between transitions.                     *
-     *      - Ensures only one fade operation runs at a time.                                      *
-     *      - Singleton access via TransitionFade.Instance.                                        *
-     * ------------------------------------------------------------------------------------------- */
     public class TransitionFade : MonoBehaviour
     {
         public static TransitionFade Instance { get; private set; }

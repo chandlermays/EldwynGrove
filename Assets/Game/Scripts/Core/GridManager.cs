@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/*-------------------------
+File: GridManager.cs
+Author: Chandler Mays
+-------------------------*/
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 //---------------------------------

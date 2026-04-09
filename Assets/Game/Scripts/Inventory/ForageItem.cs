@@ -1,3 +1,7 @@
+/*-------------------------
+File: ForageItem.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 //---------------------------------
 
@@ -10,7 +14,7 @@ namespace EldwynGrove.Inventories
         kReap
     }
 
-    [CreateAssetMenu(fileName = "New Forage Item", menuName = "Eldwyn Grove/Inventory/Forage Item")]
+    [CreateAssetMenu(menuName = "Eldwyn Grove/Inventory/Forage Item", fileName = "New Forage Item")]
     public class ForageItem : InventoryItem
     {
         [Tooltip("How many of this item is added to the inventory on gather.")]

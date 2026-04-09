@@ -1,20 +1,13 @@
-﻿using System.Collections.Generic;
+﻿/*-------------------------
+File: Condition.cs
+Author: Chandler Mays
+-------------------------*/
+using System.Collections.Generic;
 using UnityEngine;
 //---------------------------------
 
 namespace EldwynGrove.Tools
 {
-    /* ---------------------------------------------------------------------------------------------
-     * Role: Represents a flexible, serializable logic structure for evaluating complex conditions  *
-     *       against collections of objects in the game.                                            *
-     *                                                                                              *
-     * Responsibilities:                                                                            *
-     *      - Stores and organizes predicates using AND/OR logic for condition evaluation.          *
-     *      - Evaluates conditions by querying IConditionChecker objects with specified predicates. *
-     *      - Supports negation and parameterization of individual predicates.                      *
-     *      - Enables designers to define reusable, data-driven conditions for quests, dialogue,    *
-     *        inventory checks, and other systems.                                                  *
-     * -------------------------------------------------------------------------------------------- */
     [System.Serializable]
     public class Condition
     {

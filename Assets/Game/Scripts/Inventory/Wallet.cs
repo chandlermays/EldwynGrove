@@ -1,3 +1,7 @@
+/*-------------------------
+File: Wallet.cs
+Author: Chandler Mays
+-------------------------*/
 using System;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -14,10 +18,10 @@ namespace EldwynGrove.Inventories
 
         public int CurrentGold => m_currentGold;
 
-        /*--------------------------------------------------------------------------------
-        | --- UpdateSiver: Updates the current silver amount by the specified amount --- |
-        --------------------------------------------------------------------------------*/
-        public void UpdateSiver(int amount)
+        /*-----------------------------------------------------------------------------
+        | --- UpdateGold: Updates the current gold amount by the specified amount --- |
+        -----------------------------------------------------------------------------*/
+        public void UpdateGold(int amount)
         {
             m_currentGold += amount;
             OnWalletUpdated?.Invoke();
