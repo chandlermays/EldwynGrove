@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //---------------------------------
 
-namespace EldwynGrove.Core
+namespace EldwynGrove.Navigation
 {
     public static class Pathfinder
     {
@@ -86,7 +86,9 @@ namespace EldwynGrove.Core
             foreach (Node node in nodes)
             {
                 if (node.FCost < lowest.FCost || (node.FCost == lowest.FCost && node.HCost < lowest.HCost))
+                {
                     lowest = node;
+                }
             }
 
             return lowest;

@@ -8,7 +8,7 @@ using EldwynGrove.Quests;
 
 namespace EldwynGrove.Inventories
 {
-    [CreateAssetMenu(fileName = "New Quest Item", menuName = "EldwynGrove/Items/Quest Item", order = 0)]
+    [CreateAssetMenu(fileName = "New Quest Item", menuName = "Eldwyn Grove/Items/Quest Item")]
     public class QuestItem : InventoryItem
     {
         [SerializeField] private Quest m_quest;

@@ -12,7 +12,6 @@ namespace EldwynGrove.Dialogues
 {
     public class DialogueNode : ScriptableObject
     {
-        [SerializeField] private bool m_isPlayerSpeaking = false;
         [SerializeField] private string m_text;
         [SerializeField] private List<string> m_children = new();
         [SerializeField] private Rect m_rect = new(0, 0, 200, 100);
@@ -20,7 +19,6 @@ namespace EldwynGrove.Dialogues
         [SerializeField] private string m_onExitAction;
         [SerializeField] private Condition m_condition;
 
-        public bool IsPlayerSpeaking => m_isPlayerSpeaking;
         public string Text => m_text;
         public List<string> Children => m_children;
         public Rect Rect => m_rect;
@@ -85,20 +83,6 @@ namespace EldwynGrove.Dialogues
                 // Record the change for undo functionality
                 Undo.RecordObject(this, "Remove Child from Dialogue Node");
                 m_children.Remove(childID);
-                EditorUtility.SetDirty(this);
-            }
-        }
-
-        /*----------------------------------------------------------
-        | --- SetPlayerSpeaking: Sets the player speaking flag --- |
-        ----------------------------------------------------------*/
-        public void SetPlayerSpeaking(bool flag)
-        {
-            if (flag != m_isPlayerSpeaking)
-            {
-                // Record the change for undo functionality
-                Undo.RecordObject(this, "Change Dialogue Speaker");
-                m_isPlayerSpeaking = flag;
                 EditorUtility.SetDirty(this);
             }
         }

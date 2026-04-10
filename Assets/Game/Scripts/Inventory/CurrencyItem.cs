@@ -7,7 +7,7 @@ using EldwynGrove.Inventories;
 
 namespace EldwynGrove.Pickups
 {
-    [CreateAssetMenu(menuName = "PolyQuest/Items/Currency Item", fileName = "New Currency Item")]
+    [CreateAssetMenu(fileName = "New Currency Item", menuName = "Eldwyn Grove/Items/Currency Item")]
     public class CurrencyItem : InventoryItem
     {
         //...

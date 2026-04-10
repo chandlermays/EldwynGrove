@@ -9,8 +9,6 @@ namespace EldwynGrove.Attributes
         kHealth,
         kDamage,
         kDefense,
-        kMana,
-        kManaRegenRate,
         kExperienceReward,
         kExperienceToLevelUp,
         kTotalAttributePoints,
@@ -22,7 +20,6 @@ namespace EldwynGrove.Attributes
         kStrength,          // Increase melee damage
         kDexterity,         // Increase ranged damage
         kVitality,          // Increase maximum health
-        kMagic              // Increase magic damage and maximum mana
         //...
     }
 }

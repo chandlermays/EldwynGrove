@@ -13,7 +13,7 @@ using EldwynGrove.Tools;
 
 namespace EldwynGrove.Dialogues
 {
-    [CreateAssetMenu(fileName = "New Dialogue", menuName = "EldwynGrove/Dialogue", order = 0)]
+    [CreateAssetMenu(fileName = "New Dialogue", menuName = "Eldwyn Grove/Dialogue")]
     public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField] private List<DialogueNode> m_nodes = new();
@@ -164,7 +164,6 @@ namespace EldwynGrove.Dialogues
             if (parent != null)
             {
                 parent.AddChild(newNode.name);
-                newNode.SetPlayerSpeaking(!parent.IsPlayerSpeaking);
                 newNode.SetPosition(parent.Rect.position + m_newNodeOffset);
             }
 

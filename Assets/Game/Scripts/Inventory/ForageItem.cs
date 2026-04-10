@@ -14,7 +14,7 @@ namespace EldwynGrove.Inventories
         kReap
     }
 
-    [CreateAssetMenu(menuName = "Eldwyn Grove/Inventory/Forage Item", fileName = "New Forage Item")]
+    [CreateAssetMenu(fileName = "New Forage Item", menuName = "Eldwyn Grove/Inventory/Forage Item")]
     public class ForageItem : InventoryItem
     {
         [Tooltip("How many of this item is added to the inventory on gather.")]

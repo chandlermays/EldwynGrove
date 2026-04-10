@@ -9,7 +9,7 @@ using EldwynGrove.Inventories;
 
 namespace EldwynGrove.Quests
 {
-    [CreateAssetMenu(fileName = "New Quest", menuName = "EldwynGrove/Quests/Quest", order = 0)]
+    [CreateAssetMenu(fileName = "New Quest", menuName = "Eldwyn Grove/Quests/Quest")]
     public class Quest : ScriptableObject
     {
         [SerializeField] private List<QuestObjective> m_objectives = new();

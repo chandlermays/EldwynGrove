@@ -10,7 +10,7 @@ namespace EldwynGrove.Inventories
 {
     // Try implementing my custom RNG
 
-    [CreateAssetMenu(menuName = "EldwynGrove/Inventory/EnemyLootTable", fileName = "New Enemy Loot Table", order = 0)]
+    [CreateAssetMenu(fileName = "New Enemy Loot Table", menuName = "Eldwyn Grove/Inventory/EnemyLootTable")]
     public class EnemyLootTable : ScriptableObject
     {
         [SerializeField] LootItemConfig[] m_guaranteedDrops;
@@ -64,7 +64,7 @@ namespace EldwynGrove.Inventories
         public IEnumerable<Dropped> GetRandomDrops(int level, Equipment equipment)
         {
             // Equipped weapon always drops
-            InventoryItem weapon = equipment.GetItemInSlot(EquipmentSlot.kWeapon);
+            InventoryItem weapon = equipment.GetItemInSlot(EquipmentSlot.kSword);
             if (weapon != null)
             {
                 yield return new Dropped

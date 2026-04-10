@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 //---------------------------------
 
-namespace EldwynGrove.Core
+namespace EldwynGrove.Navigation
 {
     public class Node
     {
@@ -66,7 +66,8 @@ namespace EldwynGrove.Core
 
             foreach (Tilemap tilemap in m_walkableTilemaps)
             {
-                if (tilemap == null) continue;
+                if (tilemap == null)
+                    continue;
 
                 BoundsInt bounds = tilemap.cellBounds;
 
@@ -103,12 +104,14 @@ namespace EldwynGrove.Core
         {
             foreach (Tilemap tilemap in m_walkableTilemaps)
             {
-                if (tilemap == null) continue;
+                if (tilemap == null)
+                    continue;
 
                 Vector3Int cellPos = tilemap.WorldToCell(worldPos);
                 Node node = GetNode(new Vector2Int(cellPos.x, cellPos.y));
 
-                if (node != null) return node;
+                if (node != null)
+                    return node;
             }
             return null;
         }
@@ -126,7 +129,9 @@ namespace EldwynGrove.Core
                 Node neighbor = GetNode(node.GridCoord + direction);
 
                 if (neighbor != null)
+                {
                     neighbors.Add(neighbor);
+                }
             }
             return neighbors;
         }

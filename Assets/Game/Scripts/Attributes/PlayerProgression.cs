@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EldwynGrove.Attributes
 {
-    [CreateAssetMenu(fileName = "PlayerProgression", menuName = "EldwynGrove/Progression/Player", order = 0)]
+    [CreateAssetMenu(fileName = "PlayerProgression", menuName = "Eldwyn Grove/Progression/Player")]
     public class PlayerProgression : BaseProgression
     {
         [SerializeField] private int m_initialExperience;

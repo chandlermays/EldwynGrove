@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74fb52353a0bb3e47af089a361f5fc43, type: 3}
+  m_Name: Player Progression
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Attributes.PlayerProgression
+  m_healthIncreasePercentage: 15
+  m_initialHealth: 100
+  m_maxHealthAmounts: 64000000730000008400000098000000af000000
+  m_damageIncreasePercentage: 5
+  m_initialDamage: 2
+  m_damageAmounts: 0200000002000000020000000200000002000000
+  m_defenseIncreasePercentage: 3
+  m_initialDefense: 100
+  m_defenseAmounts: 64000000670000006a0000006d00000070000000
+  m_manaIncreasePercentage: 15
+  m_initialMana: 100
+  m_manaAmounts: 00000000
+  m_manaRegenIncreasePercentage: 5
+  m_initialManaRegenRate: 1
+  m_manaRegenRates: 00000000
+  m_initialExperience: 200
+  m_experienceIncreasePercentage: 15
+  m_maxExperienceAmounts: c8000000ae010000b6020000e603000044050000
+  m_initialAttributePoints: 4
+  m_attributePointIncreasePercentage: 0
+  m_maxAttributePoints: 04000000080000000c0000001000000014000000

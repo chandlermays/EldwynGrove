@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EldwynGrove.Quests
 {
-    [CreateAssetMenu(fileName = "New Quest Objective", menuName = "EldwynGrove/Quests/Quest Objective", order = 0)]
+    [CreateAssetMenu(fileName = "New Quest Objective", menuName = "Eldwyn Grove/Quests/Quest Objective")]
     public class QuestObjective : ScriptableObject
     {
         [SerializeField, TextArea] private string m_description;    // do I really want this property?

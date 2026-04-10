@@ -10,7 +10,7 @@ using EldwynGrove.Inventories;
 
 namespace EldwynGrove.Combat
 {
-    [CreateAssetMenu(menuName = "EldwynGrove/Items/Weapon", fileName = "New Weapon", order = 0)]
+    [CreateAssetMenu(fileName = "New Weapon", menuName = "Eldwyn Grove/Items/Weapon")]
     public class Weapon : EquipableItem, IStatModifier
     {
         [Header("Weapon Settings")]

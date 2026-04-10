@@ -15,14 +15,12 @@ namespace EldwynGrove.Inventories
 {
     public enum EquipmentSlot
     {
-        kHelmet,
-        kAmulet,
-        kChest,
-        kGloves,
-        kLegs,
-        kBoots,
-        kWeapon,
-        kShield,
+        kSword,
+        kBow,
+        kPickaxe,
+        kAxe,
+        kHoe,
+        kWateringCan,
         kNone
     }
 

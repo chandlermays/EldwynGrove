@@ -42714,20 +42714,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1169179966975012094, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_Name
+      value: Action Slots UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953308726428097613, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -450
+      objectReference: {fileID: 0}
     - target: {fileID: 3021043410563826240, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_cameraBounds
       value: 
       objectReference: {fileID: 1912821988}
-    - target: {fileID: 8228034782021416982, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
-      propertyPath: m_uniqueIdentifier
-      value: bb59768f-507d-48e6-837d-65bf4bac1414
+    - target: {fileID: 7962825085848432890, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_Name
+      value: Inventory Slots
       objectReference: {fileID: 0}
     - target: {fileID: 8972161769036437495, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1169179966975012094, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}

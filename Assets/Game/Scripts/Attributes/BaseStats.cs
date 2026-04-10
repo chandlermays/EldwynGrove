@@ -25,8 +25,6 @@ namespace EldwynGrove.Attributes
         public float GetHealth() => GetStat(Stat.kHealth);
         public float GetDamage() => GetStat(Stat.kDamage);
         public float GetDefense() => GetStat(Stat.kDefense);
-        public float GetMana() => GetStat(Stat.kMana);
-        public float GetManaRegenRate() => GetStat(Stat.kManaRegenRate);
         public float GetExperienceReward() => GetStat(Stat.kExperienceReward);
         public float GetExperienceToLevelUp() => GetStat(Stat.kExperienceToLevelUp);
         public float GetTotalAttributePoints() => GetStat(Stat.kTotalAttributePoints);
@@ -72,12 +70,6 @@ namespace EldwynGrove.Attributes
 
                 case Stat.kDefense:
                     return m_baseProgression.GetDefense(m_level);
-
-                case Stat.kMana:
-                    return m_baseProgression.GetMana(m_level);
-
-                case Stat.kManaRegenRate:
-                    return m_baseProgression.GetManaRegenRate(m_level);
 
                 case Stat.kExperienceReward:
                     if (m_baseProgression is AIProgression aiProgression)

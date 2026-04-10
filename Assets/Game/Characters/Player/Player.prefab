@@ -15,12 +15,22 @@ GameObject:
   - component: {fileID: 6493606032003554068}
   - component: {fileID: 3045820448439727576}
   - component: {fileID: 3801307716057582945}
-  - component: {fileID: 6675417350290823133}
   - component: {fileID: 5106730316895447102}
+  - component: {fileID: 6675417350290823133}
+  - component: {fileID: 5912882109763196432}
   - component: {fileID: 7632579896539603213}
+  - component: {fileID: 6416672802150498620}
+  - component: {fileID: 6578158603870917782}
+  - component: {fileID: 3179185713411625101}
+  - component: {fileID: 8171059992323523606}
+  - component: {fileID: 6072940694589220893}
   - component: {fileID: 5814178405032263595}
+  - component: {fileID: 944255482916497251}
   - component: {fileID: 4861066484911308928}
   - component: {fileID: 3017376059137249749}
+  - component: {fileID: 1985674959965451184}
+  - component: {fileID: 6740741116830924548}
+  - component: {fileID: 5991454010435636929}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ae1c9cca7f9c24f91027ca6d520896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.PlayerController
+  m_tileCursor: {fileID: 0}
 --- !u!114 &3801307716057582945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +237,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affa045946d898c4e81f24045b92c70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Navigation.MovementComponent
+  m_moveSpeed: 5
+--- !u!114 &5106730316895447102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5805fefba8cf7c34385eda6aef4a8ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.GatheringComponent
 --- !u!114 &6675417350290823133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
   m_health: 0
---- !u!114 &5106730316895447102
+--- !u!114 &5912882109763196432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,9 +272,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1178384796501424991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5805fefba8cf7c34385eda6aef4a8ca9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f2ebfc2ea411af45915c8a9c9031a29, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.GatheringComponent
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Components.FactionComponent
+  m_faction: 0
 --- !u!114 &7632579896539603213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +290,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Saving.SaveableEntity
   m_uniqueIdentifier: Player
   m_lockIdentifier: 1
+--- !u!114 &6416672802150498620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0eecd8aaed660438e7c3e7aa820981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Attributes.Attributes
+  m_attributeModifiers:
+  - m_attribute: 0
+    m_stat: 1
+    m_additiveBonus: 0
+    m_percentageBonus: 5
+  - m_attribute: 1
+    m_stat: 1
+    m_additiveBonus: 0
+    m_percentageBonus: 5
+  - m_attribute: 2
+    m_stat: 0
+    m_additiveBonus: 0
+    m_percentageBonus: 5
+  - m_attribute: 3
+    m_stat: 3
+    m_additiveBonus: 0
+    m_percentageBonus: 5
+  - m_attribute: 3
+    m_stat: 4
+    m_additiveBonus: 0
+    m_percentageBonus: 5
+--- !u!114 &6578158603870917782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a97bbb5845c4243bf8aa47cbb9364b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Attributes.BaseStats
+  m_baseProgression: {fileID: 11400000, guid: 1253ba7d16c95c4488ce8850792bdd4f, type: 2}
+  m_useStatModifiers: 1
+  m_level: 1
+--- !u!114 &3179185713411625101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed1d5f6aae5cb0419d09adc1592af22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Attributes.Experience
+  m_experiencePoints: 0
+--- !u!114 &8171059992323523606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f8b32ad5bb9e24aaa43f16240c94ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.Actions
+--- !u!114 &6072940694589220893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd4bd45a5e118341bea8dada45cae87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Abilities.Cooldowns
 --- !u!114 &5814178405032263595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +388,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.Inventory
   m_inventorySize: 20
+--- !u!114 &944255482916497251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4d3c84d336fc945bbf3d6288e8b8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.StatsEquipment
 --- !u!114 &4861066484911308928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +424,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ff78ffa7bb535468acdb3eb1536675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.ItemDropper
+--- !u!114 &1985674959965451184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91da3a749bf8a2c479bbc0d2443f701a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.PlayerDialogueHandler
+--- !u!114 &6740741116830924548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea5122adfe51c04c92e19d40b84764c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Shops.ShopInteractor
+--- !u!114 &5991454010435636929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd998c659abb5df419ce604dada3aa17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.QuestManager
 --- !u!1 &1330497092285536394
 GameObject:
   m_ObjectHideFlags: 0

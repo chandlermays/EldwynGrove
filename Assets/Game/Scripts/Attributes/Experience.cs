@@ -13,7 +13,6 @@ namespace EldwynGrove.Attributes
     public class Experience : MonoBehaviour, ISaveable
     {
         [SerializeField] private float m_experiencePoints = 0;
-        [SerializeField] private ParticleSystem m_levelUpVFX;
 
         private BaseStats m_stats;
         private PlayerProgression m_playerProgression;
@@ -59,8 +58,6 @@ namespace EldwynGrove.Attributes
         ----------------------------------------------------------------*/
         private void Awake()
         {
-            Utilities.CheckForNull(m_levelUpVFX, nameof(m_levelUpVFX));
-
             m_stats = GetComponent<BaseStats>();
             Utilities.CheckForNull(m_stats, nameof(m_stats));
 
@@ -128,7 +125,6 @@ namespace EldwynGrove.Attributes
         {
             m_stats.LevelUp();
             OnLevelUp?.Invoke();
-            m_levelUpVFX.Play();
             SaveManager.Instance.Save();        // Auto-save after leveling up
         }
     }

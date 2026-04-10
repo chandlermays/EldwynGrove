@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EldwynGrove.Inventories
 {
-    [CreateAssetMenu(fileName = "New Action Item", menuName = "EldwynGrove/Items/Action Item", order = 0)]
+    [CreateAssetMenu(fileName = "New Action Item", menuName = "Eldwyn Grove/Items/Action Item")]
     public class ActionItem : InventoryItem
     {
         // NOTE: Not sure if I even need this subclass since consumables are treated like abilities.

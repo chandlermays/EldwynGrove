@@ -8,7 +8,7 @@ using EldwynGrove.Inventories;
 
 namespace EldwynGrove.Shops
 {
-    [CreateAssetMenu(fileName = "ShopConfig", menuName = "EldwynGrove/Shops/New Shop Config")]
+    [CreateAssetMenu(fileName = "ShopConfig", menuName = "Eldwyn Grove/Shops/New Shop Config")]
     public class ShopConfig : ScriptableObject
     {
         [Range(0.0f, 100.0f)]

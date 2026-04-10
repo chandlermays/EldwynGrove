@@ -5,16 +5,14 @@ Author: Chandler Mays
 using UnityEngine;
 //---------------------------------
 using EldwynGrove.Inventories;
-using EldwynGrove.Components;
 using EldwynGrove.Core;
 
 namespace EldwynGrove.Abilities
 {
-    [CreateAssetMenu(fileName = "New Ability", menuName = "EldwynGrove/Abilities/New Ability", order = 0)]
+    [CreateAssetMenu(fileName = "New Ability", menuName = "Eldwyn Grove/Abilities/New Ability")]
     public class Ability : ActionItem
     {
         [Header("Ability Config")]
-        [SerializeField] private float m_manaCost = 10f;
         [SerializeField] private float m_cooldownTime = 5f;
         [SerializeField] private TargetingStrategy m_targetingStrategy;
         [SerializeField] private EffectStrategy[] m_effects;
@@ -25,12 +23,6 @@ namespace EldwynGrove.Abilities
         --------------------------------------------------------------*/
         public override bool Use(GameObject user)
         {
-            ManaComponent mana = user.GetComponent<ManaComponent>();
-            Utilities.CheckForNull(mana, nameof(mana));
-
-            if (mana.CurrentMana < m_manaCost)
-                return false;
-
             Cooldowns cooldowns = user.GetComponent<Cooldowns>();
             Utilities.CheckForNull(cooldowns, nameof(cooldowns));
 
@@ -54,10 +46,6 @@ namespace EldwynGrove.Abilities
         private void TargetAcquired(AbilityConfig config)
         {
             if (config.IsCancelled)
-                return;
-
-            ManaComponent mana = config.User.GetComponent<ManaComponent>();
-            if (!mana.UseMana(m_manaCost))
                 return;
 
             Cooldowns cooldowns = config.User.GetComponent<Cooldowns>();

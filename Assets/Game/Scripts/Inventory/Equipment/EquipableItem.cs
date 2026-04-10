@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace EldwynGrove.Inventories
 {
-    [CreateAssetMenu(menuName = "EldwynGrove/Items/Equipable Item", fileName = "New Equipable Item", order = 0)]
+    [CreateAssetMenu(fileName = "New Equipable Item", menuName = "Eldwyn Grove/Items/Equipable Item")]
     public class EquipableItem : InventoryItem
     {
         [Tooltip("The equipment slot this m_item can be equipped to.")]

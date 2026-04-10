@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EldwynGrove.Attributes
 {
-    [CreateAssetMenu(fileName = "New AI Progression", menuName = "EldwynGrove/Progression/New AI Progression", order = 1)]
+    [CreateAssetMenu(fileName = "New AI Progression", menuName = "Eldwyn Grove/Progression/New AI Progression")]
     public class AIProgression : BaseProgression
     {
         [SerializeField] private float m_experienceRewardIncreasePercentage;

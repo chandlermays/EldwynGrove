@@ -26,16 +26,6 @@ namespace EldwynGrove.Edit
         protected SerializedProperty m_defenseIncreasePercentage;
         protected SerializedProperty m_defenseAmounts;
 
-        // Mana Properties
-        protected SerializedProperty m_initialMana;
-        protected SerializedProperty m_manaIncreasePercentage;
-        protected SerializedProperty m_manaAmounts;
-
-        // Mana Regen Rate Properties
-        protected SerializedProperty m_initialManaRegenRate;
-        protected SerializedProperty m_manaRegenIncreasePercentage;
-        protected SerializedProperty m_manaRegenRates;
-
         // Property names for stat fields
         protected const string kInitialHealth = "m_initialHealth";
         protected const string kHealthIncreasePercentage = "m_healthIncreasePercentage";
@@ -48,14 +38,6 @@ namespace EldwynGrove.Edit
         protected const string kInitialDefense = "m_initialDefense";
         protected const string kDefenseIncreasePercentage = "m_defenseIncreasePercentage";
         protected const string kDefenseAmounts = "m_defenseAmounts";
-
-        protected const string kInitialMana = "m_initialMana";
-        protected const string kManaIncreasePercentage = "m_manaIncreasePercentage";
-        protected const string kManaAmounts = "m_manaAmounts";
-
-        protected const string kInitialManaRegenRate = "m_initialManaRegenRate";
-        protected const string kManaRegenIncreasePercentage = "m_manaRegenIncreasePercentage";
-        protected const string kManaRegenRates = "m_manaRegenRates";
 
         // Labels for stat fields
         protected const string kProgression = "Progression";
@@ -73,16 +55,6 @@ namespace EldwynGrove.Edit
         protected const string kDefenseIncreasePercentageLabel = "Defense Increase %";
         protected const string kRecalculateDefenseButton = "Recalculate Defense Amounts";
         protected const string kDefenseAmountsLabel = "Defense Amounts";
-
-        protected const string kInitialManaLabel = "Initial Mana";
-        protected const string kManaIncreasePercentageLabel = "Mana Increase %";
-        protected const string kRecalculateManaButton = "Recalculate Mana Amounts";
-        protected const string kManaAmountsLabel = "Mana Amounts";
-
-        protected const string kInitialManaRegenRateLabel = "Initial Mana Regen Rate";
-        protected const string kManaRegenIncreasePercentageLabel = "Mana Regen Increase %";
-        protected const string kRecalculateManaRegenButton = "Recalculate Mana Regen Rates";
-        protected const string kManaRegenRatesLabel = "Mana Regen Rates";
 
         protected const string kAddLevelButton = "Add Level";
         protected const string kRemoveLevelButton = "Remove Last Level";
@@ -106,16 +78,6 @@ namespace EldwynGrove.Edit
             m_initialDefense = serializedObject.FindProperty(kInitialDefense);
             m_defenseIncreasePercentage = serializedObject.FindProperty(kDefenseIncreasePercentage);
             m_defenseAmounts = serializedObject.FindProperty(kDefenseAmounts);
-
-            // Mana
-            m_initialMana = serializedObject.FindProperty(kInitialMana);
-            m_manaIncreasePercentage = serializedObject.FindProperty(kManaIncreasePercentage);
-            m_manaAmounts = serializedObject.FindProperty(kManaAmounts);
-
-            // Mana Regen Rate
-            m_initialManaRegenRate = serializedObject.FindProperty(kInitialManaRegenRate);
-            m_manaRegenIncreasePercentage = serializedObject.FindProperty(kManaRegenIncreasePercentage);
-            m_manaRegenRates = serializedObject.FindProperty(kManaRegenRates);
         }
 
         /*---------------------------------------------------------------------
@@ -159,20 +121,6 @@ namespace EldwynGrove.Edit
 
             EditorGUILayout.Space();
 
-            // Mana Fields
-            DisplayPropertyField(m_initialMana, kInitialManaLabel);
-            DisplayPropertyField(m_manaIncreasePercentage, kManaIncreasePercentageLabel);
-            DisplayRecalculateButton(kRecalculateManaButton,
-                () => ((BaseProgression)target).RecalculateMaxManaAmounts());
-
-            EditorGUILayout.Space();
-
-            // Mana Regen Rate Fields
-            DisplayPropertyField(m_initialManaRegenRate, kInitialManaRegenRateLabel);
-            DisplayPropertyField(m_manaRegenIncreasePercentage, kManaRegenIncreasePercentageLabel);
-            DisplayRecalculateButton(kRecalculateManaRegenButton,
-                () => ((BaseProgression)target).RecalculateManaRegenRates());
-
             // Subclass-specific Property Fields
             DisplaySubclassFields();
 
@@ -182,8 +130,6 @@ namespace EldwynGrove.Edit
             DisplayArrayProperty(m_maxHealthAmounts, kMaxHealthAmountsLabel);
             DisplayArrayProperty(m_damageAmounts, kDamageAmountsLabel);
             DisplayArrayProperty(m_defenseAmounts, kDefenseAmountsLabel);
-            DisplayArrayProperty(m_manaAmounts, kManaAmountsLabel);
-            DisplayArrayProperty(m_manaRegenRates, kManaRegenRatesLabel);
 
             // Subclass-specific Array Properties
             DisplaySubclassArrays();
@@ -266,8 +212,6 @@ namespace EldwynGrove.Edit
             m_maxHealthAmounts.InsertArrayElementAtIndex(newIndex);
             m_damageAmounts.InsertArrayElementAtIndex(newIndex);
             m_defenseAmounts.InsertArrayElementAtIndex(newIndex);
-            m_manaAmounts.InsertArrayElementAtIndex(newIndex);
-            m_manaRegenRates.InsertArrayElementAtIndex(newIndex);
 
             // Calculate Health
             if (newIndex == 0)
@@ -305,30 +249,6 @@ namespace EldwynGrove.Edit
                 m_defenseAmounts.GetArrayElementAtIndex(newIndex).intValue = Mathf.RoundToInt(previousDefense * increaseFactor);
             }
 
-            // Calculate Mana
-            if (newIndex == 0)
-            {
-                m_manaAmounts.GetArrayElementAtIndex(newIndex).intValue = m_initialMana.intValue;
-            }
-            else
-            {
-                int previousMana = m_manaAmounts.GetArrayElementAtIndex(newIndex - 1).intValue;
-                float increaseFactor = 1 + m_manaIncreasePercentage.floatValue / 100f;
-                m_manaAmounts.GetArrayElementAtIndex(newIndex).intValue = Mathf.RoundToInt(previousMana * increaseFactor);
-            }
-
-            // Calculate Mana Regen Rates
-            if (newIndex == 0)
-            {
-                m_manaRegenRates.GetArrayElementAtIndex(newIndex).intValue = m_initialManaRegenRate.intValue;
-            }
-            else
-            {
-                int previousManaRegen = m_manaRegenRates.GetArrayElementAtIndex(newIndex - 1).intValue;
-                float increaseFactor = 1 + m_manaRegenIncreasePercentage.floatValue / 100f;
-                m_manaRegenRates.GetArrayElementAtIndex(newIndex).intValue = Mathf.RoundToInt(previousManaRegen * increaseFactor);
-            }
-
             // Add to subclass arrays
             AddLevelToSubclassArrays(newIndex);
 
@@ -345,8 +265,6 @@ namespace EldwynGrove.Edit
                 m_maxHealthAmounts.DeleteArrayElementAtIndex(m_maxHealthAmounts.arraySize - 1);
                 m_damageAmounts.DeleteArrayElementAtIndex(m_damageAmounts.arraySize - 1);
                 m_defenseAmounts.DeleteArrayElementAtIndex(m_defenseAmounts.arraySize - 1);
-                m_manaAmounts.DeleteArrayElementAtIndex(m_manaAmounts.arraySize - 1);
-                m_manaRegenRates.DeleteArrayElementAtIndex(m_manaRegenRates.arraySize - 1);
 
                 // Remove from subclass arrays
                 RemoveLevelFromSubclassArrays();
@@ -360,10 +278,7 @@ namespace EldwynGrove.Edit
         {
             int expectedSize = m_maxHealthAmounts.arraySize;
 
-            return m_damageAmounts.arraySize == expectedSize &&
-                   m_defenseAmounts.arraySize == expectedSize &&
-                   m_manaAmounts.arraySize == expectedSize &&
-                   m_manaRegenRates.arraySize == expectedSize;
+            return m_damageAmounts.arraySize == expectedSize && m_defenseAmounts.arraySize == expectedSize;
         }
 
         // Abstract methods for subclasses to implement

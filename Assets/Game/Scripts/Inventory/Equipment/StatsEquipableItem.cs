@@ -9,7 +9,7 @@ using EldwynGrove.Attributes;
 
 namespace EldwynGrove.Inventories
 {
-    [CreateAssetMenu(menuName = "EldwynGrove/Items/Stats Equipable Item", fileName = "New Stats Equipable Item")]
+    [CreateAssetMenu(fileName = "New Stats Equipable Item", menuName = "Eldwyn Grove/Items/Stats Equipable Item")]
     public class StatsEquipableItem : EquipableItem, IStatModifier
     {
         [System.Serializable]

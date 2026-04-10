@@ -20,7 +20,6 @@ namespace EldwynGrove.Edit
      *      - Supports dragging nodes and panning the canvas for intuitive navigation.              *
      *      - Draws connections between parent and child nodes using Bezier curves.                 *
      *      - Integrates with Unity’s selection and asset systems for seamless workflow.            *
-     *      - Applies custom styles for NPC and player nodes for visual clarity.                    *
      * -------------------------------------------------------------------------------------------- */
     public class DialogueEditorWindow : EditorWindow
     {
@@ -29,7 +28,6 @@ namespace EldwynGrove.Edit
         [NonSerialized] private DialogueNode m_deletedNode;
         [NonSerialized] private DialogueNode m_linkedParentNode;
         [NonSerialized] private GUIStyle m_NPCNodeStyle;
-        [NonSerialized] private GUIStyle m_playerNodeStyle;
         [NonSerialized] private Vector2 m_draggingOffset;
         [NonSerialized] private Vector2 m_draggingCanvasOffset;
         [NonSerialized] private bool m_draggingCanvas;
@@ -76,13 +74,6 @@ namespace EldwynGrove.Edit
             m_NPCNodeStyle.normal.textColor = Color.white;
             m_NPCNodeStyle.padding = new RectOffset(20, 20, 20, 20);
             m_NPCNodeStyle.border = new RectOffset(12, 12, 12, 12);
-
-            /* --- Player Node Style --- */
-            m_playerNodeStyle = new GUIStyle();
-            m_playerNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
-            m_playerNodeStyle.normal.textColor = Color.white;
-            m_playerNodeStyle.padding = new RectOffset(20, 20, 20, 20);
-            m_playerNodeStyle.border = new RectOffset(12, 12, 12, 12);
         }
 
         /*---------------------------------------------------------------------------
@@ -217,12 +208,8 @@ namespace EldwynGrove.Edit
         ------------------------------------------------------------------------*/
         private void DrawDialogueNode(DialogueNode node)
         {
-            // Determine the style for the node based on whether it's a player speaking node or not
+            // Set the GUI style for the node
             GUIStyle nodeStyle = m_NPCNodeStyle;
-            if (node.IsPlayerSpeaking)
-            {
-                nodeStyle = m_playerNodeStyle;
-            }
 
             // Begin a new area for the GUI layout
             GUILayout.BeginArea(node.Rect, nodeStyle);
