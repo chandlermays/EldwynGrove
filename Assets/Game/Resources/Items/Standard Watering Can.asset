@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c085bde8c6d864ebbe8f56cb0614f0, type: 3}
+  m_Name: Standard Watering Can
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.ToolItem
+  m_itemID: 2ee10d49-cd52-49ff-8b75-d9cb09549411
+  m_itemName: Standard Watering Can
+  m_itemDescription: 
+  m_itemIcon: {fileID: 4136355292219290567, guid: 62587271398989744b7d405422a5cad0, type: 3}
+  m_pickup: {fileID: 0}
+  m_isStackable: 0
+  m_category: 0
+  m_itemPrice: 0
+  m_targetEquipmentSlot: 5
+  m_equipCondition:
+    m_AND: []
+  m_maxDurability: 30

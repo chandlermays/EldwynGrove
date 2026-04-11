@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2356510790892095568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: f2d9c9d0-87f1-4b53-b321-b203129a3a1a
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Howdy there, traveler!
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 50
+    y: 51
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e3f841bc03eb145aaf764c92318b23, type: 3}
+  m_Name: First Steps
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.Dialogue
+  m_nodes:
+  - {fileID: -2356510790892095568}
+  m_newNodeOffset: {x: 300, y: 0}

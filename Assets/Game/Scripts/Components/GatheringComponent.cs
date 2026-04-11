@@ -10,6 +10,7 @@ namespace EldwynGrove.Components
 {
     public class GatheringComponent : EntityComponent
     {
+        private Equipment m_equipment;
         private Inventory m_inventory;
 
         private static readonly int s_animChop = Animator.StringToHash("Chop");
@@ -25,6 +26,9 @@ namespace EldwynGrove.Components
 
             m_inventory = GetComponent<Inventory>();
             Utilities.CheckForNull(m_inventory, nameof(m_inventory));
+
+            m_equipment = GetComponent<Equipment>();
+            Utilities.CheckForNull(m_equipment, nameof(m_equipment));
         }
 
         /*-------------------------------------------------------------------------------------------------------
@@ -36,6 +40,17 @@ namespace EldwynGrove.Components
             {
                 Debug.LogWarning("[GatheringComponent] Attempted to gather with a null item.");
                 return;
+            }
+
+            EquipmentSlot requiredSlot = GetRequiredSlot(item.GatherType);
+            if (requiredSlot != EquipmentSlot.kNone)
+            {
+                EquipableItem equipped = m_equipment.GetItemInSlot(requiredSlot);
+                if (equipped == null || equipped is not ToolItem)
+                {
+                    Debug.LogWarning($"[GatheringComponent] Missing required tool for {item.GatherType}.");
+                    return;
+                }
             }
 
             int trigger = item.GatherType switch
@@ -54,5 +69,13 @@ namespace EldwynGrove.Components
                 Debug.LogWarning("[GatheringComponent] No available inventory slot to add the gathered item.");
             }
         }
+
+        private static EquipmentSlot GetRequiredSlot(GatherType gatherType) => gatherType switch
+        {
+            GatherType.kChop => EquipmentSlot.kAxe,
+            GatherType.kMine => EquipmentSlot.kPickaxe,
+            GatherType.kReap => EquipmentSlot.kHoe,
+            _ => EquipmentSlot.kNone
+        };
     }
 }

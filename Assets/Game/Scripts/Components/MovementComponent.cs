@@ -31,6 +31,8 @@ namespace EldwynGrove.Components
         protected override void Awake()
         {
             base.Awake();
+
+            SetDirection(Vector2.right);
         }
 
         /*--------------------------------------------------------------
@@ -55,7 +57,9 @@ namespace EldwynGrove.Components
             if (m_moveCoroutine != null)
             {
                 StopCoroutine(m_moveCoroutine);
+                m_moveCoroutine = null;
             }
+
             m_moveCoroutine = StartCoroutine(MoveAlongPath(path, onComplete));
             return true;
         }
@@ -70,7 +74,8 @@ namespace EldwynGrove.Components
                 StopCoroutine(m_moveCoroutine);
                 m_moveCoroutine = null;
             }
-            SetMoving(false, Vector2.zero);
+
+            SetMoving(false, m_lastDirection);
         }
 
         /*-----------------------------------------------------------------------------------------
@@ -78,8 +83,13 @@ namespace EldwynGrove.Components
         -----------------------------------------------------------------------------------------*/
         public void SetDirection(Vector2 direction)
         {
-            Animator.SetFloat(s_animMoveX, direction.x);
-            Animator.SetFloat(s_animMoveY, direction.y);
+            if (direction.sqrMagnitude > 0f)
+            {
+                m_lastDirection = GetCardinalDirection(direction);
+            }
+
+            Animator.SetFloat(s_animMoveX, m_lastDirection.x);
+            Animator.SetFloat(s_animMoveY, m_lastDirection.y);
         }
 
         /*-----------------------------------------------------------------------------
@@ -87,14 +97,13 @@ namespace EldwynGrove.Components
         -----------------------------------------------------------------------------*/
         private IEnumerator MoveAlongPath(List<Vector3> path, Action onComplete)
         {
-            SetMoving(true, Vector2.zero);
+            SetMoving(true, m_lastDirection);
 
             foreach (Vector3 waypoint in path)
             {
-                Vector3 target = new Vector3(waypoint.x, waypoint.y, Transform.position.z);
-                Vector2 direction = (target - Transform.position).normalized;
+                Vector3 target = new(waypoint.x, waypoint.y, Transform.position.z);
+                Vector2 direction = GetCardinalDirection(target - Transform.position);
 
-                m_lastDirection = direction;
                 SetMoving(true, direction);
 
                 while (Vector3.Distance(Transform.position, target) > 0.01f)
@@ -117,10 +126,28 @@ namespace EldwynGrove.Components
         -------------------------------------------------------------------*/
         private void SetMoving(bool isMoving, Vector2 direction)
         {
+            if (direction.sqrMagnitude > 0f)
+            {
+                m_lastDirection = GetCardinalDirection(direction);
+            }
+
             IsMoving = isMoving;
             Animator.SetBool(s_animIsMoving, isMoving);
-            Animator.SetFloat(s_animMoveX, direction.x);
-            Animator.SetFloat(s_animMoveY, direction.y);
+            Animator.SetFloat(s_animMoveX, m_lastDirection.x);
+            Animator.SetFloat(s_animMoveY, m_lastDirection.y);
+        }
+
+        /*----------------------------------------------------------------------------------
+        | --- GetCardinalDirection: Snaps a direction to one of the four cardinal axes --- |
+        ----------------------------------------------------------------------------------*/
+        private Vector2 GetCardinalDirection(Vector2 direction)
+        {
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                return direction.x >= 0f ? Vector2.right : Vector2.left;
+            }
+
+            return direction.y >= 0f ? Vector2.up : Vector2.down;
         }
     }
 }

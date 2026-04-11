@@ -651,6 +651,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
+--- !u!114 &1646399552892567160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 944255482916497251, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
+  m_PrefabInstance: {fileID: 2000588826899519771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4d3c84d336fc945bbf3d6288e8b8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.StatsEquipment
 --- !u!114 &5436856868343899824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5814178405032263595, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
@@ -679,6 +690,22 @@ PrefabInstance:
       propertyPath: m_inventory
       value: 
       objectReference: {fileID: 5436856868343899824}
+    - target: {fileID: 180484790094809968, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerEquipment
+      value: 
+      objectReference: {fileID: 1646399552892567160}
+    - target: {fileID: 180484790094809968, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerInventory
+      value: 
+      objectReference: {fileID: 5436856868343899824}
+    - target: {fileID: 309507479610535820, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerEquipment
+      value: 
+      objectReference: {fileID: 1646399552892567160}
+    - target: {fileID: 309507479610535820, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerInventory
+      value: 
+      objectReference: {fileID: 5436856868343899824}
     - target: {fileID: 3845280731998881001, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -703,6 +730,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5534099064147513934, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerEquipment
+      value: 
+      objectReference: {fileID: 1646399552892567160}
+    - target: {fileID: 5534099064147513934, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerInventory
+      value: 
+      objectReference: {fileID: 5436856868343899824}
     - target: {fileID: 5558541092125784282, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -783,10 +818,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5771536462049873267, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerEquipment
+      value: 
+      objectReference: {fileID: 1646399552892567160}
+    - target: {fileID: 5771536462049873267, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerInventory
+      value: 
+      objectReference: {fileID: 5436856868343899824}
     - target: {fileID: 7788839879049681346, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
       propertyPath: m_Name
       value: Inventory Tab
       objectReference: {fileID: 0}
+    - target: {fileID: 8264070317936426388, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerEquipment
+      value: 
+      objectReference: {fileID: 1646399552892567160}
+    - target: {fileID: 8264070317936426388, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerInventory
+      value: 
+      objectReference: {fileID: 5436856868343899824}
+    - target: {fileID: 8406259775297920141, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerEquipment
+      value: 
+      objectReference: {fileID: 1646399552892567160}
+    - target: {fileID: 8406259775297920141, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}
+      propertyPath: m_playerInventory
+      value: 
+      objectReference: {fileID: 5436856868343899824}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4736547208942645034, guid: 38ec6e99b4a3e774892a9e633ce8a104, type: 3}

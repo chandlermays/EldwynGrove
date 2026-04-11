@@ -5,7 +5,6 @@ Author: Chandler Mays
 using UnityEngine;
 //---------------------------------
 using EldwynGrove.Core;
-using EldwynGrove.Input;
 using EldwynGrove.Player;
 
 namespace EldwynGrove.Dialogues
@@ -17,17 +16,12 @@ namespace EldwynGrove.Dialogues
 
         public string SpeakerName => m_speakerName;
 
-        private Outline m_outline;
-
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
         ----------------------------------------------------------------*/
         private void Awake()
         {
             Utilities.CheckForNull(m_dialogue, nameof(m_dialogue));
-
-            m_outline = GetComponent<Outline>();
-            Utilities.CheckForNull(m_outline, nameof(m_outline));
         }
 
         /*----------------------------------------------------------------------------
@@ -41,14 +35,6 @@ namespace EldwynGrove.Dialogues
    //         }
 
             return true;
-        }
-
-        /*-------------------------------------------------------------------------------------
-        | --- ToggleHighlight: Enables or Disables the Outline Component for Highlighting --- |
-        -------------------------------------------------------------------------------------*/
-        public void ToggleHighlight(bool highlight)
-        {
-            m_outline.enabled = highlight;
         }
     }
 }

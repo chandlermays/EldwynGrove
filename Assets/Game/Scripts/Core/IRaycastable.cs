@@ -10,6 +10,5 @@ namespace EldwynGrove.Core
     public interface IRaycastable
     {
         bool HandleRaycast(PlayerController playerController);
-        void ToggleHighlight(bool highlight);
     }
 }

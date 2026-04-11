@@ -8,7 +8,6 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 //---------------------------------
 using EldwynGrove.Core;
-using EldwynGrove.Input;
 using EldwynGrove.Inventories;
 using EldwynGrove.Player;
 using EldwynGrove.Saving;
@@ -21,7 +20,6 @@ namespace EldwynGrove.Shops
 
         private Inventory m_shopperInventory;
         private Wallet m_shopperWallet;
-        private Outline m_outline;
 
         private Dictionary<InventoryItem, int> m_purchase = new();
         private Dictionary<InventoryItem, int> m_currentStock = new();
@@ -39,8 +37,6 @@ namespace EldwynGrove.Shops
         ----------------------------------------------------------------*/
         private void Awake()
         {
-            m_outline = GetComponent<Outline>();
-            Utilities.CheckForNull(m_outline, nameof(m_outline));
             Utilities.CheckForNull(m_shopConfig, nameof(m_shopConfig));
 
             foreach (ShopConfig.ShopItemEntry entry in m_shopConfig.ShopInventory)
@@ -64,14 +60,6 @@ namespace EldwynGrove.Shops
                 m_shopperInventory = null;
                 m_shopperWallet = null;
             }
-        }
-
-        /*----------------------------------------------------------------------------------------
-        | --- ToggleHighlight: Enables or disables the outline highlight for the shop vendor --- |
-        ----------------------------------------------------------------------------------------*/
-        public void ToggleHighlight(bool highlight)
-        {
-            m_outline.enabled = highlight;
         }
 
         /*-------------------------------------------------------------------

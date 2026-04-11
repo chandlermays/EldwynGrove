@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5106730316895447102}
   - component: {fileID: 6675417350290823133}
   - component: {fileID: 5912882109763196432}
+  - component: {fileID: 7200536394688153017}
   - component: {fileID: 7632579896539603213}
   - component: {fileID: 6416672802150498620}
   - component: {fileID: 6578158603870917782}
@@ -276,6 +277,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Components.FactionComponent
   m_faction: 0
+--- !u!114 &7200536394688153017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178384796501424991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad5dd7ef34a4924f89dc13812f8ed63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Core.ActionManager
 --- !u!114 &7632579896539603213
 MonoBehaviour:
   m_ObjectHideFlags: 0
