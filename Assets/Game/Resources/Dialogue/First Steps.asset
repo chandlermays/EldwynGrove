@@ -1,5 +1,226 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8917985802558881714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 30a462a4-4fcd-4278-909d-e5d100b1a545
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Sticks are more useful than they look. Tools, fences, repairs--you'll be
+    using 'em all the time.
+  m_children:
+  - 515a1efa-f742-449d-b036-08c486689765
+  m_rect:
+    serializedVersion: 2
+    x: 300
+    y: 350
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &-7269273150426977941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 5a0394cb-b472-4f52-aba5-54dd992ef8c6
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: If you're serious about making something of yourself out here, you shouldn't
+    stay in the fields forever.
+  m_children:
+  - c03316d2-f85e-40ed-8e8e-e2e30ba2c69f
+  m_rect:
+    serializedVersion: 2
+    x: 550
+    y: 950
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &-7040325358530631671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: a972679b-4470-4d10-b175-3b6cf18ca31e
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: There's wild growth all over this place--vines, weeds, that sort of thing.
+    Clear out 10 bundles of fiber and bring 'em back.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 800
+    y: 350
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: Receive Standard Hoe
+  m_condition:
+    m_AND: []
+--- !u!114 &-6952281625665617793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 515a1efa-f742-449d-b036-08c486689765
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Now let's see if you can handle something a bit more hands-on.
+  m_children:
+  - a972679b-4470-4d10-b175-3b6cf18ca31e
+  m_rect:
+    serializedVersion: 2
+    x: 550
+    y: 350
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &-6122729144666871067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: d0462e93-33cb-4375-aefd-7a5980eff4bb
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: See those stones scattered around? They're more useful than they look,
+    too. Break up 10 rocks and bring me what you got.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 800
+    y: 650
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: Receive Standard Pickaxe
+  m_condition:
+    m_AND: []
+--- !u!114 &-4640868002666148097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: b4ed5eb0-0209-4fc4-99db-c6157abd8e39
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Fiber's the backbone of half the things we make--rope, cloth, even some
+    building work.
+  m_children:
+  - 978cd6af-b43b-4e55-8ac3-57cabb3bf079
+  m_rect:
+    serializedVersion: 2
+    x: 300
+    y: 650
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &-2635074218993290669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: f7c70778-2518-434d-ad9d-07dab56b6c35
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Well I'll be... you didn't quit halfway through! That's a good sign.
+  m_children:
+  - 0db9b20d-92e9-4191-a1dd-0800318d4e9b
+  m_rect:
+    serializedVersion: 2
+    x: 50
+    y: 950
+    width: 200
+    height: 100
+  m_onEnterAction: 'Objective Complete: Gather 10 Rocks'
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 1
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 7
+        m_parameters:
+        - 392368f0-8ae4-4104-a6b0-c0b3b814c95e
+        - 10
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 3
+        m_parameters:
+        - First Steps
+        - Gather 10 Rocks
+        m_negate: 1
+--- !u!114 &-2567878016239963706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 978cd6af-b43b-4e55-8ac3-57cabb3bf079
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Alright... one more thing.
+  m_children:
+  - d0462e93-33cb-4375-aefd-7a5980eff4bb
+  m_rect:
+    serializedVersion: 2
+    x: 550
+    y: 650
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
 --- !u!114 &-2356510790892095568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,18 +233,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
   m_Name: f2d9c9d0-87f1-4b53-b321-b203129a3a1a
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
-  m_text: Howdy there, traveler!
-  m_children: []
+  m_text: Oh, hey there. Didn't expect to see a new face out here. You look a little..
+    lost? You alright?
+  m_children:
+  - 57b876b1-60f1-4e32-a624-0523e16924b0
   m_rect:
     serializedVersion: 2
     x: 50
-    y: 51
+    y: 50
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 2
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 4
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 1
+--- !u!114 &-2255730690325005782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 0db9b20d-92e9-4191-a1dd-0800318d4e9b
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: You've got the basics now--tools, materials, a bit of sense. That's more
+    than most start with.
+  m_children:
+  - 5a0394cb-b472-4f52-aba5-54dd992ef8c6
+  m_rect:
+    serializedVersion: 2
+    x: 300
+    y: 950
     width: 200
     height: 100
   m_onEnterAction: 
   m_onExitAction: 
   m_condition:
     m_AND: []
+--- !u!114 &-1934625104970072221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 5b82e961-82fb-410b-8837-864d4afe6cd2
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Not bad. You've got a decent eye. Most folks walk right past good material
+    without noticing.
+  m_children:
+  - 30a462a4-4fcd-4278-909d-e5d100b1a545
+  m_rect:
+    serializedVersion: 2
+    x: 50
+    y: 350
+    width: 200
+    height: 100
+  m_onEnterAction: 'Objective Complete: Gather 10 Sticks'
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 1
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 7
+        m_parameters:
+        - 5b6db4e8-bf79-4513-b3bb-8b65ea246014
+        - 10
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 3
+        m_parameters:
+        - First Steps
+        - Gather 10 Sticks
+        m_negate: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,4 +343,346 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.Dialogue
   m_nodes:
   - {fileID: -2356510790892095568}
+  - {fileID: 6564143077843036553}
+  - {fileID: 1934967057504856015}
+  - {fileID: 1149151030958956694}
+  - {fileID: -1934625104970072221}
+  - {fileID: -8917985802558881714}
+  - {fileID: -6952281625665617793}
+  - {fileID: -7040325358530631671}
+  - {fileID: 2321662616284286526}
+  - {fileID: -4640868002666148097}
+  - {fileID: -2567878016239963706}
+  - {fileID: -6122729144666871067}
+  - {fileID: -2635074218993290669}
+  - {fileID: -2255730690325005782}
+  - {fileID: -7269273150426977941}
+  - {fileID: 2197059100719353102}
+  - {fileID: 1655257999446214941}
+  - {fileID: 9145523754299087312}
+  - {fileID: 1890013988902606958}
+  - {fileID: 514339968654021858}
+  - {fileID: 4706487492411845043}
   m_newNodeOffset: {x: 300, y: 0}
+--- !u!114 &514339968654021858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 3a6300ed-28c7-484b-a287-7c429d6e214e
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Back already? Hmm... doesn't look like you've got enough yet.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 50
+    y: 500
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 1
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 3
+        m_parameters:
+        - First Steps
+        - Gather 10 Fiber
+        m_negate: 1
+    - m_OR:
+      - m_predicate: 7
+        m_parameters:
+        - 2990ac82-51c0-4ad8-b66c-65ba67f33632
+        - 10
+        m_negate: 1
+--- !u!114 &1149151030958956694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 00a2c21b-55e9-4a62-b1d2-961f193910f4
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Oh--and here! Can't do much without the right tool.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 800
+    y: 50
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: Receive Standard Axe
+  m_condition:
+    m_AND: []
+--- !u!114 &1655257999446214941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 6e487cc9-c279-485a-b4f8-926a895ff720
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Traders, farmers, craftsmen... all kinds of good people.
+  m_children:
+  - 416fdd6d-e157-4e00-b9c0-539a676a74ee
+  m_rect:
+    serializedVersion: 2
+    x: 1050
+    y: 950
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &1890013988902606958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 37040c6e-4097-4566-9496-8cd1a285e0c2
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Back already? Hmm... doesn't look like you've got enough yet.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 50
+    y: 200
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 1
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 3
+        m_parameters:
+        - First Steps
+        - Gather 10 Sticks
+        m_negate: 1
+    - m_OR:
+      - m_predicate: 7
+        m_parameters:
+        - 5b6db4e8-bf79-4513-b3bb-8b65ea246014
+        - 10
+        m_negate: 1
+--- !u!114 &1934967057504856015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: c7704010-efc5-4f93-8a19-9540ce1e7b4a
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Tell you what--let's start simple. There's plenty of fallen branches around.
+    Grab yourself 10 sticks and bring 'em back to me.
+  m_children:
+  - 00a2c21b-55e9-4a62-b1d2-961f193910f4
+  m_rect:
+    serializedVersion: 2
+    x: 550
+    y: 50
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 'Quest Started: First Steps'
+  m_condition:
+    m_AND: []
+--- !u!114 &2197059100719353102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: c03316d2-f85e-40ed-8e8e-e2e30ba2c69f
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: There's a town not far from here--Maplebrook. Folks there can teach you
+    a lot more than I can.
+  m_children:
+  - 6e487cc9-c279-485a-b4f8-926a895ff720
+  m_rect:
+    serializedVersion: 2
+    x: 800
+    y: 950
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &2321662616284286526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: cb760aba-d15b-486d-9c32-d0996b2905ca
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: That'll do nicely. You're picking this up faster than I expected.
+  m_children:
+  - b4ed5eb0-0209-4fc4-99db-c6157abd8e39
+  m_rect:
+    serializedVersion: 2
+    x: 54
+    y: 650
+    width: 200
+    height: 100
+  m_onEnterAction: 'Objective Complete: Gather 10 Fiber'
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 1
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 7
+        m_parameters:
+        - 2990ac82-51c0-4ad8-b66c-65ba67f33632
+        - 10
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 3
+        m_parameters:
+        - First Steps
+        - Gather 10 Fiber
+        m_negate: 1
+--- !u!114 &4706487492411845043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: cbd1feeb-f771-44c6-94e0-6a6232752420
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Back already? Hmm... doesn't look like you've got enough yet.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 50
+    y: 800
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 1
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
+    - m_OR:
+      - m_predicate: 3
+        m_parameters:
+        - First Steps
+        - Gather 10 Rocks
+        m_negate: 1
+    - m_OR:
+      - m_predicate: 7
+        m_parameters:
+        - 392368f0-8ae4-4104-a6b0-c0b3b814c95e
+        - 10
+        m_negate: 1
+--- !u!114 &6564143077843036553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 57b876b1-60f1-4e32-a624-0523e16924b0
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: I'm Bob. I've been working this land longer than I care to admit. If you're
+    planning on sticking around, you'll need to learn how to handle yourself out
+    here.
+  m_children:
+  - c7704010-efc5-4f93-8a19-9540ce1e7b4a
+  m_rect:
+    serializedVersion: 2
+    x: 300
+    y: 50
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []
+--- !u!114 &9145523754299087312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 416fdd6d-e157-4e00-b9c0-539a676a74ee
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Go on--head that way when you're ready. And hey... don't be a stranger!
+    This land has a way of growing on people.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 1293
+    y: 950
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND: []

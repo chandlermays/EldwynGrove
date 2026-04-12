@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2baedddbabde47a4cbc366b2ef9fae0e, type: 3}
-  m_Name: Test Objective
+  m_Name: Gather 10 Rocks
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.QuestObjective
-  m_description: This is where you can write a description for a quest objective.
+  m_description: 

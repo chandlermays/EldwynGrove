@@ -32,7 +32,7 @@ namespace EldwynGrove.Inventories
             if (InputManager.Instance != null)
             {
        //         m_doubleClickAction = InputManager.Instance.InputActions.UI.DoubleClick;
-                m_doubleClickAction.performed += OnDoubleClick;
+       //         m_doubleClickAction.performed += OnDoubleClick;
             }
         }
 

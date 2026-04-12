@@ -10369,10 +10369,21 @@ GameObject:
   m_Component:
   - component: {fileID: 605156532}
   - component: {fileID: 605156531}
+  - component: {fileID: 605156542}
+  - component: {fileID: 605156541}
+  - component: {fileID: 605156540}
+  - component: {fileID: 605156539}
+  - component: {fileID: 605156538}
+  - component: {fileID: 605156537}
   - component: {fileID: 605156533}
-  m_Layer: 0
-  m_Name: NPC
-  m_TagString: Untagged
+  - component: {fileID: 605156536}
+  - component: {fileID: 605156535}
+  - component: {fileID: 605156534}
+  - component: {fileID: 605156544}
+  - component: {fileID: 605156543}
+  m_Layer: 7
+  m_Name: Farmer Bob
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10464,6 +10475,277 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.AIDialogueHandler
   m_dialogue: {fileID: 11400000, guid: 46e679e154cec5948b28c1accd271a8f, type: 2}
   m_speakerName: Farmer Bob
+--- !u!114 &605156534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228b4f3446aa0f343b211a8becf41b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.ObjectiveCompletion
+  m_questManager: {fileID: 3702848516311652712}
+  m_quest: {fileID: 11400000, guid: eecb2ab689122ad46bccfb7c8fbb8109, type: 2}
+  m_objective: {fileID: 11400000, guid: 13b4339c71c8b994ab58b76d6e08b4fb, type: 2}
+--- !u!114 &605156535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0532cd4a2df2c4fab434c591a21286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.QuestAssigner
+  m_playerQuestMgr: {fileID: 3702848516311652712}
+  m_quest: {fileID: 11400000, guid: eecb2ab689122ad46bccfb7c8fbb8109, type: 2}
+--- !u!114 &605156536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753e1879db1e4bf4e83ae8a0e26e05a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueEventTrigger
+  m_actionTriggerPairs:
+  - m_action: 'Quest Started: First Steps'
+    OnTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 605156535}
+          m_TargetAssemblyTypeName: EldwynGrove.Quests.QuestAssigner, Assembly-CSharp
+          m_MethodName: AssignQuest
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - m_action: 'Objective Complete: Gather 10 Sticks'
+    OnTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 605156534}
+          m_TargetAssemblyTypeName: EldwynGrove.Quests.ObjectiveCompletion, Assembly-CSharp
+          m_MethodName: CompleteObjective
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - m_action: 'Objective Complete: Gather 10 Fiber'
+    OnTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 605156544}
+          m_TargetAssemblyTypeName: EldwynGrove.Quests.ObjectiveCompletion, Assembly-CSharp
+          m_MethodName: CompleteObjective
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - m_action: 'Objective Complete: Gather 10 Rocks'
+    OnTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 605156543}
+          m_TargetAssemblyTypeName: EldwynGrove.Quests.ObjectiveCompletion, Assembly-CSharp
+          m_MethodName: CompleteObjective
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &605156537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a720c09f09a412a459256897026ad9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Saving.SaveableEntity
+  m_uniqueIdentifier: 2c1a3cc4-f3ad-41be-bbd1-a11c117089ae
+  m_lockIdentifier: 0
+--- !u!114 &605156538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: affa045946d898c4e81f24045b92c70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Components.MovementComponent
+  m_moveSpeed: 5
+--- !u!114 &605156539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2ebfc2ea411af45915c8a9c9031a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Components.FactionComponent
+  m_faction: 1
+--- !u!61 &605156540
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.03, y: -0.34}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.1875, y: 1.5}
+    newSize: {x: 1.0625, y: 1.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.9, y: 0.2}
+  m_EdgeRadius: 0
+--- !u!50 &605156541
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 6fb690edd149e3e4db0ad05083af7e69, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!95 &605156542
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &605156543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228b4f3446aa0f343b211a8becf41b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.ObjectiveCompletion
+  m_questManager: {fileID: 3702848516311652712}
+  m_quest: {fileID: 11400000, guid: eecb2ab689122ad46bccfb7c8fbb8109, type: 2}
+  m_objective: {fileID: 11400000, guid: bad5c89baa9114845b3fa8d1a24005bf, type: 2}
+--- !u!114 &605156544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605156530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228b4f3446aa0f343b211a8becf41b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.ObjectiveCompletion
+  m_questManager: {fileID: 3702848516311652712}
+  m_quest: {fileID: 11400000, guid: eecb2ab689122ad46bccfb7c8fbb8109, type: 2}
+  m_objective: {fileID: 11400000, guid: 37093dcfd08a1ec4484912be774165ca, type: 2}
 --- !u!1 &708494259
 GameObject:
   m_ObjectHideFlags: 0
@@ -42801,6 +43083,30 @@ PrefabInstance:
       propertyPath: m_grid
       value: 
       objectReference: {fileID: 1123130746}
+    - target: {fileID: 429567813533974558, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429567813533974558, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429567813533974558, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429567813533974558, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429567813533974558, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429567813533974558, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 552107627833132796, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -42933,6 +43239,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347921698959664768, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347921698959664768, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347921698959664768, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347921698959664768, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347921698959664768, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347921698959664768, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5399877583764341803, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_playerEquipment
       value: 
@@ -42949,6 +43279,14 @@ PrefabInstance:
       propertyPath: m_playerInventory
       value: 
       objectReference: {fileID: 2014941757}
+    - target: {fileID: 5930875865023955300, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080345495463985962, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6248312568986053622, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -42962,6 +43300,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6248312568986053622, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526893899388142960, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526893899388142960, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526893899388142960, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526893899388142960, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526893899388142960, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526893899388142960, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -42989,6 +43351,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Slots
       objectReference: {fileID: 0}
+    - target: {fileID: 8573244886632247436, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573244886632247436, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573244886632247436, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573244886632247436, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573244886632247436, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573244886632247436, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8972161769036437495, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_Name
       value: Core
@@ -42999,6 +43385,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+--- !u!114 &3702848516311652712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5253008464571865050, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+  m_PrefabInstance: {fileID: 3702848516311652711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd998c659abb5df419ce604dada3aa17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Quests.QuestManager
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
