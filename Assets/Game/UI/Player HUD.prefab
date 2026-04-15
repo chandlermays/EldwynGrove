@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8313131212169928894}
   - component: {fileID: 4831813010779708984}
   - component: {fileID: 5951736269378901607}
+  - component: {fileID: 4298396171311237357}
   m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4298396171311237357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6022255517003049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fce42eb2ae2264994d480c02977611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.UI.EnergyBar
+  m_energyComponent: {fileID: 0}
 --- !u!1 &1930564428117058252
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +100,7 @@ GameObject:
   - component: {fileID: 2251331454722778420}
   - component: {fileID: 6998387842521882628}
   - component: {fileID: 328232056493628272}
+  - component: {fileID: 9181207262144321273}
   m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
@@ -150,6 +165,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9181207262144321273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930564428117058252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0015fe7b020bfe24e8856cfa0a4bc99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.UI.HealthBar
+  m_healthComponent: {fileID: 0}
 --- !u!1 &2042526943705213834
 GameObject:
   m_ObjectHideFlags: 0

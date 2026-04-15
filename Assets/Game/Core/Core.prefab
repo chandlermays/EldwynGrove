@@ -264,7 +264,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -286036853
   m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 21369fa5c6d1df347a8c8e4a2db313e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Player.TileCursor
   m_grid: {fileID: 0}
-  m_validPathCoor: {r: 0.14509805, g: 0.5019608, b: 0.12941177, a: 0}
-  m_invalidPathColor: {r: 0.5019608, g: 0.14117648, b: 0.12941177, a: 0}
+  m_validPathCoor: {r: 0.14509805, g: 0.5019608, b: 0.12941177, a: 0.5019608}
+  m_invalidPathColor: {r: 0.5019608, g: 0.14117648, b: 0.12941177, a: 0.5019608}
 --- !u!1 &8972161769036437495
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +442,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4d3c84d336fc945bbf3d6288e8b8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.StatsEquipment
+--- !u!114 &2874691465803109830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4334556689811147997, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
+  m_PrefabInstance: {fileID: 2000588826899519771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a539ad811037584e9cc9c50ada6d9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Components.EnergyComponent
+--- !u!114 &5143212230500044486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6675417350290823133, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
+  m_PrefabInstance: {fileID: 2000588826899519771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d091cedb0dfe9ad418447b4caaf45440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
 --- !u!114 &5436856868343899824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5814178405032263595, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
@@ -490,6 +512,10 @@ PrefabInstance:
       propertyPath: m_playerInventory
       value: 
       objectReference: {fileID: 5436856868343899824}
+    - target: {fileID: 3098935036430189795, guid: b2f71fed635ae4d4f9751420792365ba, type: 3}
+      propertyPath: m_energyComponent
+      value: 
+      objectReference: {fileID: 2874691465803109830}
     - target: {fileID: 3969051919936666149, guid: b2f71fed635ae4d4f9751420792365ba, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -598,6 +624,10 @@ PrefabInstance:
       propertyPath: m_playerInventory
       value: 
       objectReference: {fileID: 5436856868343899824}
+    - target: {fileID: 8056213129317686007, guid: b2f71fed635ae4d4f9751420792365ba, type: 3}
+      propertyPath: m_healthComponent
+      value: 
+      objectReference: {fileID: 5143212230500044486}
     - target: {fileID: 8252763324179504815, guid: b2f71fed635ae4d4f9751420792365ba, type: 3}
       propertyPath: m_playerEquipment
       value: 
