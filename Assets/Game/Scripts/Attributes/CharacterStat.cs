@@ -9,6 +9,8 @@ namespace EldwynGrove.Attributes
         kHealth,
         kDamage,
         kDefense,
+        kEnergy,
+        kEnergyRegenRate,
         kExperienceReward,
         kExperienceToLevelUp,
         kTotalAttributePoints,

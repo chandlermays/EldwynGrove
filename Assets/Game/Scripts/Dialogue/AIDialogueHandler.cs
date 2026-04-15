@@ -24,16 +24,12 @@ namespace EldwynGrove.Dialogues
             Utilities.CheckForNull(m_dialogue, nameof(m_dialogue));
         }
 
-        /*----------------------------------------------------------------------------
-        | --- HandleRaycast: The Behavior of the Raycast for Initiating Dialogue --- |
-        ----------------------------------------------------------------------------*/
+        /*---------------------------------------------------------------------
+        | --- HandleRaycast: Initiates dialogue when the player interacts --- |
+        ---------------------------------------------------------------------*/
         public bool HandleRaycast(PlayerController playerController)
         {
-   //         if (InputManager.Instance.InputActions.Gameplay.Interact.WasPressedThisFrame())
-   //         {
-   //             playerController.GetComponent<PlayerDialogueHandler>().BeginDialogueAction(this, m_dialogue);
-   //         }
-
+            playerController.GetComponent<PlayerDialogueHandler>().BeginDialogue(this, m_dialogue);
             return true;
         }
     }

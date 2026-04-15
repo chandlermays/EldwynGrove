@@ -22,12 +22,14 @@ namespace EldwynGrove.Attributes
 
         public event Action OnStatModified;
 
-        public float GetHealth() => GetStat(Stat.kHealth);
-        public float GetDamage() => GetStat(Stat.kDamage);
-        public float GetDefense() => GetStat(Stat.kDefense);
-        public float GetExperienceReward() => GetStat(Stat.kExperienceReward);
-        public float GetExperienceToLevelUp() => GetStat(Stat.kExperienceToLevelUp);
-        public float GetTotalAttributePoints() => GetStat(Stat.kTotalAttributePoints);
+        public float GetHealth()                    =>      GetStat(Stat.kHealth);
+        public float GetDamage()                    =>      GetStat(Stat.kDamage);
+        public float GetDefense()                   =>      GetStat(Stat.kDefense);
+        public float GetEnergy()                    =>      GetStat(Stat.kEnergy);
+        public float GetEnergyRegenRate()           =>      GetStat(Stat.kEnergyRegenRate);
+        public float GetExperienceReward()          =>      GetStat(Stat.kExperienceReward);
+        public float GetExperienceToLevelUp()       =>      GetStat(Stat.kExperienceToLevelUp);
+        public float GetTotalAttributePoints()      =>      GetStat(Stat.kTotalAttributePoints);
 
         /*--------------------------------------------------------------
         | --- NotifyStatModified: Invokes the OnStatModified Event --- |
@@ -70,6 +72,12 @@ namespace EldwynGrove.Attributes
 
                 case Stat.kDefense:
                     return m_baseProgression.GetDefense(m_level);
+
+                case Stat.kEnergy:
+                    return m_baseProgression.GetEnergy(m_level);
+
+                case Stat.kEnergyRegenRate:
+                    return m_baseProgression.GetEnergyRegenRate(m_level);
 
                 case Stat.kExperienceReward:
                     if (m_baseProgression is AIProgression aiProgression)

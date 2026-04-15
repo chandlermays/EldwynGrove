@@ -7,7 +7,6 @@ using UnityEngine;
 namespace EldwynGrove.Components
 {
     [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(BoxCollider2D))]
     public abstract class EntityComponent : MonoBehaviour
     {
@@ -25,13 +24,8 @@ namespace EldwynGrove.Components
             Owner = gameObject;
             Transform = transform;
             Animator = GetComponent<Animator>();
-            Utilities.CheckForNull(Animator, nameof(Animator));
-
             Rigidbody2D = GetComponent<Rigidbody2D>();
-            Utilities.CheckForNull(Rigidbody2D, nameof(Rigidbody2D));
-
             BoxCollider2D = GetComponent<BoxCollider2D>();
-            Utilities.CheckForNull(BoxCollider2D, nameof(BoxCollider2D));
         }
     }
 }

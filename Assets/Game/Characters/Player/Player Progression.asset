@@ -21,15 +21,20 @@ MonoBehaviour:
   m_defenseIncreasePercentage: 3
   m_initialDefense: 100
   m_defenseAmounts: 64000000670000006a0000006d00000070000000
-  m_manaIncreasePercentage: 15
-  m_initialMana: 100
-  m_manaAmounts: 00000000
-  m_manaRegenIncreasePercentage: 5
-  m_initialManaRegenRate: 1
-  m_manaRegenRates: 00000000
+  m_energyIncreasePercentage: 2
+  m_initialEnergy: 50
+  m_energyAmounts: 3200000033000000340000003500000036000000
+  m_energyRegenIncreasePercentage: 0
+  m_initialEnergyRegenRate: 0.01
+  m_energyRegenRates:
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
   m_initialExperience: 200
   m_experienceIncreasePercentage: 15
-  m_maxExperienceAmounts: c8000000ae010000b6020000e603000044050000
+  m_maxExperienceAmounts: 00000000e6000000ee0100001e0300007c040000
   m_initialAttributePoints: 4
   m_attributePointIncreasePercentage: 0
-  m_maxAttributePoints: 04000000080000000c0000001000000014000000
+  m_maxAttributePoints: 0000000004000000080000000c00000010000000

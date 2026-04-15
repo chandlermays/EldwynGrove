@@ -26,6 +26,16 @@ namespace EldwynGrove.Edit
         protected SerializedProperty m_defenseIncreasePercentage;
         protected SerializedProperty m_defenseAmounts;
 
+        // Energy Properties
+        protected SerializedProperty m_initialEnergy;
+        protected SerializedProperty m_energyIncreasePercentage;
+        protected SerializedProperty m_energyAmounts;
+
+        // Energy Regen Rate Properties
+        protected SerializedProperty m_initialEnergyRegenRate;
+        protected SerializedProperty m_energyRegenIncreasePercentage;
+        protected SerializedProperty m_energyRegenRates;
+
         // Property names for stat fields
         protected const string kInitialHealth = "m_initialHealth";
         protected const string kHealthIncreasePercentage = "m_healthIncreasePercentage";
@@ -38,6 +48,14 @@ namespace EldwynGrove.Edit
         protected const string kInitialDefense = "m_initialDefense";
         protected const string kDefenseIncreasePercentage = "m_defenseIncreasePercentage";
         protected const string kDefenseAmounts = "m_defenseAmounts";
+
+        protected const string kInitialEnergy = "m_initialEnergy";
+        protected const string kEnergyIncreasePercentage = "m_energyIncreasePercentage";
+        protected const string kEnergyAmounts = "m_energyAmounts";
+
+        protected const string kInitialEnergyRegenRate = "m_initialEnergyRegenRate";
+        protected const string kEnergyRegenIncreasePercentage = "m_energyRegenIncreasePercentage";
+        protected const string kEnergyRegenRates = "m_energyRegenRates";
 
         // Labels for stat fields
         protected const string kProgression = "Progression";
@@ -55,6 +73,16 @@ namespace EldwynGrove.Edit
         protected const string kDefenseIncreasePercentageLabel = "Defense Increase %";
         protected const string kRecalculateDefenseButton = "Recalculate Defense Amounts";
         protected const string kDefenseAmountsLabel = "Defense Amounts";
+
+        protected const string kInitialEnergyLabel = "Initial Energy";
+        protected const string kEnergyIncreasePercentageLabel = "Energy Increase %";
+        protected const string kRecalculateEnergyButton = "Recalculate Energy Amounts";
+        protected const string kEnergyAmountsLabel = "Energy Amounts";
+
+        protected const string kInitialEnergyRegenRateLabel = "Initial Energy Regen Rate";
+        protected const string kEnergyRegenIncreasePercentageLabel = "Energy Regen Increase %";
+        protected const string kRecalculateEnergyRegenButton = "Recalculate Energy Regen Rates";
+        protected const string kEnergyRegenRatesLabel = "Energy Regen Rates";
 
         protected const string kAddLevelButton = "Add Level";
         protected const string kRemoveLevelButton = "Remove Last Level";
@@ -78,6 +106,16 @@ namespace EldwynGrove.Edit
             m_initialDefense = serializedObject.FindProperty(kInitialDefense);
             m_defenseIncreasePercentage = serializedObject.FindProperty(kDefenseIncreasePercentage);
             m_defenseAmounts = serializedObject.FindProperty(kDefenseAmounts);
+
+            // Energy
+            m_initialEnergy = serializedObject.FindProperty(kInitialEnergy);
+            m_energyIncreasePercentage = serializedObject.FindProperty(kEnergyIncreasePercentage);
+            m_energyAmounts = serializedObject.FindProperty(kEnergyAmounts);
+
+            // Energy Regen Rate
+            m_initialEnergyRegenRate = serializedObject.FindProperty(kInitialEnergyRegenRate);
+            m_energyRegenIncreasePercentage = serializedObject.FindProperty(kEnergyRegenIncreasePercentage);
+            m_energyRegenRates = serializedObject.FindProperty(kEnergyRegenRates);
         }
 
         /*---------------------------------------------------------------------
@@ -121,6 +159,20 @@ namespace EldwynGrove.Edit
 
             EditorGUILayout.Space();
 
+            // Energy Fields
+            DisplayPropertyField(m_initialEnergy, kInitialEnergyLabel);
+            DisplayPropertyField(m_energyIncreasePercentage, kEnergyIncreasePercentageLabel);
+            DisplayRecalculateButton(kRecalculateEnergyButton,
+                () => ((BaseProgression)target).RecalculateMaxEnergyAmounts());
+
+            EditorGUILayout.Space();
+
+            // Energy Regen Rate Fields
+            DisplayPropertyField(m_initialEnergyRegenRate, kInitialEnergyRegenRateLabel);
+            DisplayPropertyField(m_energyRegenIncreasePercentage, kEnergyRegenIncreasePercentageLabel);
+            DisplayRecalculateButton(kRecalculateEnergyRegenButton,
+                () => ((BaseProgression)target).RecalculateEnergyRegenRates());
+
             // Subclass-specific Property Fields
             DisplaySubclassFields();
 
@@ -130,6 +182,8 @@ namespace EldwynGrove.Edit
             DisplayArrayProperty(m_maxHealthAmounts, kMaxHealthAmountsLabel);
             DisplayArrayProperty(m_damageAmounts, kDamageAmountsLabel);
             DisplayArrayProperty(m_defenseAmounts, kDefenseAmountsLabel);
+            DisplayArrayProperty(m_energyAmounts, kEnergyAmountsLabel);
+            DisplayArrayProperty(m_energyRegenRates, kEnergyRegenRatesLabel);
 
             // Subclass-specific Array Properties
             DisplaySubclassArrays();
@@ -212,6 +266,8 @@ namespace EldwynGrove.Edit
             m_maxHealthAmounts.InsertArrayElementAtIndex(newIndex);
             m_damageAmounts.InsertArrayElementAtIndex(newIndex);
             m_defenseAmounts.InsertArrayElementAtIndex(newIndex);
+            m_energyAmounts.InsertArrayElementAtIndex(newIndex);
+            m_energyRegenRates.InsertArrayElementAtIndex(newIndex);
 
             // Calculate Health
             if (newIndex == 0)
@@ -249,6 +305,30 @@ namespace EldwynGrove.Edit
                 m_defenseAmounts.GetArrayElementAtIndex(newIndex).intValue = Mathf.RoundToInt(previousDefense * increaseFactor);
             }
 
+            // Calculate Energy
+            if (newIndex == 0)
+            {
+                m_energyAmounts.GetArrayElementAtIndex(newIndex).intValue = m_initialEnergy.intValue;
+            }
+            else
+            {
+                int previousEnergy = m_energyAmounts.GetArrayElementAtIndex(newIndex - 1).intValue;
+                float increaseFactor = 1 + m_energyIncreasePercentage.floatValue / 100f;
+                m_energyAmounts.GetArrayElementAtIndex(newIndex).intValue = Mathf.RoundToInt(previousEnergy * increaseFactor);
+            }
+
+            // Calculate Energy Regen Rates
+            if (newIndex == 0)
+            {
+                m_energyRegenRates.GetArrayElementAtIndex(newIndex).floatValue = m_initialEnergyRegenRate.floatValue;
+            }
+            else
+            {
+                float previousEnergyRegen = m_energyRegenRates.GetArrayElementAtIndex(newIndex - 1).floatValue;
+                float increaseFactor = 1 + m_energyRegenIncreasePercentage.floatValue / 100f;
+                m_energyRegenRates.GetArrayElementAtIndex(newIndex).floatValue = previousEnergyRegen * increaseFactor;
+            }
+
             // Add to subclass arrays
             AddLevelToSubclassArrays(newIndex);
 
@@ -265,6 +345,8 @@ namespace EldwynGrove.Edit
                 m_maxHealthAmounts.DeleteArrayElementAtIndex(m_maxHealthAmounts.arraySize - 1);
                 m_damageAmounts.DeleteArrayElementAtIndex(m_damageAmounts.arraySize - 1);
                 m_defenseAmounts.DeleteArrayElementAtIndex(m_defenseAmounts.arraySize - 1);
+                m_energyAmounts.DeleteArrayElementAtIndex(m_energyAmounts.arraySize - 1);
+                m_energyRegenRates.DeleteArrayElementAtIndex(m_energyRegenRates.arraySize - 1);
 
                 // Remove from subclass arrays
                 RemoveLevelFromSubclassArrays();
@@ -278,7 +360,10 @@ namespace EldwynGrove.Edit
         {
             int expectedSize = m_maxHealthAmounts.arraySize;
 
-            return m_damageAmounts.arraySize == expectedSize && m_defenseAmounts.arraySize == expectedSize;
+            return m_damageAmounts.arraySize    == expectedSize &&
+                   m_defenseAmounts.arraySize   == expectedSize &&
+                   m_energyAmounts.arraySize    == expectedSize &&
+                   m_energyRegenRates.arraySize == expectedSize;
         }
 
         // Abstract methods for subclasses to implement

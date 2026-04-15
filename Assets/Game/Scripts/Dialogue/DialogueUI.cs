@@ -35,14 +35,10 @@ namespace EldwynGrove.Dialogues
             m_nextButton.onClick.AddListener(m_playerDialogueHandler.NextDialogueNode);
             m_endButton.onClick.AddListener(m_playerDialogueHandler.EndDialogue);
             m_quitButton.onClick.AddListener(m_playerDialogueHandler.EndDialogue);
-        }
 
-        /*---------------------------------------------------------------------
-        | --- OnEnable: Called when the object becomes enabled and active --- |
-        ---------------------------------------------------------------------*/
-        private void OnEnable()
-        {
+            m_playerDialogueHandler.OnDialogueStarted += ShowUI;
             m_playerDialogueHandler.OnDialogueUpdated += UpdateUI;
+            m_playerDialogueHandler.OnDialogueEnded += HideUI;
         }
 
         /*--------------------------------------------------------------------
@@ -50,7 +46,9 @@ namespace EldwynGrove.Dialogues
         --------------------------------------------------------------------*/
         private void OnDestroy()
         {
+            m_playerDialogueHandler.OnDialogueStarted -= ShowUI;
             m_playerDialogueHandler.OnDialogueUpdated -= UpdateUI;
+            m_playerDialogueHandler.OnDialogueEnded -= HideUI;
 
             m_nextButton.onClick.RemoveListener(m_playerDialogueHandler.NextDialogueNode);
             m_endButton.onClick.RemoveListener(m_playerDialogueHandler.EndDialogue);
@@ -60,9 +58,31 @@ namespace EldwynGrove.Dialogues
         /*-----------------------------------------------------
         | --- Start: Called before the first frame update --- |
         -----------------------------------------------------*/
-        void Start()
+        private void Start()
         {
             gameObject.SetActive(m_playerDialogueHandler.IsActive());
+
+            if (m_playerDialogueHandler.IsActive())
+            {
+                UpdateUI();
+            }
+        }
+
+        /*--------------------------------------------------------------
+        | --- ShowUI: Enables the Dialogue UI when dialogue starts --- |
+        --------------------------------------------------------------*/
+        private void ShowUI()
+        {
+            gameObject.SetActive(true);
+            UpdateUI();
+        }
+
+        /*------------------------------------------------------------
+        | --- HideUI: Disables the Dialogue UI when dialogue ends --- |
+        ------------------------------------------------------------*/
+        private void HideUI()
+        {
+            gameObject.SetActive(false);
         }
 
         /*-----------------------------------------------------------------

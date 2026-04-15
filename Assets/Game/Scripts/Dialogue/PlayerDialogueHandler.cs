@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 //---------------------------------
-using EldwynGrove.Components;
 using EldwynGrove.Core;
 using EldwynGrove.Tools;
 using EldwynGrove.Saving;
@@ -18,52 +17,21 @@ namespace EldwynGrove.Dialogues
         private Dialogue m_activeDialogue;
         private DialogueNode m_currentNode;
         private AIDialogueHandler m_activeNPC;
-        private MovementComponent m_movementComponent;
-        private ActionManager m_actionManager;
 
-        private const float kProximityThreshold = 3.0f;
         private bool m_inActiveDialogue = false;
 
         public event Action OnDialogueStarted;
         public event Action OnDialogueUpdated;
         public event Action OnDialogueEnded;
 
-        /*---------------------------------------------------------------- 
-        | --- Awake: Called when the script instance is being loaded --- |
-        ----------------------------------------------------------------*/
-        private void Awake()
-        {
-            m_movementComponent = GetComponent<MovementComponent>();
-            Utilities.CheckForNull(m_movementComponent, nameof(MovementComponent));
-
-            m_actionManager = GetComponent<ActionManager>();
-            Utilities.CheckForNull(m_actionManager, nameof(ActionManager));
-        }
-
-        /*----------------------------------------- 
-        | --- Update: Called upon every frame --- |
-        -----------------------------------------*/
-        private void Update()
-        {
-            if (m_activeNPC == null || m_inActiveDialogue)
-                return;
-
-      //      if (Vector3.Distance(m_activeNPC.transform.position, transform.position) > kProximityThreshold)
-      //      {
-      //          m_movementComponent.MoveTo(m_activeNPC.transform.position);
-      //      }
-      //      else
-      //      {
-      //          m_movementComponent.Stop();
-      //          BeginDialogue();
-      //      }
-        }
-
         /*----------------------------------------------------------- 
         | --- BeginDialogue: Starts the current active Dialogue --- |
         -----------------------------------------------------------*/
-        private void BeginDialogue()
+        public void BeginDialogue(AIDialogueHandler newNPC, Dialogue newDialogue)
         {
+            m_activeNPC = newNPC;
+            m_activeDialogue = newDialogue;
+
             m_inActiveDialogue = true;
             m_currentNode = m_activeDialogue.GetRootNode(GetEvaluators());
             TriggerEnterAction();
@@ -72,24 +40,14 @@ namespace EldwynGrove.Dialogues
             OnDialogueUpdated?.Invoke();
         }
 
-        /*------------------------------------------------------------------------
-        | --- BeginDialogueAction: Sets up a new Dialogue with the given NPC --- |
-        ------------------------------------------------------------------------*/
-        public void BeginDialogueAction(AIDialogueHandler newNPC, Dialogue newDialogue)
-        {
-            m_activeNPC = newNPC;
-            m_activeDialogue = newDialogue;
-            m_actionManager.StartAction(this);
-        }
-
         /*------------------------------------------------------- 
         | --- EndDialogue: Ends the current active Dialogue --- |
         -------------------------------------------------------*/
         public void EndDialogue()
         {
             m_inActiveDialogue = false;
-            m_activeDialogue = null;
             TriggerExitAction();
+            m_activeDialogue = null;
             m_currentNode = null;
             m_activeNPC = null;
 
@@ -103,7 +61,7 @@ namespace EldwynGrove.Dialogues
         --------------------------------------------------------*/
         public bool IsActive()
         {
-            return m_activeDialogue != null;
+            return m_inActiveDialogue;
         }
 
         /*------------------------------------------------------------------- 
@@ -165,6 +123,7 @@ namespace EldwynGrove.Dialogues
                 return;
             }
 
+            m_currentNode = null;
             m_activeNPC = null;
             m_activeDialogue = null;
         }

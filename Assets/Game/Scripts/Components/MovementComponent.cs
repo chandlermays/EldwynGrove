@@ -13,6 +13,7 @@ namespace EldwynGrove.Components
 {
     public class MovementComponent : EntityComponent
     {
+        [SerializeField] private VisionCone m_visionCone;
         [SerializeField] private float m_moveSpeed = 5f;
 
         private static readonly int s_animMoveX = Animator.StringToHash("MoveX");
@@ -33,6 +34,34 @@ namespace EldwynGrove.Components
             base.Awake();
 
             SetDirection(Vector2.right);
+        }
+
+        /*----------------------------------------------------------------------------------
+        | --- Move: Applies movement input to the rigidbody and updates movement state --- |
+        ----------------------------------------------------------------------------------*/
+        public void Move(Vector2 input)
+        {
+            if (m_moveCoroutine != null)
+            {
+                // Joystick input interrupts any active path movement
+                if (input.sqrMagnitude > 0.0001f)
+                    Stop();
+                else
+                    return;
+            }
+
+            Vector2 moveDirection = input.sqrMagnitude > 1f ? input.normalized : input;
+
+            Rigidbody2D.linearVelocity = moveDirection * m_moveSpeed;
+
+            IsMoving = moveDirection.sqrMagnitude > 0.0001f;
+            Animator.SetBool(s_animIsMoving, IsMoving);
+
+            if (IsMoving)
+            {
+                SetDirection(moveDirection);
+                m_visionCone?.SetDirection(moveDirection);
+            }
         }
 
         /*--------------------------------------------------------------
@@ -64,20 +93,6 @@ namespace EldwynGrove.Components
             return true;
         }
 
-        /*---------------------------------------------------------------------
-        | --- Stop: Halts any ongoing movement and resets animation state --- |
-        ---------------------------------------------------------------------*/
-        public void Stop()
-        {
-            if (m_moveCoroutine != null)
-            {
-                StopCoroutine(m_moveCoroutine);
-                m_moveCoroutine = null;
-            }
-
-            SetMoving(false, m_lastDirection);
-        }
-
         /*-----------------------------------------------------------------------------------------
         | --- SetDirection: Updates animator parameters to reflect current movement direction --- |
         -----------------------------------------------------------------------------------------*/
@@ -92,11 +107,27 @@ namespace EldwynGrove.Components
             Animator.SetFloat(s_animMoveY, m_lastDirection.y);
         }
 
+        /*---------------------------------------------------------------------
+        | --- Stop: Halts any ongoing movement and resets animation state --- |
+        ---------------------------------------------------------------------*/
+        public void Stop()
+        {
+            if (m_moveCoroutine != null)
+            {
+                StopCoroutine(m_moveCoroutine);
+                m_moveCoroutine = null;
+            }
+
+            Rigidbody2D.linearVelocity = Vector2.zero;
+            SetMoving(false, m_lastDirection);
+        }
+
         /*-----------------------------------------------------------------------------
         | --- MoveAlongPath: Coroutine that moves the entity along the given path --- |
         -----------------------------------------------------------------------------*/
         private IEnumerator MoveAlongPath(List<Vector3> path, Action onComplete)
         {
+            Rigidbody2D.linearVelocity = Vector2.zero;
             SetMoving(true, m_lastDirection);
 
             foreach (Vector3 waypoint in path)
@@ -135,6 +166,7 @@ namespace EldwynGrove.Components
             Animator.SetBool(s_animIsMoving, isMoving);
             Animator.SetFloat(s_animMoveX, m_lastDirection.x);
             Animator.SetFloat(s_animMoveY, m_lastDirection.y);
+            m_visionCone?.SetDirection(m_lastDirection);
         }
 
         /*----------------------------------------------------------------------------------

@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 //---------------------------------
 using EldwynGrove.Components;
+using EldwynGrove.Core;
+using EldwynGrove.Dialogues;
 using EldwynGrove.Input;
 using EldwynGrove.Inventories;
 using EldwynGrove.Navigation;
@@ -23,13 +25,14 @@ namespace EldwynGrove.Player
         private EGInputActions m_inputActions;
         private MovementComponent m_movementComponent;
         private GatheringComponent m_gatheringComponent;
+        private VisionCone m_visionCone;
+        private PlayerDialogueHandler m_playerDialogueHandler;
 
         /*----------------------------------------------------------------
         | --- Awake: Called when the script instance is being loaded --- |
         ----------------------------------------------------------------*/
         private void Awake()
         {
-            Utilities.CheckForNull(m_tileCursor, nameof(m_tileCursor));
             m_mainCamera = Camera.main;
 
             m_movementComponent = GetComponent<MovementComponent>();
@@ -37,6 +40,12 @@ namespace EldwynGrove.Player
 
             m_gatheringComponent = GetComponent<GatheringComponent>();
             Utilities.CheckForNull(m_gatheringComponent, nameof(m_gatheringComponent));
+
+            m_visionCone = GetComponentInChildren<VisionCone>();
+            Utilities.CheckForNull(m_visionCone, nameof(m_visionCone));
+
+            m_playerDialogueHandler = GetComponent<PlayerDialogueHandler>();
+            Utilities.CheckForNull(m_playerDialogueHandler, nameof(m_playerDialogueHandler));
         }
 
         /*-----------------------------------------------------
@@ -45,6 +54,7 @@ namespace EldwynGrove.Player
         private void Start()
         {
             m_inputActions = InputManager.Instance.InputActions;
+
             m_inputActions.Gameplay.TouchPress.performed += OnTouchStarted;
             m_inputActions.Gameplay.TouchPress.canceled += OnTouchReleased;
         }
@@ -58,17 +68,29 @@ namespace EldwynGrove.Player
             m_inputActions.Gameplay.TouchPress.canceled -= OnTouchReleased;
         }
 
-        /*-----------------------------------------------------------------
-        | --- IsTouchOverUI: Checks if the touch is over a UI element --- |
-        -----------------------------------------------------------------*/
-        private bool IsTouchOverUI(Vector2 screenPos)
+        /*---------------------------------------------------------------------
+        | --- FixedUpdate: Called at a fixed interval for physics updates --- |
+        ---------------------------------------------------------------------*/
+        private void Update()
         {
-            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPos };
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerData, results);
-            return results.Count > 0;
+            if (m_inputActions.Gameplay.Interact.WasPressedThisFrame())
+            {
+                HandleInteraction();
+            }
         }
 
+        /*---------------------------------------------------------------------
+        | --- FixedUpdate: Called at a fixed interval for physics updates --- |
+        ---------------------------------------------------------------------*/
+        private void FixedUpdate()
+        {
+            Vector2 movementInput = m_inputActions.Gameplay.Movement.ReadValue<Vector2>();
+            m_movementComponent.Move(movementInput);
+        }
+
+        /*------------------------------------------------------------
+        | --- OnTouchStarted: Handles the start of a touch input --- |
+        ------------------------------------------------------------*/
         private void OnTouchStarted(InputAction.CallbackContext context)
         {
             if (Touch.activeFingers.Count >= 2)
@@ -85,9 +107,23 @@ namespace EldwynGrove.Player
             HandleInteractAt(worldPos);
         }
 
+        /*-----------------------------------------------------------
+        | --- OnTouchReleased: Handles the end of a touch input --- |
+        -----------------------------------------------------------*/
         private void OnTouchReleased(InputAction.CallbackContext context)
         {
             //...
+        }
+
+        /*-----------------------------------------------------------------
+        | --- IsTouchOverUI: Checks if the touch is over a UI element --- |
+        -----------------------------------------------------------------*/
+        private bool IsTouchOverUI(Vector2 screenPos)
+        {
+            PointerEventData pointerData = new PointerEventData(EventSystem.current) { position = screenPos };
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+            return results.Count > 0;
         }
 
         /*-----------------------------------------------------------------------
@@ -161,7 +197,7 @@ namespace EldwynGrove.Player
             Vector2 directionToForage = (forageWorld - transform.position).normalized;
             m_movementComponent.SetDirection(directionToForage);
 
-            ForageItem item = ForageManager.Instance.RemoveForage(forageCoords);
+            ForageItem item = ForageManager.Instance.GetForageAt(forageCoords);
 
             if (item == null)
             {
@@ -169,7 +205,10 @@ namespace EldwynGrove.Player
                 return;
             }
 
-            m_gatheringComponent.Gather(item);
+            if (m_gatheringComponent.Gather(item))
+            {
+                ForageManager.Instance.RemoveForage(forageCoords);
+            }
         }
 
         /*------------------------------------------------------------------------------------------------------
@@ -206,6 +245,21 @@ namespace EldwynGrove.Player
             }
 
             return best;
+        }
+
+        /*---------------------------------------------------------------------------
+        | --- HandleInteraction: Fires interaction with nearest in-range target --- |
+        ---------------------------------------------------------------------------*/
+        private void HandleInteraction()
+        {
+            IRaycastable closest = m_visionCone.GetClosestInteractable();
+            if (closest == null)
+            {
+                Debug.LogWarning("[PlayerController] Interact pressed but no interactable in range.");
+                return;
+            }
+
+            closest.HandleRaycast(this);
         }
     }
 }

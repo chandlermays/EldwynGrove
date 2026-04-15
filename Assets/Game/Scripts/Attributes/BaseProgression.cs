@@ -21,13 +21,13 @@ namespace EldwynGrove.Attributes
         [SerializeField] private int m_initialDefense;
         [SerializeField] private int[] m_defenseAmounts;
 
-        [SerializeField] private float m_manaIncreasePercentage;
-        [SerializeField] private int m_initialMana;
-        [SerializeField] private int[] m_manaAmounts;
+        [SerializeField] private float m_energyIncreasePercentage;
+        [SerializeField] private int m_initialEnergy;
+        [SerializeField] private int[] m_energyAmounts;
 
-        [SerializeField] private float m_manaRegenIncreasePercentage;
-        [SerializeField] private int m_initialManaRegenRate;
-        [SerializeField] private int[] m_manaRegenRates;
+        [SerializeField] private float m_energyRegenIncreasePercentage;
+        [SerializeField] private float m_initialEnergyRegenRate;
+        [SerializeField] private float[] m_energyRegenRates;
 
         /*------------------------------------------------------------------------ 
         | --- OnEnable: Called when the Object becomes Enabled and is Active --- |
@@ -49,14 +49,14 @@ namespace EldwynGrove.Attributes
                 m_defenseAmounts = new int[1] { m_initialDefense };
             }
 
-            if (m_manaAmounts == null || m_manaAmounts.Length == 0)
+            if (m_energyAmounts == null || m_energyAmounts.Length == 0)
             {
-                m_manaAmounts = new int[1] { m_initialMana };
+                m_energyAmounts = new int[1] { m_initialEnergy };
             }
 
-            if (m_manaRegenRates == null || m_manaRegenRates.Length == 0)
+            if (m_energyRegenRates == null || m_energyRegenRates.Length == 0)
             {
-                m_manaRegenRates = new int[1] { m_initialManaRegenRate };
+                m_energyRegenRates = new float[1] { m_initialEnergyRegenRate };
             }
         }
 
@@ -105,33 +105,33 @@ namespace EldwynGrove.Attributes
             }
         }
 
-        /*------------------------------------------------------------------------------------------- 
-        | --- RecalculateMaxManaAmounts: Recalculate the Mana Amounts for the Class Progression --- |
-        -------------------------------------------------------------------------------------------*/
-        public void RecalculateMaxManaAmounts()
+        /*----------------------------------------------------------------------------------------------- 
+        | --- RecalculateMaxEnergyAmounts: Recalculate the Energy Amounts for the Class Progression --- |
+        -----------------------------------------------------------------------------------------------*/
+        public void RecalculateMaxEnergyAmounts()
         {
-            if (m_manaAmounts.Length == 0)
+            if (m_energyAmounts.Length == 0)
                 return;
 
-            m_manaAmounts[0] = m_initialMana;
-            for (int i = 1; i < m_manaAmounts.Length; ++i)
+            m_energyAmounts[0] = m_initialEnergy;
+            for (int i = 1; i < m_energyAmounts.Length; ++i)
             {
-                m_manaAmounts[i] = Mathf.RoundToInt(m_manaAmounts[i - 1] * (1 + m_manaIncreasePercentage / 100f));
+                m_energyAmounts[i] = Mathf.RoundToInt(m_energyAmounts[i - 1] * (1 + m_energyIncreasePercentage / 100f));
             }
         }
 
-        /*----------------------------------------------------------------------------------------------- 
-        | --- RecalculateManaRegenRates: Recalculate the Mana Regen Rates for the Class Progression --- |
-        -----------------------------------------------------------------------------------------------*/
-        public void RecalculateManaRegenRates()
+        /*--------------------------------------------------------------------------------------------------- 
+        | --- RecalculateEnergyRegenRates: Recalculate the Energy Regen Rates for the Class Progression --- |
+        ---------------------------------------------------------------------------------------------------*/
+        public void RecalculateEnergyRegenRates()
         {
-            if (m_manaRegenRates.Length == 0)
+            if (m_energyRegenRates.Length == 0)
                 return;
 
-            m_manaRegenRates[0] = m_initialManaRegenRate;
-            for (int i = 1; i < m_manaRegenRates.Length; ++i)
+            m_energyRegenRates[0] = m_initialEnergyRegenRate;
+            for (int i = 1; i < m_energyRegenRates.Length; ++i)
             {
-                m_manaRegenRates[i] = Mathf.RoundToInt(m_manaRegenRates[i - 1] * (1 + m_manaRegenIncreasePercentage / 100f));
+                m_energyRegenRates[i] = m_energyRegenRates[i - 1] * (1 + m_energyRegenIncreasePercentage / 100f);
             }
         }
 
@@ -177,32 +177,32 @@ namespace EldwynGrove.Attributes
             return m_defenseAmounts[level - 1];
         }
 
-        /*------------------------------------------------------------------ 
-        | --- GetMana: Returns the Mana Amount for the Specified Level --- |
-        ------------------------------------------------------------------*/
-        public float GetMana(int level)
+        /*---------------------------------------------------------------------- 
+        | --- GetEnergy: Returns the Energy Amount for the Specified Level --- |
+        ----------------------------------------------------------------------*/
+        public float GetEnergy(int level)
         {
-            if (level < 1 || level > m_manaAmounts.Length)
+            if (level < 1 || level > m_energyAmounts.Length)
             {
                 Debug.LogWarning("Level out of range");
                 return 0;
             }
 
-            return m_manaAmounts[level - 1];
+            return m_energyAmounts[level - 1];
         }
 
-        /*------------------------------------------------------------------------------- 
-        | --- GetManaRegenRate: Returns the Mana Regen Rate for the Specified Level --- |
-        -------------------------------------------------------------------------------*/
-        public float GetManaRegenRate(int level)
+        /*----------------------------------------------------------------------------------- 
+        | --- GetEnergyRegenRate: Returns the Energy Regen Rate for the Specified Level --- |
+        -----------------------------------------------------------------------------------*/
+        public float GetEnergyRegenRate(int level)
         {
-            if (level < 1 || level > m_manaRegenRates.Length)
+            if (level < 1 || level > m_energyRegenRates.Length)
             {
                 Debug.LogWarning("Level out of range");
                 return 0;
             }
 
-            return m_manaRegenRates[level - 1];
+            return m_energyRegenRates[level - 1];
         }
     }
 }

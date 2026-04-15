@@ -70,11 +70,11 @@ MonoBehaviour:
   m_rect:
     serializedVersion: 2
     x: 800
-    y: 350
+    y: 351
     width: 200
     height: 100
   m_onEnterAction: 
-  m_onExitAction: Receive Standard Hoe
+  m_onExitAction: Give Standard Hoe
   m_condition:
     m_AND: []
 --- !u!114 &-6952281625665617793
@@ -124,9 +124,39 @@ MonoBehaviour:
     width: 200
     height: 100
   m_onEnterAction: 
-  m_onExitAction: Receive Standard Pickaxe
+  m_onExitAction: Give Standard Pickaxe
   m_condition:
     m_AND: []
+--- !u!114 &-5193597972072992081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
+  m_Name: 01e66884-ceb3-4831-be61-151131c37f96
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
+  m_text: Good luck out there, traveler. Eldwyn Grove will be lucky to have you.
+  m_children: []
+  m_rect:
+    serializedVersion: 2
+    x: 53
+    y: 1100
+    width: 200
+    height: 100
+  m_onEnterAction: 
+  m_onExitAction: 
+  m_condition:
+    m_AND:
+    - m_OR:
+      - m_predicate: 4
+        m_parameters:
+        - First Steps
+        - 
+        m_negate: 0
 --- !u!114 &-4640868002666148097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +393,7 @@ MonoBehaviour:
   - {fileID: 1890013988902606958}
   - {fileID: 514339968654021858}
   - {fileID: 4706487492411845043}
+  - {fileID: -5193597972072992081}
   m_newNodeOffset: {x: 300, y: 0}
 --- !u!114 &514339968654021858
 MonoBehaviour:
@@ -427,7 +458,7 @@ MonoBehaviour:
     width: 200
     height: 100
   m_onEnterAction: 
-  m_onExitAction: Receive Standard Axe
+  m_onExitAction: Give Standard Axe
   m_condition:
     m_AND: []
 --- !u!114 &1655257999446214941
@@ -447,7 +478,7 @@ MonoBehaviour:
   - 416fdd6d-e157-4e00-b9c0-539a676a74ee
   m_rect:
     serializedVersion: 2
-    x: 1050
+    x: 1049
     y: 950
     width: 200
     height: 100
@@ -535,14 +566,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
   m_Name: c03316d2-f85e-40ed-8e8e-e2e30ba2c69f
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
-  m_text: There's a town not far from here--Maplebrook. Folks there can teach you
+  m_text: There's a town not far from here--Eldwyn Grove. Folks there can teach you
     a lot more than I can.
   m_children:
   - 6e487cc9-c279-485a-b4f8-926a895ff720
   m_rect:
     serializedVersion: 2
     x: 800
-    y: 950
+    y: 949
     width: 200
     height: 100
   m_onEnterAction: 
@@ -646,7 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718dc195cbbbb24596c026e6ef36c5e, type: 3}
   m_Name: 57b876b1-60f1-4e32-a624-0523e16924b0
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Dialogues.DialogueNode
-  m_text: I'm Bob. I've been working this land longer than I care to admit. If you're
+  m_text: I'm Jack. I've been working this land longer than I care to admit. If you're
     planning on sticking around, you'll need to learn how to handle yourself out
     here.
   m_children:

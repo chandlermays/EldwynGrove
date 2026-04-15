@@ -10,8 +10,11 @@ namespace EldwynGrove.Components
 {
     public class GatheringComponent : EntityComponent
     {
+        private const float kGatherEnergyCost = 1f;
+
         private Equipment m_equipment;
         private Inventory m_inventory;
+        private EnergyComponent m_energyComponent;
 
         private static readonly int s_animChop = Animator.StringToHash("Chop");
         private static readonly int s_animMine = Animator.StringToHash("Mine");
@@ -29,18 +32,18 @@ namespace EldwynGrove.Components
 
             m_equipment = GetComponent<Equipment>();
             Utilities.CheckForNull(m_equipment, nameof(m_equipment));
+
+            m_energyComponent = GetComponent<EnergyComponent>();
+            Utilities.CheckForNull(m_energyComponent, nameof(m_energyComponent));
         }
 
         /*-------------------------------------------------------------------------------------------------------
         | --- Gather: Triggers the appropriate gathering animation based on the type of item being gathered --- |
         -------------------------------------------------------------------------------------------------------*/
-        public void Gather(ForageItem item)
+        public bool Gather(ForageItem item)
         {
             if (item == null)
-            {
-                Debug.LogWarning("[GatheringComponent] Attempted to gather with a null item.");
-                return;
-            }
+                return false;
 
             EquipmentSlot requiredSlot = GetRequiredSlot(item.GatherType);
             if (requiredSlot != EquipmentSlot.kNone)
@@ -48,9 +51,17 @@ namespace EldwynGrove.Components
                 EquipableItem equipped = m_equipment.GetItemInSlot(requiredSlot);
                 if (equipped == null || equipped is not ToolItem)
                 {
+                    // Replace with in-game UI prompt
                     Debug.LogWarning($"[GatheringComponent] Missing required tool for {item.GatherType}.");
-                    return;
+                    return false;
                 }
+            }
+
+            if (!m_energyComponent.UseEnergy(kGatherEnergyCost))
+            {
+                // Replace with in-game UI prompt
+                Debug.LogWarning("[GatheringComponent] Not enough energy to gather.");
+                return false;
             }
 
             int trigger = item.GatherType switch
@@ -66,10 +77,17 @@ namespace EldwynGrove.Components
             bool slotAvailable = m_inventory.TryAddToAvailableSlot(item, item.ForageYield);
             if (!slotAvailable)
             {
+                // Replace with in-game UI prompt
                 Debug.LogWarning("[GatheringComponent] No available inventory slot to add the gathered item.");
+                return false;
             }
+
+            return true;
         }
 
+        /*-----------------------------------------------------------------------------------------
+        | --- GetRequiredSlot: Determines the required equipment slot for a given gather type --- |
+        -----------------------------------------------------------------------------------------*/
         private static EquipmentSlot GetRequiredSlot(GatherType gatherType) => gatherType switch
         {
             GatherType.kChop => EquipmentSlot.kAxe,
