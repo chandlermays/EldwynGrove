@@ -442,6 +442,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4d3c84d336fc945bbf3d6288e8b8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Inventories.StatsEquipment
+--- !u!114 &2874691465803109830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4334556689811147997, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
+  m_PrefabInstance: {fileID: 2000588826899519771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a539ad811037584e9cc9c50ada6d9e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EldwynGrove.Components.EnergyComponent
 --- !u!114 &5436856868343899824 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5814178405032263595, guid: 65adcb73c3602654d9c55b24719e4af4, type: 3}
@@ -586,6 +597,10 @@ PrefabInstance:
       propertyPath: m_playerInventory
       value: 
       objectReference: {fileID: 5436856868343899824}
+    - target: {fileID: 6719861296669551240, guid: b2f71fed635ae4d4f9751420792365ba, type: 3}
+      propertyPath: m_energyComponent
+      value: 
+      objectReference: {fileID: 2874691465803109830}
     - target: {fileID: 7849036752761122988, guid: b2f71fed635ae4d4f9751420792365ba, type: 3}
       propertyPath: m_playerDialogueHandler
       value: 
