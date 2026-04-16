@@ -6,23 +6,32 @@ using UnityEngine;
 //---------------------------------
 using EldwynGrove.Components;
 
-public class StoreEnergyReward : MonoBehaviour
+namespace EldwynGrove.Ads
 {
-    [SerializeField] private float m_energyRewardAmount = 50f;
-    [SerializeField] private EnergyComponent m_energyComponent;
-
-    public void WatchAdForEnergy()
+    public class StoreEnergyReward : MonoBehaviour
     {
-        StoreAdsManager.Instance.AddRewardAction(OnAdRewarded);
-        StoreAdsManager.Instance.PlayRewardedAd();
-    }
+        [SerializeField] private float m_energyRewardAmount = 50f;
+        [SerializeField] private EnergyComponent m_energyComponent;
 
-    private void OnAdRewarded()
-    {
-        if (m_energyComponent != null)
+        /*-----------------------------------------------------------------------------------------------
+        | --- WatchAdForEnergy: Called when the player opts to watch an ad for energy replenishment --- |
+        -----------------------------------------------------------------------------------------------*/
+        public void WatchAdForEnergy()
         {
-            m_energyComponent.ReplenishEnergy(m_energyRewardAmount);
-            Debug.Log($"Rewarded {m_energyRewardAmount} energy after ad.");
+            StoreAdsManager.Instance.AddRewardAction(OnAdRewarded);
+            StoreAdsManager.Instance.PlayRewardedAd();
+        }
+
+        /*----------------------------------------------------------------------------------------------
+        | --- OnAdRewarded: Called when the rewarded ad finishes successfully, replenishing energy --- |
+        ----------------------------------------------------------------------------------------------*/
+        private void OnAdRewarded()
+        {
+            if (m_energyComponent != null)
+            {
+                m_energyComponent.ReplenishEnergy(m_energyRewardAmount);
+                Debug.Log($"Rewarded {m_energyRewardAmount} energy after ad.");
+            }
         }
     }
 }

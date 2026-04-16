@@ -43560,6 +43560,10 @@ PrefabInstance:
       propertyPath: m_grid
       value: 
       objectReference: {fileID: 1123130746}
+    - target: {fileID: 8912681674041497093, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
+      propertyPath: m_validPathCoor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 8972161769036437495, guid: 2a74507c93bee0b4ab3719f06594ac13, type: 3}
       propertyPath: m_Name
       value: Core

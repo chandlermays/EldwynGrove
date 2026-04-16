@@ -9,7 +9,7 @@ namespace EldwynGrove.Player
     public class TileCursor : MonoBehaviour
     {
         [SerializeField] private Grid m_grid;
-        [SerializeField] private Color m_validPathCoor;
+        [SerializeField] private Color m_validPathColor;
         [SerializeField] private Color m_invalidPathColor;
 
         private SpriteRenderer m_spriteRenderer;
@@ -37,7 +37,7 @@ namespace EldwynGrove.Player
             Vector3Int cellPos = m_grid.WorldToCell(worldPos);
             transform.position = m_grid.GetCellCenterWorld(cellPos);
 
-            m_spriteRenderer.color = isValid ? m_validPathCoor : m_invalidPathColor;
+            m_spriteRenderer.color = isValid ? m_validPathColor : m_invalidPathColor;
             m_spriteRenderer.enabled = true;
         }
 

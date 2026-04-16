@@ -1,3 +1,7 @@
+/*-------------------------
+File: HealthBar.cs
+Author: Chandler Mays
+-------------------------*/
 using UnityEngine;
 using UnityEngine.UI;
 //---------------------------------
@@ -6,15 +10,6 @@ using EldwynGrove.Components;
 
 namespace EldwynGrove.UI
 {
-    /* --------------------------------------------------------------------------------------------
-     * Role: Displays the player's or entity's current health as a UI bar.                         *
-     *                                                                                             *
-     * Responsibilities:                                                                           *
-     *      - Retrieves and displays the current and maximum health from the HealthComponent.      *
-     *      - Updates the health bar fill amount when health changes.                              *
-     *      - Destroys the health bar UI when the entity dies.                                     *
-     *      - Subscribes to and unsubscribes from health change events.                            *
-     * ------------------------------------------------------------------------------------------- */
     public class HealthBar : MonoBehaviour
     {
         [Header("Health Bar Settings")]
