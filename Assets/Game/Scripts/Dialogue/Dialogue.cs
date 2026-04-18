@@ -13,7 +13,7 @@ using EldwynGrove.Tools;
 
 namespace EldwynGrove.Dialogues
 {
-    [CreateAssetMenu(fileName = "New Dialogue", menuName = "Eldwyn Grove/Dialogue")]
+    [CreateAssetMenu(fileName = "New Dialogue Asset", menuName = "Eldwyn Grove/Dialogue/Dialogue Asset")]
     public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
         [SerializeField] private List<DialogueNode> m_nodes = new();

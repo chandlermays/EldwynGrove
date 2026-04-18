@@ -22,8 +22,8 @@ MonoBehaviour:
     y: 350
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &-7269273150426977941
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_rect:
     serializedVersion: 2
     x: 550
-    y: 950
+    y: 952
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &-7040325358530631671
@@ -73,8 +73,9 @@ MonoBehaviour:
     y: 351
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: Give Standard Hoe
+  m_onEnterEvents: []
+  m_onExitEvents:
+  - {fileID: 11400000, guid: b8424caf35c5e63428d8a4c7a042da31, type: 2}
   m_condition:
     m_AND: []
 --- !u!114 &-6952281625665617793
@@ -98,8 +99,8 @@ MonoBehaviour:
     y: 350
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &-6122729144666871067
@@ -123,8 +124,9 @@ MonoBehaviour:
     y: 650
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: Give Standard Pickaxe
+  m_onEnterEvents: []
+  m_onExitEvents:
+  - {fileID: 11400000, guid: ef3e237ee54622b4393b84d3cea26dce, type: 2}
   m_condition:
     m_AND: []
 --- !u!114 &-5193597972072992081
@@ -147,8 +149,8 @@ MonoBehaviour:
     y: 1100
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -179,8 +181,8 @@ MonoBehaviour:
     y: 650
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &-2635074218993290669
@@ -204,8 +206,9 @@ MonoBehaviour:
     y: 950
     width: 200
     height: 100
-  m_onEnterAction: 'Objective Complete: Gather 10 Rocks'
-  m_onExitAction: 
+  m_onEnterEvents:
+  - {fileID: 11400000, guid: 4d1ead8d1c1878c4bba67bde98cf6de9, type: 2}
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -247,8 +250,8 @@ MonoBehaviour:
     y: 650
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &-2356510790892095568
@@ -273,8 +276,8 @@ MonoBehaviour:
     y: 50
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -311,8 +314,8 @@ MonoBehaviour:
     y: 950
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &-1934625104970072221
@@ -337,8 +340,9 @@ MonoBehaviour:
     y: 350
     width: 200
     height: 100
-  m_onEnterAction: 'Objective Complete: Gather 10 Sticks'
-  m_onExitAction: 
+  m_onEnterEvents:
+  - {fileID: 11400000, guid: 426f9f06140cc2246a696ed1b048c619, type: 2}
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -415,8 +419,8 @@ MonoBehaviour:
     y: 500
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -457,8 +461,10 @@ MonoBehaviour:
     y: 50
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: Give Standard Axe
+  m_onEnterEvents: []
+  m_onExitEvents:
+  - {fileID: 11400000, guid: 9b5a05ec1c8209a48a372e2587f27e75, type: 2}
+  - {fileID: 11400000, guid: e748fb01ce083004880f65eed6f1749f, type: 2}
   m_condition:
     m_AND: []
 --- !u!114 &1655257999446214941
@@ -478,12 +484,12 @@ MonoBehaviour:
   - 416fdd6d-e157-4e00-b9c0-539a676a74ee
   m_rect:
     serializedVersion: 2
-    x: 1049
+    x: 1050
     y: 950
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &1890013988902606958
@@ -506,8 +512,8 @@ MonoBehaviour:
     y: 200
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -550,8 +556,8 @@ MonoBehaviour:
     y: 50
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 'Quest Started: First Steps'
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &2197059100719353102
@@ -573,11 +579,11 @@ MonoBehaviour:
   m_rect:
     serializedVersion: 2
     x: 800
-    y: 949
+    y: 950
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &2321662616284286526
@@ -601,8 +607,9 @@ MonoBehaviour:
     y: 650
     width: 200
     height: 100
-  m_onEnterAction: 'Objective Complete: Gather 10 Fiber'
-  m_onExitAction: 
+  m_onEnterEvents:
+  - {fileID: 11400000, guid: 475d67ca131f4104fa487fee5a727767, type: 2}
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -643,8 +650,8 @@ MonoBehaviour:
     y: 800
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND:
     - m_OR:
@@ -688,8 +695,8 @@ MonoBehaviour:
     y: 50
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []
 --- !u!114 &9145523754299087312
@@ -709,11 +716,11 @@ MonoBehaviour:
   m_children: []
   m_rect:
     serializedVersion: 2
-    x: 1293
+    x: 1300
     y: 950
     width: 200
     height: 100
-  m_onEnterAction: 
-  m_onExitAction: 
+  m_onEnterEvents: []
+  m_onExitEvents: []
   m_condition:
     m_AND: []

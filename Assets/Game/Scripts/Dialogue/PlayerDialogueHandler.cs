@@ -24,6 +24,9 @@ namespace EldwynGrove.Dialogues
         public event Action OnDialogueUpdated;
         public event Action OnDialogueEnded;
 
+        private void TriggerEnterAction() => FireEvents(m_currentNode.OnEnterEvents);
+        private void TriggerExitAction() => FireEvents(m_currentNode.OnExitEvents);
+
         /*----------------------------------------------------------- 
         | --- BeginDialogue: Starts the current active Dialogue --- |
         -----------------------------------------------------------*/
@@ -156,39 +159,14 @@ namespace EldwynGrove.Dialogues
             return GetComponents<IConditionChecker>();
         }
 
-        /*---------------------------------------------------------------------------- 
-        | --- TriggerEnterAction: Triggers the OnEnterAction of the current Node --- |
-        ----------------------------------------------------------------------------*/
-        private void TriggerEnterAction()
+        /*----------------------------------------------------------------------- 
+        | --- FireEvents: Executes a list of OnEnter/OnExit dialogue events --- |
+        -----------------------------------------------------------------------*/
+        private void FireEvents(IReadOnlyList<DialogueEvent> events)
         {
-            if (m_currentNode != null && m_currentNode.OnEnterAction != "")
+            foreach (DialogueEvent dialogueEvent in events)
             {
-                Trigger(m_currentNode.OnEnterAction);
-            }
-        }
-
-        /*-------------------------------------------------------------------------- 
-        | --- TriggerExitAction: Triggers the OnExitAction of the current Node --- |
-        --------------------------------------------------------------------------*/
-        private void TriggerExitAction()
-        {
-            if (m_currentNode != null && m_currentNode.OnExitAction != "")
-            {
-                Trigger(m_currentNode.OnExitAction);
-            }
-        }
-
-        /*-------------------------------------------------------------------------------------------- 
-        | --- Trigger: Triggers the given action for all DialogueEventTriggers on the active NPC --- |
-        --------------------------------------------------------------------------------------------*/
-        private void Trigger(string action)
-        {
-            if (action == "")
-                return;
-
-            foreach (DialogueEventTrigger trigger in m_activeNPC.GetComponents<DialogueEventTrigger>())
-            {
-                trigger.Trigger(action);
+                dialogueEvent?.Execute(gameObject, m_activeNPC.gameObject);
             }
         }
     }
